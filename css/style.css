@@ -1,0 +1,298 @@
+body{
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    margin: 0px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+body>div#console{
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    display: grid;
+    width: 90%;
+    height: 90%;
+    background-color: #282828;
+    border-radius: 24px;
+    position: relative;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+
+.masterDialog{
+    width: 40vw;
+    background-color: #2929296d;
+    height: 60vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 12px;
+    z-index: 1200;
+    display: none;
+    opacity: 0;
+    transition: 200ms;
+    flex-direction: column;
+    justify-content: stretch;
+    border: 2px solid rgb(62, 62, 62);
+    box-shadow: 3px 3px 12px 3px #0000001a;
+    backdrop-filter: blur(5px);
+    align-items: center;
+}
+.masterDialog>p{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: rgb(210, 210, 210);
+    text-align: center;
+
+}
+
+.masterDialog>div{
+    position: absolute;
+    bottom: 12px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.masterDialog>div>button{
+    width: 40%;
+    height: 100%;
+    border: none;
+    border-radius:24px;
+    cursor: pointer;
+    color: white;
+    transition: 200ms;
+    font-size: 1.2em;
+}
+.masterDialog>div>#okayButton{
+    background-color: #0777ff98;
+}
+.masterDialog>div>#okayButton:hover{
+    background-color:#08b1ffe3 ;
+    box-shadow: 0px 0px 12px 3px #00ff2f26;
+}
+.masterDialog>div>#cancelButton{
+    background-color: #82000000;
+    border:1px solid rgb(0, 27, 63);
+    color:rgb(255, 255, 255);
+}
+.masterDialog>div>#cancelButton:hover{
+    border: 4px solid rgb(255, 7, 7);
+    color:rgb(255, 7, 7);
+    box-shadow: 0px 0px 12px 3px #ff00002b;
+
+}
+
+.masterDialog>div>button:hover{
+    transform: scale(1.1);
+}
+
+.modal{
+    width: 20vw;
+    height: 30vh;
+    background-color: rgb(35, 35, 35) ;
+    border: 2px solid rgb(57, 57, 57);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    border-radius: 12px;
+    align-content: center;
+    justify-content : center;
+    align-items: center;
+
+}
+.modal>div:nth-child(1){
+    width: 95%;
+    height: 98%;
+    background-color: #141414;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.modal>div:nth-child(1)>div{
+    width: 90%;
+    /* height: 80%; */
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal>div:nth-child(1)>div>button{
+    width: 40%;
+    height: 40px;
+    /* background-color: #282828; */
+    /* color: white; */
+    border: 2px solid #404040;
+    border-radius: 8px;
+    /* font-size: 1.2em; */
+    padding: 4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.295), 4px 4px 4px rgba(59, 59, 59, 0.295) inset, -2px -2px 4px rgba(48, 0, 102, 0.538)inset;
+}
+.modal>div:nth-child(1)>div>button:nth-child(1){
+    background-color: #007500;
+    color: white;
+    font-size: 1.2em;
+}
+.modal>div:nth-child(1)>div>button:nth-child(2){
+    background-color: #820000;
+    color: white;
+    font-size: 1.2em;
+}
+
+.modal>div:nth-child(1)>div>button:nth-child(1):hover{
+    background-color: #00ff00;
+    box-shadow: 0px 0px 12px 3px #00ff2f26;
+}
+.modal>div:nth-child(1)>div>button:nth-child(2):hover{
+    background-color: #ff0000;
+    box-shadow: 0px 0px 12px 3px #ff00002b;
+}
+
+select{
+    width: 80%;
+    height: 40px;
+    background-color: #282828;
+    color: white;
+    border: 2px solid #404040;
+    border-radius: 8px;
+    font-size: 1.2em;
+    padding: 4px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.295), 4px 4px 4px rgba(59, 59, 59, 0.295) inset, -2px -2px 4px rgba(48, 0, 102, 0.538)inset;
+}
+
+#user{
+    position:absolute;
+    top: 8px;
+    left:50%;
+    transform: translateX(-50%);
+    background:#282828 ;
+    width: 200px;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    color: rgb(82, 5, 164);
+    border:2px solid #404040;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.295), 4px 4px 4px rgba(59, 59, 59, 0.295) inset, -2px -2px 4px rgba(48, 0, 102, 0.538)inset;
+
+}
+
+#user:hover{
+    background: #0f0f0f;
+    border: 2px solid #5656f6;
+    color: #5656f6;
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width:120px;
+    overflow-y: auto;
+    border-radius: 12px;
+    cursor:pointer;
+    color: rgb(64, 0, 132);
+    border: 2px solid rgba(20, 20, 20, 0.295);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.295), 4px 4px 4px rgba(59, 59, 59, 0.295) inset, -2px -2px 4px rgba(48, 0, 102, 0.538)inset;
+}
+.actions:hover{
+    background: #141414;
+    border: 2px solid #5656f6;
+    color: #5656f6;
+}
+
+
+.ACTION{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    height: 80%;
+    border-radius: 12px;
+    background-color: rgb(32, 32, 32);
+    user-select: none;
+}
+
+
+.inactive>span{
+    color:grey;
+    font-size: 48px;
+}
+.ACTION:active{
+    background: #04ff32;
+    border: 2px solid #5656f6;
+    /* color: #5656f6; */
+}
+.active{
+    color: #00ff1e;
+    border:1px solid #00ff1e;
+}
+.active>span{
+    color: #00ff1e;
+    font-size: 48px;
+}
+
+.ACTION:active>span{
+    color: #000000;
+}
+
+.active:active{
+    /* background: #00ff1e; */
+    /* border: 2px solid #00ff1e; */
+    color: #000000;
+
+}
+.inactive{
+    color: grey;
+    border:1px solid grey;
+}
+
+.inactive:active{
+    color:#000000;
+}

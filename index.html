@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiCloud</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://oauth-hvh.web.app/cdn/auth.js"></script>
+<script src="masterDialog.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Kanit:ital,wght@0,200;0,400;0,500;1,200;1,400;1,500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- We DO NOT condone Racism -->
+    <div class="masterDialog" id="masterDialog">
+        <p id="dialogContent"></p>
+        <div>
+            <button id="cancelButton">NOPE</button>
+            <button id="okayButton">OK</button>
+        </div>
+    </div>
+
+<div class="modal" id="superModal">
+    <div>
+        <select id="device">
+            <option value="none">NodeMC</option>
+            <!-- <option value="dev1">Device1</option>
+            <option value="dev2">Device2</option>
+            <option value="dev3">Device3</option> -->
+        </select>
+        <select id="action">
+            <option value="act1">Lights</option>
+            <option value="act2">Message</option>
+        </select>
+<div>
+        <button  id="assin">assign</button>
+        <button id="neinasin">cancel</button>
+        </div>
+    </div>
+
+</div>
+
+    <div id="console">
+        <div id="user" ondblclick="signout()">
+            <p>🥺</p>
+        </div>
+    
+
+
+
+        <div class="actions" style="grid-row: 1/2;grid-column: 1/2;" onclick="addAction(this)" slot="1">
+            <span class="material-symbols-outlined">add</span>
+        </div>
+        <div class="actions" style="grid-row: 1/2;grid-column: 2/3;" onclick="addAction(this)" slot="2">
+            <span class="material-symbols-outlined">add</span>
+        </div>
+        <div class="actions" style="grid-row: 1/2;grid-column: 3/4;" onclick="addAction(this)" slot="3">
+            <span class="material-symbols-outlined">add</span>
+        </div>
+        <div class="actions" style="grid-row: 2/3;grid-column: 1/2;" onclick="addAction(this)" slot="4">
+            <span class="material-symbols-outlined">add</span>
+            </div>
+        <div class="actions" style="grid-row: 2/3;grid-column: 2/3;" onclick="addAction(this)" slot="5">
+            <span class="material-symbols-outlined">add</span>
+            </div>
+        <div class="actions" style="grid-row: 2/3;grid-column: 3/4;" onclick="addAction(this)" slot="6">
+            <span class="material-symbols-outlined">add</span>
+            </div>
+
+
+
+    </div>
+    
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
