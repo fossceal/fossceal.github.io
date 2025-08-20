@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url(OSVAR.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans Italics';
+    src: url(OSVARItalics.ttf) format('truetype');
+}

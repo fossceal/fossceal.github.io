@@ -1,0 +1,24 @@
+			<h3>FOSS CEAL</h3>
+			<p>Logos</p>
+			<div class="logoHolder" id="lgogo">
+				<div>
+					<img src="/chamber/FOSS/Evantage_dark_HZ.png" />
+				</div>
+				<div>
+					<img src="/chamber/FOSS/Evantage_light_HZ.png" />
+				</div>
+
+				<div>
+					<img src="/chamber/FOSS/Evantage_dark_HZ_STAMP.png" />
+				</div>
+				<div>
+					<img src="/chamber/FOSS/Evantage_light_HZ_STAMP.png" />
+				</div>
+				<div>
+					<img src="/chamber/FOSS/Evantage_dark.png" />
+				</div>
+				<div>
+					<img src="/chamber/FOSS/Evantage_light.png" />
+				</div>
+			</div>
+			<hr />

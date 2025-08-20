@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FOSS Club | Linktree</title>
+		<script
+			src="https://kit.fontawesome.com/cb7f83baaf.js"
+			crossorigin="anonymous"
+		></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: #0f172a;
+				color: #fff;
+				font-family: "Segoe UI", sans-serif;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+				padding: 1rem;
+			}
+
+			.container {
+				max-width: 500px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.logo {
+				width: 200px;
+				margin-bottom: 1rem;
+			}
+
+			h1 {
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+
+			.subtitle {
+				color: #94a3b8;
+				margin-bottom: 2rem;
+			}
+
+			.links {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+
+			.links a {
+				display: block;
+				background: #1e293b;
+				color: #fff;
+				text-decoration: none;
+				padding: 1rem;
+				border-radius: 12px;
+				transition: all 0.3s ease;
+			}
+
+			.links a:hover {
+				background: #334155;
+				transform: scale(1.03);
+			}
+
+			footer {
+				margin-top: 2rem;
+				color: #64748b;
+				font-size: 0.9rem;
+			}
+			.copyright {
+				text-align: center;
+				margin-top: 30px;
+				color: #aaa;
+				font-size: 14px;
+			}
+			.links i {
+				color: greenyellow;
+			}
+			.waterMark {
+				background: url("/IMG_20250806_125011.png") no-repeat center center;
+				width: 100vw;
+				height: 100vh;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				opacity: 0;
+				transition: 700ms;
+				pointer-events: none; /* Prevents blocking clicks */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="/Evantage_light_HZ.png" alt="FOSS Club Logo" class="logo" ondblclick="alert('who dare touch my tralala? \n - HGP')" />
+			<h1>FOSS CEAL</h1>
+			<p class="subtitle">Open Source • Community • Learning</p>
+
+			<div class="links">
+				<a href="https://foss.ceal.in/" target="_blank" class="off"
+					><i class="fas fa-globe"></i> Official Website</a
+				>
+				<a href="https://github.com/fossceal" target="_blank" class="git"
+					><i class="fab fa-github"></i> GitHub</a
+				>
+				<a
+					href="https://www.instagram.com/fossceal?igsh=OThmdWVlYnFtdndn"
+					target="_blank"
+					class="inst"
+					><i class="fab fa-instagram"></i> Instagram</a
+				>
+				<a href="https://discord.gg/N64AWcKFQN" target="_blank" class="discord"
+					><i class="fab fa-discord"></i> Join Discord</a
+				>
+				<a
+					href="https://whatsapp.com/channel/0029Vb7PEhoB4hdSCGvrQS3c"
+					target="_blank"
+					class="hack"
+					><i class="fab fa-whatsapp"></i> HACK 404
+				</a>
+				<a
+					href="https://chat.whatsapp.com/FWDzTP0LQDXDWNN0o5biVI"
+					target="_blank"
+					class="whatsapp"
+					><i class="fab fa-whatsapp"></i> JOIN US
+				</a>
+				<a
+					href="https://www.linkedin.com/company/foss-ceal/?viewAsMember=true"
+					target="_blank"
+					class="linkedin"
+					><i class="fab fa-linkedin"></i> LinkedIn
+				</a>
+			</div>
+
+			<footer>
+				<div class="copyright">
+					<p>
+						© Copyright
+						<strong>FOSS CEAL | TRAIN 303 <span id="yr"></span></strong>. All
+						Rights Reserved
+					</p>
+				</div>
+				<script>
+					document.getElementById("yr").innerHTML = new Date().getFullYear();
+				</script>
+			</footer>
+			<div class="waterMark"></div>
+
+			<script>
+				const styles = [
+					"color: white",
+
+					"font-size: 30px",
+
+					'font-family:"Outfit", sans-serif ',
+					"font-weight: bold",
+				].join(";");
+
+
+				console.log("%cdont play the fool with me ", styles);
+				console.log("%cyou cant hack me", styles);
+        console.log(
+          "%cfor I AM GOD, and my name is HARI GOVIND",
+          styles
+        );
+        console.log(
+          "%cif you want to contact me, you can do so from our instagram page UwU",
+          styles
+        );
+
+				function addWaterMarkHover(selector, opacity) {
+					let timer;
+					const el = document.querySelector(selector);
+					const waterMark = document.querySelector(".waterMark");
+					el.addEventListener("mouseover", function () {
+						timer = setTimeout(() => {
+							waterMark.style.opacity = opacity;
+						}, 1000);
+					});
+					el.addEventListener("mouseout", function () {
+						clearTimeout(timer);
+						waterMark.style.opacity = "0";
+					});
+				}
+
+      
+				addWaterMarkHover(".off", "0.1");
+				addWaterMarkHover(".git", "0.2");
+				addWaterMarkHover(".inst", "0.3");
+				addWaterMarkHover(".discord", "0.4");
+				addWaterMarkHover(".hack", "0.5");
+				addWaterMarkHover(".whatsapp", "0.6");
+				addWaterMarkHover(".linkedin", "0.7");
+				addWaterMarkHover(".copyright", "0.7");
+			</script>
+		</div>
+	</body>
+</html>

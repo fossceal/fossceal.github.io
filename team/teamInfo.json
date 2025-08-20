@@ -1,0 +1,135 @@
+[
+    {   
+        "aqute":"havis",
+        "name": "Havis VH",
+        "role": "CFA",
+        "pic":"havis",
+        "gif":"/dumpsterFire.gif"
+    },
+    {
+        "aqute":"ohn",
+        "name": "John Benny",
+        "role":"Deputy CFA",
+        "pic":"john",
+        "gif":"/steins.gif"
+    },
+    
+    {
+        "aqute":"thul",
+        "name": "Athul A S",
+        "role":"Deputy CFA",
+        "pic":"athoul",
+        "gif":"/hukkum.gif"
+    },
+    {
+        "aqute":"ananthu",
+        "name": "Ananthu S B",
+        "role":"Tech Lead",
+        "pic":"ananthu",
+        "gif":"/papapa.webp"
+    },
+    {
+        "aqute":"siva",
+        "name": "Siva Kumar M S",
+        "role":"Tech Lead",
+        "pic":"siva",
+        "gif":"tekcat.gif"
+    },
+    {
+        "aqute":"bhila",
+        "name": "Abhila A L",
+        "role":"Secretary",
+        "pic":"abhila",
+        "gif":"/pambaram.webp"
+    },
+    {
+        "aqute":"gvr",
+        "name": "Gayathri V R",
+        "role":"Joint Secretary",
+        "pic":"gayathriVR",
+        "gif":"/mood.gif"
+    },
+    {
+        "aqute":"khil",
+        "name": "Akhil A S",
+        "role":"Mentor",
+        "pic":"akhil",
+        "gif":"/kill.webp"
+    },
+
+    {
+        "aqute":"jasm",
+        "name": "Jasmine Varghese",
+        "role":"Finance Officer",
+        "pic":"jasmine",
+        "gif":"/cash.gif"
+    },
+    {
+        "aqute":"seetha",
+        "name": "Seetha Lekshmi",
+        "role":"Women in Tech",
+        "pic":"seetha",
+        "gif":"/cute.gif"
+    },
+    {
+        "aqute":"HARI",
+        "name": "Harinandan R P",
+        "role":"Media Co-Lead",
+        "pic":"HARII",
+        "gif":"/thuruppu.gif"
+    },
+    {
+        "aqute":"hgvn",
+        "name": "Harigovind P Nair",
+        "role":"Media Co-Lead",
+        "pic":"hgvn",
+        "gif":"/shy.gif"
+    },
+    {
+        "aqute":"ceal",
+        "name": "Abhishek SM",
+        "role": "Design Lead",
+        "pic":"asm",
+        "gif":"/mmamm.gif"
+    },
+    
+    {
+        "aqute":"sree",
+        "name": "Sreehari S",
+        "role":"PR and Social",
+        "pic":"srreee",
+        "gif":"/njnOnnumKandille.webp"
+    },
+    
+   
+    
+   
+    {
+        "aqute":"devji",
+        "name": "Devananda",
+        "role":"Content & Documentation",
+        "pic":"devji",
+        "gif":"/chandana.webp"
+    },
+    {
+        "aqute":"mekham",
+        "name": "Mekha B S",
+        "role":"Content & Documentation",
+        "pic":"mekha",
+        "gif":"/thaalam.webp"
+    },
+    {
+        "aqute":"arjn",
+        "name": "Arjun S",
+        "role":"Volunteer Lead",
+        "pic":"arjunn",
+        "gif":"/kaboom.webp"
+    },
+    {
+        "aqute":"lekshmi",
+        "name": "Lakshmi G Nair ",
+        "role":"Volunteer Lead",
+        "pic":"lekshmi",
+        "gif":"/susDoge.webp"
+    }
+]
