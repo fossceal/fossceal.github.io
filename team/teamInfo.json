@@ -1,135 +1,349 @@
-[
-    {   
-        "aqute":"havis",
-        "name": "Havis VH",
-        "role": "CFA",
-        "pic":"havis",
-        "gif":"/dumpsterFire.gif"
-    },
-    {
-        "aqute":"ohn",
-        "name": "John Benny",
-        "role":"Deputy CFA",
-        "pic":"john",
-        "gif":"/steins.gif"
-    },
-    
-    {
-        "aqute":"thul",
-        "name": "Athul A S",
-        "role":"Deputy CFA",
-        "pic":"athoul",
-        "gif":"/hukkum.gif"
-    },
-    {
-        "aqute":"ananthu",
-        "name": "Ananthu S B",
-        "role":"Tech Lead",
-        "pic":"ananthu",
-        "gif":"/papapa.webp"
-    },
-    {
-        "aqute":"siva",
-        "name": "Siva Kumar M S",
-        "role":"Tech Lead",
-        "pic":"siva",
-        "gif":"tekcat.gif"
-    },
-    {
-        "aqute":"bhila",
-        "name": "Abhila A L",
-        "role":"Secretary",
-        "pic":"abhila",
-        "gif":"/pambaram.webp"
-    },
-    {
-        "aqute":"gvr",
-        "name": "Gayathri V R",
-        "role":"Joint Secretary",
-        "pic":"gayathriVR",
-        "gif":"/mood.gif"
-    },
-    {
-        "aqute":"khil",
-        "name": "Akhil A S",
-        "role":"Mentor",
-        "pic":"akhil",
-        "gif":"/kill.webp"
-    },
+{
+	"2025": [
+		{
+			"aqute": "havis",
+			"name": "Havis VH",
+			"role": "Mentor",
+			"pic": "havis",
+			"gif": "/havis2.gif",
 
-    {
-        "aqute":"jasm",
-        "name": "Jasmine Varghese",
-        "role":"Finance Officer",
-        "pic":"jasmine",
-        "gif":"/cash.gif"
-    },
-    {
-        "aqute":"seetha",
-        "name": "Seetha Lekshmi",
-        "role":"Women in Tech",
-        "pic":"seetha",
-        "gif":"/cute.gif"
-    },
-    {
-        "aqute":"HARI",
-        "name": "Harinandan R P",
-        "role":"Media Co-Lead",
-        "pic":"HARII",
-        "gif":"/thuruppu.gif"
-    },
-    {
-        "aqute":"hgvn",
-        "name": "Harigovind P Nair",
-        "role":"Media Co-Lead",
-        "pic":"hgvn",
-        "gif":"/shy.gif"
-    },
-    {
-        "aqute":"ceal",
-        "name": "Abhishek SM",
-        "role": "Design Lead",
-        "pic":"asm",
-        "gif":"/mmamm.gif"
-    },
-    
-    {
-        "aqute":"sree",
-        "name": "Sreehari S",
-        "role":"PR and Social",
-        "pic":"srreee",
-        "gif":"/njnOnnumKandille.webp"
-    },
-    
-   
-    
-   
-    {
-        "aqute":"devji",
-        "name": "Devananda",
-        "role":"Content & Documentation",
-        "pic":"devji",
-        "gif":"/chandana.webp"
-    },
-    {
-        "aqute":"mekham",
-        "name": "Mekha B S",
-        "role":"Content & Documentation",
-        "pic":"mekha",
-        "gif":"/thaalam.webp"
-    },
-    {
-        "aqute":"arjn",
-        "name": "Arjun S",
-        "role":"Volunteer Lead",
-        "pic":"arjunn",
-        "gif":"/kaboom.webp"
-    },
-    {
-        "aqute":"lekshmi",
-        "name": "Lakshmi G Nair ",
-        "role":"Volunteer Lead",
-        "pic":"lekshmi",
-        "gif":"/susDoge.webp"
-    }
-]
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/havisvh/",
+				"github": "https://www.github.com/havisVh/",
+				"instagram": "https://www.instagram.com/havisvh/"
+			}
+		},
+		{
+			"aqute": "newgod",
+			"name": "Harigovind P Nair",
+			"role": "CFA",
+			"pic": "newgod",
+			"gif": "/hgp.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/harigovind-p-nair-89a4992b8/",
+				"github": "https://github.com/hari2629-p",
+				"instagram": "https://www.instagram.com/_h._.gp",
+				"email": "mailto:www.hariatl10@gmail.com"
+			}
+		},
+
+		{
+			"aqute": "sreehalli",
+			"name": "Sreehari S",
+			"role": "Deputy CFA #1",
+			"pic": "srreee",
+			"gif": "/sreehalli.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/sreehari-s-30409a261",
+				"github": "https://github.com/urbanxtreme",
+				"instagram": "https://www.instagram.com/_srs_hari/",
+				"email": "mailto:skrhari2020@gmail.com",
+				"website": "https://www.urbanxtreme.me"
+			}
+		},
+		{
+			"aqute": "sreekuttan",
+			"name": "Sreedev SS",
+			"role": "Deputy CFA #2",
+			"pic": "sreedev",
+			"gif": "/god.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/sreedevss/",
+				"github": "https://github.com/MTCodes01",
+				"instagram": "https://www.instagram.com/_mt_yt_/",
+				"email": "mailto:sreedevss05@gmail.com",
+				"website": "https://sreedevss.me"
+			}
+		},
+		{
+			"aqute": "zeon",
+			"name": "Adithyan UP",
+			"role": "Tech Lead",
+			"pic": "adhi",
+			"gif": "/up.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/adithyan07/",
+				"github": "https://github.com/ZEON-07/",
+				"instagram": "https://www.instagram.com/zeon_ig/",
+				"email": "mailto:mr.adhi125@gmail.com"
+			}
+		},
+		{
+			"aqute": "jeevan",
+			"name": "Jeevan S",
+			"role": "Tech Lead",
+			"pic": "jeevan",
+			"gif": "/jeevan.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/jeevansanal2872/",
+				"github": "https://github.com/Jeevansanal2872",
+				"instagram": "https://www.instagram.com/jeevansanal_2872/",
+				"email": "mailto:jeevan9846s@gmail.com"
+			}
+		},
+		{
+			"aqute": "indu",
+			"name": "Indhuchoodan",
+			"role": "Secretary",
+			"pic": "indhu",
+			"gif": "/indhu.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/induchoodan-v-s-027513291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+				"github": "https://github.com/Induchoodan8546/digitalclock-using-PyQt5/commits?author=Induchoodan8546",
+				"instagram": "https://www.instagram.com/induchoodan_2004?igsh=aXAxNnR6am5hbXpq",
+				"email": "mailto:induchoodanvs2004@gmail.com"
+			}
+		},
+		{
+			"aqute": "lakshmi",
+			"name": "Lakshmi",
+			"role": "Joint Secretary",
+			"pic": "lakshmi",
+			"gif": "/secretary.gif",
+			"socials": {
+				"linkedin": "http://www.linkedin.com/in/lakshmi-g-nair",
+				"github": "https://github.com/LakshmiGNair",
+				"instagram": "https://www.instagram.com/l.a.ksh_mi?igsh=MWdiOW85YTQyYzd3Mw==",
+				"email": "mailto:gitalachu123@gmail.com"
+			}
+		},
+
+		{
+			"aqute": "krishna",
+			"name": "Krishna MJ",
+			"role": "Finance Officer",
+			"pic": "krishna",
+			"gif": "/finance.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/krishna-m-j-3a5b85364",
+				"github": "https://github.com/krishna-mj04",
+				"instagram": "https://www.instagram.com/krishna_mj_04/",
+				"email": "mailto:krishnamj2004@gmail.com"
+			}
+		},
+		{
+			"aqute": "pavithra",
+			"name": "Pavithra",
+			"role": "Women in Tech",
+			"pic": "pavithra",
+			"gif": "/WIT2.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/pavithra-madhusoodhanan-",
+				"github": "https://github.com/Pavi-web",
+				"instagram": "https://www.instagram.com/pa.vi_th.ra?igsh=bXlwZXpibng1Nzdh",
+				"email": "mailto:pavithramadhusoodhanan04@gmail.com"
+			}
+		},
+		{
+			"aqute": "creater101",
+			"name": "Niranjan",
+			"role": "Media & Design-Lead",
+			"pic": "niranjan",
+			"gif": "/niranjan.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/niranjan-s-7b3b55291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_appid_app",
+				"github": "https://github.com/me-Niranjan",
+				"instagram": "https://www.instagram.com/me.niranjan._/",
+				"email": "mailto:niranjansajeev68@gmail.com"
+			}
+		},
+		{
+			"aqute": "cameragod",
+			"name": "Dhyan S",
+			"role": "Media & Design-Lead",
+			"pic": "dhyan",
+			"gif": "/dhyan.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/dhyan-s-316862328",
+				"github": "https://github.com/dagyt",
+				"instagram": "https://www.instagram.com/its.just.71bhp/",
+				"hrb_customs": "https://www.instagram.com/hrb_customs",
+				"email": "mailto:dhyansunny1@gmail.com"
+			}
+		},
+		{
+			"aqute": "ashmi",
+			"name": "Ashmi",
+			"role": "Content & Documentation",
+			"pic": "ashmi",
+			"gif": "/doc1.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/ashmi-g-suneer-6a32b9328/",
+				"github": "https://github.com/Ashmigsuneer",
+				"instagram": "https://www.instagram.com/ashmi_gs?igsh=MW1zNXhrenJ2N202ZA==",
+				"email": "mailto:ashmigsuneer@gmail.com"
+			}
+		},
+		{
+			"aqute": "sanjana",
+			"name": "Sanjana",
+			"role": "Content & Documentation",
+			"pic": "sanjana",
+			"gif": "/doc2.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/sanjana-s-755566369",
+				"instagram": "https://www.instagram.com/_san_jna__?igsh=MTg1eGI3cWN4eTVnbA==",
+				"github": "https://github.com/Sanjanasabu27",
+				"email": "mailto:sanjanasabu007@gmail.com"
+			}
+		},
+		{
+			"aqute": "geethu",
+			"name": "Geethu",
+			"role": "Volunteer Lead",
+			"pic": "geethu",
+			"gif": "/volunteer.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/geethu-s-bahulayan-387286292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+				"github": "https://github.com/geethubahulayan",
+				"instagram": "https://www.instagram.com/geethusbahulayan?igsh=MXJodXgxMzJmdzJnag==",
+				"email": "mailto:geethusbahulayan@gmail.com"
+			}
+		},
+		{
+			"aqute": "thumbsup",
+			"name": "Saranya",
+			"role": "Volunteer Lead",
+			"pic": "saranya",
+			"gif": "/thumbsup.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/sreedevss/",
+				"instagram": "https://www.instagram.com/_mt_yt_/",
+				"github": "https://github.com/MTCodes01",
+				"email": "mailto:sreedevss05@gmail.com"
+			}
+		}
+	],
+	"2023": [
+		{
+			"aqute": "havis",
+			"name": "Havis VH",
+			"role": "CFA",
+			"pic": "havis",
+			"gif": "/dumpsterFire.gif"
+		},
+		{
+			"aqute": "ohn",
+			"name": "John Benny",
+			"role": "Deputy CFA",
+			"pic": "john",
+			"gif": "/steins.gif"
+		},
+
+		{
+			"aqute": "thul",
+			"name": "Athul A S",
+			"role": "Deputy CFA",
+			"pic": "athoul",
+			"gif": "/hukkum.gif"
+		},
+		{
+			"aqute": "ananthu",
+			"name": "Ananthu S B",
+			"role": "Tech Lead",
+			"pic": "ananthu",
+			"gif": "/papapa.webp"
+		},
+		{
+			"aqute": "siva",
+			"name": "Siva Kumar M S",
+			"role": "Tech Lead",
+			"pic": "siva",
+			"gif": "tekcat.gif"
+		},
+		{
+			"aqute": "bhila",
+			"name": "Abhila A L",
+			"role": "Secretary",
+			"pic": "abhila",
+			"gif": "/pambaram.webp"
+		},
+		{
+			"aqute": "gvr",
+			"name": "Gayathri V R",
+			"role": "Joint Secretary",
+			"pic": "gayathriVR",
+			"gif": "/mood.gif"
+		},
+		{
+			"aqute": "khil",
+			"name": "Akhil A S",
+			"role": "Mentor",
+			"pic": "akhil",
+			"gif": "/kill.webp"
+		},
+
+		{
+			"aqute": "jasm",
+			"name": "Jasmine Varghese",
+			"role": "Finance Officer",
+			"pic": "jasmine",
+			"gif": "/cash.gif"
+		},
+		{
+			"aqute": "seetha",
+			"name": "Seetha Lekshmi",
+			"role": "Women in Tech",
+			"pic": "seetha",
+			"gif": "/cute.gif"
+		},
+		{
+			"aqute": "HARI",
+			"name": "Harinandan R P",
+			"role": "Media Co-Lead",
+			"pic": "HARII",
+			"gif": "/thuruppu.gif"
+		},
+		{
+			"aqute": "hgvn",
+			"name": "Harigovind P Nair",
+			"role": "Media Co-Lead",
+			"pic": "hgvn",
+			"gif": "/shy.gif"
+		},
+		{
+			"aqute": "ceal",
+			"name": "Abhishek SM",
+			"role": "Design Lead",
+			"pic": "asm",
+			"gif": "/mmamm.gif"
+		},
+
+		{
+			"aqute": "sree",
+			"name": "Sreehari S",
+			"role": "PR and Social",
+			"pic": "srreee",
+			"gif": "/njnOnnumKandille.webp"
+		},
+
+		{
+			"aqute": "devji",
+			"name": "Devananda",
+			"role": "Content & Documentation",
+			"pic": "devji",
+			"gif": "/chandana.webp"
+		},
+		{
+			"aqute": "mekham",
+			"name": "Mekha B S",
+			"role": "Content & Documentation",
+			"pic": "mekha",
+			"gif": "/thaalam.webp"
+		},
+		{
+			"aqute": "arjn",
+			"name": "Arjun S",
+			"role": "Volunteer Lead",
+			"pic": "arjunn",
+			"gif": "/kaboom.webp"
+		},
+		{
+			"aqute": "lekshmi",
+			"name": "Lakshmi G Nair ",
+			"role": "Volunteer Lead",
+			"pic": "lekshmi",
+			"gif": "/susDoge.webp"
+		}
+	]
+}
