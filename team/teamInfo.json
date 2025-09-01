@@ -1,19 +1,6 @@
 {
 	"2025": [
 		{
-			"aqute": "havis",
-			"name": "Havis VH",
-			"role": "Mentor",
-			"pic": "havis",
-			"gif": "/havis2.gif",
-
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/havisvh/",
-				"github": "https://www.github.com/havisVh/",
-				"instagram": "https://www.instagram.com/havisvh/"
-			}
-		},
-		{
 			"aqute": "newgod",
 			"name": "Harigovind P Nair",
 			"role": "CFA",
@@ -26,6 +13,19 @@
 				"email": "mailto:www.hariatl10@gmail.com"
 			}
 		},
+		{
+			"aqute": "havis",
+			"name": "Havis VH",
+			"role": "Mentor",
+			"pic": "havis",
+			"gif": "/havis2.gif",
+
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/havisvh/",
+				"github": "https://www.github.com/havisVh/",
+				"instagram": "https://www.instagram.com/havisvh/"
+			}
+		}
 
 		{
 			"aqute": "sreehalli",
@@ -83,7 +83,7 @@
 		},
 		{
 			"aqute": "indu",
-			"name": "Indhuchoodan",
+			"name": "Induchoodan",
 			"role": "Secretary",
 			"pic": "indhu",
 			"gif": "/indhu.gif",
