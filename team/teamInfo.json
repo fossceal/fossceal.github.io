@@ -55,32 +55,7 @@
 				"website": "https://sreedevss.me"
 			}
 		},
-		{
-			"aqute": "zeon",
-			"name": "Adithyan UP",
-			"role": "Tech Lead",
-			"pic": "adhi",
-			"gif": "/up.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/adithyan07/",
-				"github": "https://github.com/ZEON-07/",
-				"instagram": "https://www.instagram.com/zeon_ig/",
-				"email": "mailto:mr.adhi125@gmail.com"
-			}
-		},
-		{
-			"aqute": "jeevan",
-			"name": "Jeevan S",
-			"role": "Tech Lead",
-			"pic": "jeevan",
-			"gif": "/jeevan.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/jeevansanal2872/",
-				"github": "https://github.com/Jeevansanal2872",
-				"instagram": "https://www.instagram.com/jeevansanal_2872/",
-				"email": "mailto:jeevan9846s@gmail.com"
-			}
-		},
+		,
 		{
 			"aqute": "indu",
 			"name": "Induchoodan",
@@ -121,6 +96,7 @@
 				"email": "mailto:krishnamj2004@gmail.com"
 			}
 		},
+		
 		{
 			"aqute": "pavithra",
 			"name": "Pavithra",
@@ -134,6 +110,32 @@
 				"email": "mailto:pavithramadhusoodhanan04@gmail.com"
 			}
 		},
+		{
+			"aqute": "zeon",
+			"name": "Adithyan UP",
+			"role": "Tech Lead",
+			"pic": "adhi",
+			"gif": "/up.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/adithyan07/",
+				"github": "https://github.com/ZEON-07/",
+				"instagram": "https://www.instagram.com/zeon_ig/",
+				"email": "mailto:mr.adhi125@gmail.com"
+			}
+		},
+		{
+			"aqute": "jeevan",
+			"name": "Jeevan S",
+			"role": "Tech Lead",
+			"pic": "jeevan",
+			"gif": "/jeevan.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/jeevansanal2872/",
+				"github": "https://github.com/Jeevansanal2872",
+				"instagram": "https://www.instagram.com/jeevansanal_2872/",
+				"email": "mailto:jeevan9846s@gmail.com"
+			}
+		}
 		{
 			"aqute": "creater101",
 			"name": "Niranjan",
