@@ -1,0 +1,93 @@
+{
+    "events": [
+        {
+            "name": "Taking Responsibility",
+            "description": "Learn how to take ownership of your actions and life choices to foster personal growth.",
+            "date": "2025-09-12",
+            "time": "12:00",
+            "icon": "fa-clipboard-check",
+            "colorVal": "#6bcbef",
+            "clubs": [
+                "FOSS",
+                "Web Dev"
+            ]
+        },
+        {
+            "name": "Behavior Modification",
+            "description": "Explore techniques to change negative behavior patterns and reinforce positive habits.",
+            "date": "2024-10-17",
+            "time": "12:00",
+            "icon": "fa-brain",
+            "colorVal": "#a63333",
+            "clubs": [
+                "Psych Club"
+            ]
+        },
+        {
+            "name": "Art Therapy",
+            "description": "Express your emotions and reduce stress through creative painting and drawing sessions.",
+            "date": "2024-11-14",
+            "time": "12:00",
+            "icon": "fa-paint-brush",
+            "colorVal": "#7777c9",
+            "clubs": [
+                "Art Club"
+            ]
+        },
+        {
+            "name": "Exercise Thru Holiday",
+            "description": "Stay fit and active during the holiday season with these simple workout routines.",
+            "date": "2024-12-06",
+            "time": "12:00",
+            "icon": "fa-dumbbell",
+            "colorVal": "#f59f37",
+            "clubs": [
+                "Fitness Group"
+            ]
+        },
+        {
+            "name": "Food and Your Mental Health",
+            "description": "Understand the connection between diet and mental well-being for a healthier lifestyle.",
+            "date": "2025-01-23",
+            "time": "12:00",
+            "icon": "fa-utensils",
+            "colorVal": "#4da850",
+            "clubs": [
+                "Health Club"
+            ]
+        },
+        {
+            "name": "Meditation/Guided Image",
+            "description": "Relax your mind and body with guided imagery and deep meditation techniques.",
+            "date": "2025-02-14",
+            "time": "12:00",
+            "icon": "fa-spa",
+            "colorVal": "#c7cb48",
+            "clubs": [
+                "Mindfulness"
+            ]
+        },
+        {
+            "name": "Anxiety/Depression",
+            "description": "A safe space to discuss coping strategies and support for anxiety and depression.",
+            "date": "2025-03-13",
+            "time": "12:00",
+            "icon": "fa-cloud-rain",
+            "colorVal": "#4d4d4d",
+            "clubs": [
+                "Wellness Center"
+            ]
+        },
+        {
+            "name": "Dream Interpretation",
+            "description": "Analyze the symbols and meanings behind your dreams in this interactive workshop.",
+            "date": "2025-04-11",
+            "time": "12:00",
+            "icon": "fa-moon",
+            "colorVal": "#6b7082",
+            "clubs": [
+                "Psych Club"
+            ]
+        }
+    ]
+}

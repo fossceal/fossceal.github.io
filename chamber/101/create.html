@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create101 | FOSS</title>
+    <link rel="stylesheet" href="/fonts/font.css" />
+    <script defer src="/dmode.js"></script>
+    <link id="h1n1" rel="stylesheet" href="/style.css" />
+    <style>
+        .about-section {
+            width: 90vw;
+            max-width: 800px;
+            text-align: center;
+            color: inherit;
+            padding: 20px 0;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-desc {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0 60px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+            padding: 10px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ff0055;
+            /* Default accent, or var(--accent) if exists */
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 700;
+            opacity: 0.7;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+        }
+
+        .insta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
+        }
+
+        @media screen and (max-width: 600px) {
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body style="
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+			justify-content: space-between;
+			min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif; /* fallback */
+		">
+    <div class="headder">
+        <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'"
+            style="cursor: pointer" />
+        <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
+    </div>
+
+    <div style="height: 100px; width: 100%"></div>
+
+    <div class="about-section">
+        <h1 class="about-title">Making an Impact</h1>
+        <p class="about-desc">
+            We are dedicated to fostering open source culture and driving innovation through student-led initiatives.
+        </p>
+
+        <!-- Counters -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-target="250">0</span>
+                <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="40">0</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="15">0</span>
+                <span class="stat-label">Events</span>
+            </div>
+        </div>
+
+        <!-- Instagram Button -->
+        <a href="https://instagram.com/foss_ceal" target="_blank" class="insta-btn">
+            <i class="fa fa-instagram"></i> <!-- Simple fallback icon logic if FA is available -->
+            <span>Check Out Our Instagram</span>
+        </a>
+    </div>
+
+    <div style="height: 60px; width: 100%"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-number');
+            const duration = 2000; // 2 seconds animation
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Ease out quart
+                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                    const current = Math.floor(ease * target);
+                    counter.innerText = current;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+
+                requestAnimationFrame(updateCount);
+            };
+
+            // Trigger animation when viewed? For now just run on load suitable for simple page.
+            counters.forEach(animateCounter);
+        });
+    </script>
+</body>
+
+</html>
