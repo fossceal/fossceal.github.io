@@ -9,59 +9,103 @@
     <script defer src="/dmode.js"></script>
     <link id="h1n1" rel="stylesheet" href="/style.css" />
     <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari/Opera */
+        }
+
+        /* ================= LAYOUT ================= */
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(24px, 5vw, 60px);
+            padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
+            margin: auto;
+        }
+
+        .about-content {
+            flex: 1;
+            max-width: 720px;
+        }
+
+        .about-logo {
+            width: clamp(120px, 30vw, 300px);
+            height: clamp(120px, 30vw, 300px);
+            flex-shrink: 0;
+        }
+
+        .about-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #chamberLogo {
+            position: sticky;
+            top: 120px;
+        }
+
         .about-section {
-            width: 90vw;
-            max-width: 800px;
-            text-align: center;
-            color: inherit;
-            padding: 20px 0;
+            width: 100%;
+            max-width: 900px;
+            padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
         }
 
         .about-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
         }
 
         .about-desc {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.75;
             opacity: 0.85;
-            line-height: 1.6;
+            max-width: 800px;
         }
 
         .stats-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0 60px;
+            gap: clamp(20px, 6vw, 60px);
+            margin: 50px 0;
+            padding: clamp(20px, 4vw, 40px) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 120px;
-            padding: 10px;
+            min-width: 140px;
         }
 
         .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-weight: 800;
             color: #25D366;
-            line-height: 1;
         }
 
         .stat-label {
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
             opacity: 0.7;
-            margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-top: 12px;
+            letter-spacing: 0.5px;
+            color: inherit;
         }
 
         .whatsapp-btn {
@@ -71,27 +115,161 @@
             gap: 10px;
             background-color: #25D366;
             color: white;
-            padding: 14px 32px;
+            padding: 16px 36px;
             border-radius: 99px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px #25D366;
+            letter-spacing: 0.3px;
         }
 
         .whatsapp-btn:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 25px #25D366;
         }
 
-        @media screen and (max-width: 600px) {
-            .stat-number {
-                font-size: 2.5rem;
+        /* ================= FAN CAROUSEL ================= */
+        .fan-carousel {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            margin-top: 40px;
+        }
+
+        .fan-card {
+            position: absolute;
+            width: 280px;
+            height: 380px;
+            background: rgba(30, 30, 40, 0.95);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            overflow: hidden;
+            border-color: #25D366;
+        }
+
+        .fan-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .fan-info {
+            padding: 20px;
+        }
+
+        .fan-info h3 {
+            color: #25D366;
+            margin: 0 0 5px;
+        }
+
+        .fan-info p {
+            margin: 0;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        /* POSITIONS */
+        .center {
+            z-index: 10;
+            transform: scale(1);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.25);
+        }
+
+        .left-1 {
+            transform: translateX(-180px) scale(0.85) rotate(-12deg);
+            opacity: 0.8;
+        }
+
+        .right-1 {
+            transform: translateX(180px) scale(0.85) rotate(12deg);
+            opacity: 0.8;
+        }
+
+        .left-2 {
+            transform: translateX(-320px) scale(0.7) rotate(-25deg);
+            opacity: 0.4;
+        }
+
+        .right-2 {
+            transform: translateX(320px) scale(0.7) rotate(25deg);
+            opacity: 0.4;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 900px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
 
-            .about-title {
-                font-size: 2rem;
+            #chamberLogo {
+                position: static;
+                margin-top: 30px;
+            }
+
+            .fan-carousel {
+                height: 350px;
+                margin-top: 20px;
+            }
+
+            .left-1 {
+                transform: translateX(-140px) scale(0.8) rotate(-10deg);
+            }
+
+            .right-1 {
+                transform: translateX(140px) scale(0.8) rotate(10deg);
+            }
+
+            .left-2 {
+                transform: translateX(-240px) scale(0.65) rotate(-20deg);
+                opacity: 0.3;
+            }
+
+            .right-2 {
+                transform: translateX(240px) scale(0.65) rotate(20deg);
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .fan-carousel {
+                height: 300px;
+            }
+
+            .fan-card {
+                width: 220px;
+                height: 300px;
+            }
+
+            .fan-card img {
+                height: 160px;
+            }
+
+            .left-1 {
+                transform: translateX(-100px) scale(0.8) rotate(-8deg);
+            }
+
+            .right-1 {
+                transform: translateX(100px) scale(0.8) rotate(8deg);
+            }
+
+            .left-2,
+            .right-2 {
+                display: none;
             }
         }
     </style>
@@ -114,40 +292,114 @@
         <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
     </div>
 
-    <div style="height: 100px; width: 100%"></div>
+    <div style="height: 40px; width: 100%"></div>
 
-    <div class="about-section">
-        <h1 class="about-title">Making an Impact</h1>
-        <p class="about-desc">
-            We are dedicated to fostering open source culture and driving innovation through student-led initiatives.
-        </p>
+    <div class="about-container">
 
-        <!-- Counters -->
-        <div class="stats-container">
-            <div class="stat-item">
-                <span class="stat-number" data-target="250">0</span>
-                <span class="stat-label">Members</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="40">0</span>
-                <span class="stat-label">Projects</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" data-target="15">0</span>
-                <span class="stat-label">Events</span>
+        <div class="about-content">
+            <div class="about-section">
+                <h1 class="about-title">What is Hack 404?</h1>
+                <p class="about-desc">
+                    Hack 404 is a fast-paced build environment.
+                    Teams tackle real-world problems under time constraints, combining creativity, technical thinking,
+                    and
+                    collaboration. This stage simulates hackathon-style development—encouraging rapid ideation, smart
+                    execution,
+                    and adaptive problem-solving. </p>
+
+                <!-- Counters -->
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="250">0</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="40">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">Events</span>
+                    </div>
+                </div>
+
+                <!-- Instagram Button -->
+                <a href="https://instagram.com/foss_ceal" target="_blank" class="whatsapp-btn">
+                    <span>Check Out Our WhatsApp Channel</span>
+                </a>
+
+                <h2 class="about-title" style="font-size:2rem; margin-top: 60px;">Student Showcases</h2>
+
+                <div class="fan-carousel" id="fanCarousel">
+                    <div class="fan-card" onclick="setActive(0)">
+                        <img src="hack_rapid_prototype_1767973112613.png">
+                        <div class="fan-info">
+                            <h3>Prototypes</h3>
+                            <p>Rapid Builds</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(1)">
+                        <img src="hack_terminal_tool_1767973135447.png">
+                        <div class="fan-info">
+                            <h3>Terminal Tools</h3>
+                            <p>CLI Excellence</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(2)">
+                        <img src="hackathon_winner_project_1767973165000_1767973232055.png">
+                        <div class="fan-info">
+                            <h3>Showcase</h3>
+                            <p>Hackathon Winner</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(3)">
+                        <img src="hack_rapid_prototype_1767973112613.png">
+                        <div class="fan-info">
+                            <h3>MVPs</h3>
+                            <p>Quick Execution</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(4)">
+                        <img src="hack_terminal_tool_1767973135447.png">
+                        <div class="fan-info">
+                            <h3>Backends</h3>
+                            <p>Scalable logic</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Instagram Button -->
-        <a href="https://instagram.com/foss_ceal" target="_blank" class="whatsapp-btn">
-            <i class="fa fa-whatsapp"></i> <!-- Simple fallback icon logic if FA is available -->
-            <span>Check Out Our WhatsApp Channel</span>
-        </a>
+        <div class="about-logo">
+            <img src="/chamber/404/404_clr_dark.png" alt="Hack 404 Logo" id="chamberLogo">
+        </div>
+
     </div>
 
-    <div style="height: 60px; width: 100%"></div>
-
     <script>
+        const cards = document.querySelectorAll('.fan-card');
+        let active = 2;
+
+        function update() {
+            cards.forEach((c, i) => {
+                c.className = 'fan-card';
+                const d = i - active;
+                if (d === 0) c.classList.add('center');
+                else if (d === -1) c.classList.add('left-1');
+                else if (d === 1) c.classList.add('right-1');
+                else if (d === -2) c.classList.add('left-2');
+                else if (d === 2) c.classList.add('right-2');
+                else c.classList.add('hidden');
+            });
+        }
+
+        function setActive(i) {
+            active = i;
+            update();
+        }
+
+        update();
+
         document.addEventListener('DOMContentLoaded', () => {
             const counters = document.querySelectorAll('.stat-number');
             const duration = 2000; // 2 seconds animation
@@ -176,7 +428,6 @@
                 requestAnimationFrame(updateCount);
             };
 
-            // Trigger animation when viewed? For now just run on load suitable for simple page.
             counters.forEach(animateCounter);
         });
     </script>

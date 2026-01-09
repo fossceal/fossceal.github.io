@@ -5,65 +5,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deploy505 | FOSS</title>
+
     <link rel="stylesheet" href="/fonts/font.css" />
-    <script defer src="/dmode.js"></script>
     <link id="h1n1" rel="stylesheet" href="/style.css" />
+    <script defer src="/dmode.js"></script>
+
     <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(24px, 5vw, 60px);
+            padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
+            margin: auto;
+        }
+
+        .about-content {
+            flex: 1;
+            max-width: 720px;
+        }
+
+        .about-logo {
+            width: clamp(120px, 30vw, 300px);
+            height: clamp(120px, 30vw, 300px);
+            flex-shrink: 0;
+        }
+
+        .about-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #chamberLogo {
+            position: sticky;
+            top: 120px;
+        }
+
         .about-section {
-            width: 90vw;
-            max-width: 800px;
-            text-align: center;
-            color: inherit;
-            padding: 20px 0;
-            overflow: visible;
-            /* Needed for carousel */
+            width: 100%;
+            max-width: 900px;
+            padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
         }
 
         .about-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
         }
 
         .about-desc {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.75;
             opacity: 0.85;
-            line-height: 1.6;
+            max-width: 800px;
         }
 
+        /* ================= STATS ================= */
         .stats-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0 60px;
+            gap: clamp(20px, 6vw, 60px);
+            margin: 50px 0;
+            padding: clamp(20px, 4vw, 40px) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 120px;
-            padding: 10px;
+            min-width: 140px;
         }
 
         .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-weight: 800;
             color: #960f70;
-            line-height: 1;
         }
 
         .stat-label {
-            font-size: 1rem;
-            font-weight: 700;
-            opacity: 0.7;
             margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            opacity: 0.7;
+            font-weight: 600;
         }
 
         .insta-btn {
@@ -73,30 +112,31 @@
             gap: 10px;
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
-            padding: 14px 32px;
+            padding: 16px 36px;
             border-radius: 99px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+            letter-spacing: 0.3px;
+            margin-top: 20px;
         }
 
         .insta-btn:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
         }
 
-        /* FAN CAROUSEL STYLES */
+        /* ================= FAN CAROUSEL ================= */
         .fan-carousel {
             position: relative;
             height: 400px;
-            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             perspective: 1000px;
-            margin-bottom: 50px;
+            margin-top: 40px;
         }
 
         .fan-card {
@@ -104,291 +144,291 @@
             width: 280px;
             height: 380px;
             background: rgba(30, 30, 40, 0.95);
-            /* Better contrast for bg */
-            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.5s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
             cursor: pointer;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transform-style: preserve-3d;
-            /* Filter managed by JS classes */
+            border-color: #960f70;
         }
 
-        /* Ensure image covers top half */
         .fan-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .fan-info {
             padding: 20px;
-            text-align: left;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .fan-info h3 {
-            margin: 0 0 5px;
             color: #960f70;
-            font-size: 1.3rem;
+            margin: 0 0 5px;
         }
 
         .fan-info p {
             margin: 0;
+            opacity: 0.7;
             font-size: 0.9rem;
-            opacity: 0.7;
             color: white;
-
         }
 
-        /* Positional Classes */
-        .fan-card.center {
+        /* POSITIONS */
+        .center {
             z-index: 10;
-            transform: translateX(0) scale(1);
-            filter: brightness(1);
-            box-shadow: 0 20px 50px #960f70;
-            border-color: #960f70;
+            transform: scale(1);
+            box-shadow: 0 20px 50px rgba(150, 15, 112, 0.6);
         }
 
-        .fan-card.left-1 {
-            z-index: 5;
-            transform: translateX(-180px) scale(0.85) rotate(-15deg);
-            filter: brightness(0.6) grayscale(0.5);
-            opacity: 0.9;
+        .left-1 {
+            transform: translateX(-180px) scale(0.85) rotate(-12deg);
+            opacity: 0.8;
         }
 
-        .fan-card.left-2 {
-            z-index: 2;
-            transform: translateX(-320px) scale(0.7) rotate(-30deg);
-            filter: brightness(0.4) grayscale(1);
-            opacity: 0.7;
+        .right-1 {
+            transform: translateX(180px) scale(0.85) rotate(12deg);
+            opacity: 0.8;
         }
 
-        .fan-card.right-1 {
-            z-index: 5;
-            transform: translateX(180px) scale(0.85) rotate(15deg);
-            filter: brightness(0.6) grayscale(0.5);
-            opacity: 0.9;
+        .left-2 {
+            transform: translateX(-320px) scale(0.7) rotate(-25deg);
+            opacity: 0.4;
         }
 
-        .fan-card.right-2 {
-            z-index: 2;
-            transform: translateX(320px) scale(0.7) rotate(30deg);
-            filter: brightness(0.4) grayscale(1);
-            opacity: 0.7;
+        .right-2 {
+            transform: translateX(320px) scale(0.7) rotate(25deg);
+            opacity: 0.4;
         }
 
-        /* Hide others */
-        .fan-card.hidden {
+        .hidden {
             opacity: 0;
-            transform: scale(0);
             pointer-events: none;
         }
 
-        @media screen and (max-width: 600px) {
-            .stat-number {
-                font-size: 2.5rem;
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 900px) {
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
 
-            .about-title {
-                font-size: 2rem;
+            #chamberLogo {
+                position: static;
+                margin-top: 30px;
             }
 
             .fan-carousel {
                 height: 350px;
+                margin-top: 20px;
+            }
+
+            .left-1 {
+                transform: translateX(-140px) scale(0.8) rotate(-10deg);
+            }
+
+            .right-1 {
+                transform: translateX(140px) scale(0.8) rotate(10deg);
+            }
+
+            .left-2 {
+                transform: translateX(-240px) scale(0.65) rotate(-20deg);
+                opacity: 0.3;
+            }
+
+            .right-2 {
+                transform: translateX(240px) scale(0.65) rotate(20deg);
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .fan-carousel {
+                height: 300px;
             }
 
             .fan-card {
-                width: 240px;
-                height: 340px;
+                width: 220px;
+                height: 300px;
             }
 
-            .fan-card.left-1 {
-                transform: translateX(-100px) scale(0.85) rotate(-10deg);
+            .fan-card img {
+                height: 160px;
             }
 
-            .fan-card.right-1 {
-                transform: translateX(100px) scale(0.85) rotate(10deg);
+            .left-1 {
+                transform: translateX(-100px) scale(0.8) rotate(-8deg);
             }
 
-            .fan-card.left-2,
-            .fan-card.right-2 {
-                opacity: 0;
+            .right-1 {
+                transform: translateX(100px) scale(0.8) rotate(8deg);
             }
 
-            /* Hide outer cards on mobile */
+            .left-2,
+            .right-2 {
+                display: none;
+            }
+
+            /* Hide outer cards on small mobile */
+        }
+
+        @media (max-width: 400px) {
+            .fan-carousel {
+                height: 260px;
+            }
+
+            .fan-card {
+                width: 180px;
+                height: 260px;
+            }
+
+            .fan-card img {
+                height: 130px;
+            }
+
+            .left-1 {
+                transform: translateX(-70px) scale(0.8) rotate(-5deg);
+            }
+
+            .right-1 {
+                transform: translateX(70px) scale(0.8) rotate(5deg);
+            }
         }
     </style>
 </head>
 
-<body style="
-			display: flex;
-			flex-direction: column;
-			align-content: center;
-			align-items: center;
-			justify-content: space-between;
-			min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
-            font-family: 'Open Sans', sans-serif; /* fallback */
-		">
+<body>
+
     <div class="headder">
-        <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'"
-            style="cursor: pointer" />
+        <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'" />
         <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
     </div>
 
-    <div style="height: 100px; width: 100%"></div>
+    <div style="height:40px"></div>
 
+    <div class="about-container">
 
+        <div class="about-content">
+            <div class="about-section">
 
-    <div class="about-section">
-        <h1 class="about-title">Mastering Future Tech</h1>
-        <p class="about-desc">
-            Empowering students with cutting-edge skills in Full Stack Web Development
-            and AI Model Training. Build the systems of tomorrow, today.
-        </p>
+                <h1 class="about-title">What is Deploy 505?</h1>
+                <p class="about-desc">
+                    Deploy 505 is the final execution and release chamber. Members focus on shipping real projects,
+                    deploying systems, documenting work, and building public-facing portfolios. This stage emphasizes
+                    production readiness and real-world visibility.
+                </p>
 
-        <!-- Counters -->
-        <div class="stats-container">
-            <div class="stat-item"><span class="stat-number" data-target="20">0</span><span
-                    class="stat-label">Workshops</span></div>
-            <div class="stat-item"><span class="stat-number" data-target="50">0</span><span class="stat-label">AI
-                    Models</span></div>
-            <div class="stat-item"><span class="stat-number" data-target="500">0</span><span class="stat-label">Hours
-                    Learned</span></div>
-        </div>
-
-        <!-- Fan Carousel Section -->
-        <div style="margin-top: 60px;">
-            <h2 class="about-title" style="font-size: 2rem;">Student Showcases</h2>
-            <div style="height:10px"></div>
-            <div class="fan-carousel" id="fanCarousel">
-                <!-- Cards injected by JS or static -->
-                <div class="fan-card" onclick="handleCardClick(0)" data-link="https://instagram.com/foss_ceal">
-                    <img src="https://via.placeholder.com/400x300/111/0cf?text=AI+Dashboard" alt="Project">
-                    <div class="fan-info">
-                        <h3>AI Dashboard</h3>
-                        <p>Data visualization platform</p>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="20">0</div>
+                        <div class="stat-label">Deployments</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Live Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">Hours Shipped</div>
                     </div>
                 </div>
-                <div class="fan-card" onclick="handleCardClick(1)" data-link="https://instagram.com/foss_ceal">
-                    <img src="https://via.placeholder.com/400x300/111/0cf?text=Tech+Store" alt="Project">
-                    <div class="fan-info">
-                        <h3>Tech Store</h3>
-                        <p>E-commerce React App</p>
+
+                <!-- Instagram Button -->
+                <a href="https://www.instagram.com/chambers_fossceal" target="_blank" class="insta-btn">
+                    <span>Check Out Our Instagram</span>
+                </a>
+
+                <h2 class="about-title" style="font-size:2rem; margin-top: 60px;">Student Showcases</h2>
+
+                <div class="fan-carousel" id="fanCarousel">
+                    <div class="fan-card" onclick="setActive(0)">
+                        <img src="deploy_production_app_1767972873891.png">
+                        <div class="fan-info">
+                            <h3>Production App</h3>
+                            <p>Live Deployment</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(1)">
+                        <img src="deploy_portfolio_showcase_1767972952953.png">
+                        <div class="fan-info">
+                            <h3>Portfolio</h3>
+                            <p>Public Showcase</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(2)">
+                        <img src="deploy_api_service_1767972974675.png">
+                        <div class="fan-info">
+                            <h3>API Service</h3>
+                            <p>Cloud Hosted</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(3)">
+                        <img src="deploy_ml_model_monitoring_1767972991097.png">
+                        <div class="fan-info">
+                            <h3>ML Model</h3>
+                            <p>Inference Ready</p>
+                        </div>
+                    </div>
+                    <div class="fan-card" onclick="setActive(4)">
+                        <img src="deploy_live_metrics_dashboard_1767972892200.png">
+                        <div class="fan-info">
+                            <h3>Dashboard</h3>
+                            <p>Live Metrics</p>
+                        </div>
                     </div>
                 </div>
-                <div class="fan-card" onclick="handleCardClick(2)" data-link="https://instagram.com/foss_ceal">
-                    <img src="https://via.placeholder.com/400x300/111/0cf?text=Portfolio" alt="Project">
-                    <div class="fan-info">
-                        <h3>Dev Portfolio</h3>
-                        <p>Modern Personal Brand</p>
-                    </div>
-                </div>
-                <div class="fan-card" onclick="handleCardClick(3)" data-link="https://instagram.com/foss_ceal">
-                    <img src="https://via.placeholder.com/400x300/111/0cf?text=Neural+Chat" alt="Project">
-                    <div class="fan-info">
-                        <h3>Neural Chat</h3>
-                        <p>AI Language Interface</p>
-                    </div>
-                </div>
-                <div class="fan-card" onclick="handleCardClick(4)" data-link="https://instagram.com/foss_ceal">
-                    <img src="https://via.placeholder.com/400x300/111/0cf?text=Crypto+Tracker" alt="Project">
-                    <div class="fan-info">
-                        <h3>Crypto Tracker</h3>
-                        <p>Real-time Finance API</p>
-                    </div>
-                </div>
+
             </div>
         </div>
+
+        <div class="about-logo">
+            <img src="/chamber/505/505_clr_dark.png" id="chamberLogo">
+        </div>
+
     </div>
 
-    <div style="height: 60px; width: 100%"></div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Stats Counters
-            const counters = document.querySelectorAll('.stat-number');
-            const animateCounter = (counter) => {
-                const target = +counter.getAttribute('data-target');
-                const duration = 2000;
-                const startTime = performance.now();
-                const updateCount = (currentTime) => {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const ease = 1 - Math.pow(1 - progress, 4);
-                    counter.innerText = Math.floor(ease * target) + (progress >= 1 ? "+" : "");
-                    if (progress < 1) requestAnimationFrame(updateCount);
-                };
-                requestAnimationFrame(updateCount);
-            };
-            counters.forEach(animateCounter);
+        const cards = document.querySelectorAll('.fan-card');
+        let active = 2;
 
-            // FAN CAROUSEL LOGIC
-            let activeIndex = 2; // Start in middle (0-4 items)
-            const cards = document.querySelectorAll('.fan-card');
-            const totalCards = cards.length;
-            let autoSlideInterval;
+        function update() {
+            cards.forEach((c, i) => {
+                c.className = 'fan-card';
+                const d = i - active;
+                if (d === 0) c.classList.add('center');
+                else if (d === -1) c.classList.add('left-1');
+                else if (d === 1) c.classList.add('right-1');
+                else if (d === -2) c.classList.add('left-2');
+                else if (d === 2) c.classList.add('right-2');
+                else c.classList.add('hidden');
+            });
+        }
 
-            window.handleCardClick = (index) => {
-                if (activeIndex === index) {
-                    const url = cards[index].getAttribute('data-link');
-                    if (url) window.open(url, '_blank');
+        function setActive(i) {
+            active = i;
+            update();
+        }
+
+        update();
+
+        // COUNTERS
+        document.querySelectorAll('.stat-number').forEach(el => {
+            const target = +el.dataset.target;
+            let val = 0;
+            const inc = target / 100;
+            const tick = () => {
+                val += inc;
+                if (val < target) {
+                    el.textContent = Math.floor(val);
+                    requestAnimationFrame(tick);
                 } else {
-                    setActive(index);
+                    el.textContent = target + "+";
                 }
             };
-
-            window.setActive = (index) => {
-                activeIndex = index;
-                updateCards();
-                resetTimer();
-            };
-
-            function updateCards() {
-                cards.forEach((card, i) => {
-                    // Reset classes
-                    card.className = 'fan-card';
-
-                    // Calculate relative distance
-                    const diff = i - activeIndex;
-
-                    if (diff === 0) card.classList.add('center');
-                    else if (diff === -1) card.classList.add('left-1');
-                    else if (diff === -2) card.classList.add('left-2');
-                    else if (diff === 1) card.classList.add('right-1');
-                    else if (diff === 2) card.classList.add('right-2');
-                    else card.classList.add('hidden'); // Hide if too far
-                });
-            }
-
-            function nextSlide() {
-                activeIndex = (activeIndex + 1) % totalCards;
-                // Keep it within bounds effectively or loop visual? 
-                // Simple looping logic:
-                if (activeIndex >= totalCards) activeIndex = 0;
-                updateCards();
-            }
-
-            function resetTimer() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(nextSlide, 3000);
-            }
-
-            updateCards();
-            resetTimer();
+            tick();
         });
     </script>
-
-    <div style="height: 60px; width: 100%"></div>
 
 </body>
 
