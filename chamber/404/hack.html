@@ -16,17 +16,13 @@
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             scrollbar-width: none;
-            /* Firefox */
             -ms-overflow-style: none;
-            /* IE/Edge */
         }
 
         ::-webkit-scrollbar {
             display: none;
-            /* Chrome/Safari/Opera */
         }
 
-        /* ================= LAYOUT ================= */
         .about-container {
             width: 100%;
             max-width: 1200px;
@@ -35,6 +31,7 @@
             gap: clamp(24px, 5vw, 60px);
             padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
             margin: auto;
+            padding-top: 50px;
         }
 
         .about-content {
@@ -54,7 +51,7 @@
             object-fit: contain;
         }
 
-        #chamberLogo {
+        #404Logo {
             position: sticky;
             top: 120px;
         }
@@ -100,7 +97,7 @@
         }
 
         .stat-label {
-            font-size: 1rem;
+            font-size: 0.7rem;
             font-weight: 600;
             opacity: 0.7;
             margin-top: 12px;
@@ -216,7 +213,7 @@
                 text-align: center;
             }
 
-            #chamberLogo {
+            #404Logo {
                 position: static;
                 margin-top: 30px;
             }
@@ -322,51 +319,14 @@
                         <span class="stat-label">Achievements</span>
                     </div>
                 </div>
-
-                <h2 class="about-title" style="font-size:2rem; margin-top: 60px;">Student Showcases</h2>
-
-                <div class="fan-carousel" id="fanCarousel">
-                    <div class="fan-card" onclick="setActive(0)">
-                        <img src="hack_rapid_prototype_1767973112613.png">
-                        <div class="fan-info">
-                            <h3>Prototypes</h3>
-                            <p>Rapid Builds</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(1)">
-                        <img src="hack_terminal_tool_1767973135447.png">
-                        <div class="fan-info">
-                            <h3>Terminal Tools</h3>
-                            <p>CLI Excellence</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(2)">
-                        <img src="hackathon_winner_project_1767973165000_1767973232055.png">
-                        <div class="fan-info">
-                            <h3>Showcase</h3>
-                            <p>Hackathon Winner</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(3)">
-                        <img src="hack_rapid_prototype_1767973112613.png">
-                        <div class="fan-info">
-                            <h3>MVPs</h3>
-                            <p>Quick Execution</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(4)">
-                        <img src="hack_terminal_tool_1767973135447.png">
-                        <div class="fan-info">
-                            <h3>Backends</h3>
-                            <p>Scalable logic</p>
-                        </div>
-                    </div>
-                </div>
+                <a href="https://wa.me/919920228666" target="_blank" class="whatsapp-btn">
+                    <span>Check Out Our Whatsapp Channel</span>
+                </a>
             </div>
         </div>
 
         <div class="about-logo">
-            <img src="/chamber/404/404_clr_dark.png" alt="Hack 404 Logo" id="chamberLogo">
+            <img src="/chamber/404/404_clr_dark.png" alt="Hack 404 Logo" id="404Logo">
         </div>
 
     </div>

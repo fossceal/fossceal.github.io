@@ -21,6 +21,13 @@ async function loadup() {
 		// "Home-like" portal pages
 		if (el("dm1")) el("dm1").setAttribute("src", "/dMd_white.png");
 
+		// Chambers logo changes
+		if (el("101Logo")) el("101Logo").setAttribute("src", "/chamber/101/101_clr_light.png");
+		if (el("202Logo")) el("202Logo").setAttribute("src", "/chamber/202/202_clr_light.png");
+		if (el("303Logo")) el("303Logo").setAttribute("src", "/chamber/303/303_clr_light.png");
+		if (el("404Logo")) el("404Logo").setAttribute("src", "/chamber/404/404_clr_light.png");
+		if (el("505Logo")) el("505Logo").setAttribute("src", "/chamber/505/505_clr_light.png");
+
 		let r = ec("arrWW");
 		if (r && r.length > 0) {
 			for (let i = 0; i < r.length; i++) {

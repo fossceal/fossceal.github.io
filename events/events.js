@@ -1,7 +1,3 @@
-/* events.js
-   Poster-style card renderer + simple filtering + reveal animation
-*/
-
 let allEventsData = [];
 
 async function fetchData() {
@@ -53,18 +49,19 @@ function createCards(events) {
             card.style.background = event.colorVal;
         }
 
-        const dateTimeStr = `${event.date}T${event.time}`;
-        const month = monthShortUpper(dateTimeStr);
-        const day = dayNumber(dateTimeStr);
+        const dateTimeStr = event.date ? `${event.date}T${event.time}` : null;
+        const month = dateTimeStr ? monthShortUpper(dateTimeStr) : 'TBA';
+        const day = dateTimeStr ? dayNumber(dateTimeStr) : '--';
         const iconClass = event.icon || 'fa-calendar-day';
-        const year = new Date(dateTimeStr).getFullYear();
+        const year = dateTimeStr ? new Date(dateTimeStr).getFullYear() : '----';
 
         // Generate Clubs HTML
         let clubsHtml = '';
-        if (event.clubs && event.clubs.length > 0) {
+        const validClubs = (event.clubs || []).filter(c => c && c.trim() !== '');
+        if (validClubs.length > 0) {
             clubsHtml = `<div class="event-clubs">
-                <span class="clubs-label">Clubs Collabed:</span>
-                ${event.clubs.map(c => `<span class="club-chip">${escapeHtml(c)}</span>`).join('')}
+                <span class="clubs-label">Clubs:</span>
+                ${validClubs.map(c => `<span class="club-chip">${escapeHtml(c)}</span>`).join('')}
             </div>`;
         }
 
@@ -76,10 +73,6 @@ function createCards(events) {
             <div class="date-group">
                 <div class="big-date">${escapeHtml(day)}</div>
                 <div class="vertical-year">${escapeHtml(year)}</div>
-            </div>
-
-            <div class="card-icon">
-                <i class="fa-solid ${escapeHtml(iconClass)}"></i>
             </div>
 
             <div class="card-body">
@@ -111,27 +104,39 @@ function observeCards() {
     cards.forEach(c => observer.observe(c));
 }
 
-/* Filtering buttons */
+/* Filtering buttons with smooth transition */
 function attachDateSorting() {
     const btnAll = document.querySelector('.all-events');
     const btnUp = document.querySelector('.upcoming-events');
     const btnPast = document.querySelector('.past-events');
 
-    if (btnAll) btnAll.addEventListener('click', () => {
-        setActiveButton('.all-events');
-        createCards(allEventsData);
+    const switchFilter = (selector, filterFn) => {
+        const btn = document.querySelector(selector);
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+
+            setActiveButton(selector);
+            const container = document.getElementById('card-container');
+            container.classList.add('fade-out');
+
+            setTimeout(() => {
+                const filtered = filterFn ? allEventsData.filter(filterFn) : allEventsData;
+                createCards(filtered);
+                container.classList.remove('fade-out');
+            }, 300);
+        });
+    };
+
+    switchFilter('.all-events', null);
+    switchFilter('.upcoming-events', e => {
+        const dateTime = new Date(`${e.date}T${e.time}`);
+        return !isNaN(dateTime) && dateTime > new Date();
     });
-    if (btnUp) btnUp.addEventListener('click', () => {
-        setActiveButton('.upcoming-events');
-        const now = new Date();
-        const upcoming = allEventsData.filter(e => new Date(`${e.date}T${e.time}`) > now);
-        createCards(upcoming);
-    });
-    if (btnPast) btnPast.addEventListener('click', () => {
-        setActiveButton('.past-events');
-        const now = new Date();
-        const past = allEventsData.filter(e => new Date(`${e.date}T${e.time}`) < now);
-        createCards(past);
+    switchFilter('.past-events', e => {
+        const dateTime = new Date(`${e.date}T${e.time}`);
+        return !isNaN(dateTime) && dateTime < new Date();
     });
 }
 

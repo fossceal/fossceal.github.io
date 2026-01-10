@@ -16,53 +16,43 @@
             margin: 0;
             font-family: 'Open Sans', sans-serif;
             scrollbar-width: none;
-            /* Firefox */
             -ms-overflow-style: none;
-            /* IE/Edge */
         }
 
         ::-webkit-scrollbar {
             display: none;
-            /* Chrome/Safari/Opera */
         }
 
-        /* ================= LAYOUT ================= */
         .about-container {
             width: 100%;
             max-width: 1200px;
-            display: flex;
-            align-items: flex-start;
-            gap: clamp(24px, 5vw, 60px);
-            padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
             margin: auto;
-        }
-
-        .about-content {
-            flex: 1;
-            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            text-align: center;
         }
 
         .about-logo {
-            width: clamp(120px, 30vw, 300px);
-            height: clamp(120px, 30vw, 300px);
-            flex-shrink: 0;
+            width: clamp(120px, 40vw, 200px);
+            height: auto;
         }
 
         .about-logo img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: contain;
         }
 
-        #chamberLogo {
-            position: sticky;
-            top: 120px;
+        #101Logo {
+            position: static;
+
         }
 
-        .about-section {
+        .about-content {
             width: 100%;
-            max-width: 900px;
-            padding: 0 clamp(20px, 5vw, 40px) clamp(30px, 6vw, 60px);
+            max-width: 720px;
         }
 
         .about-title {
@@ -76,36 +66,50 @@
             font-size: clamp(0.95rem, 2.5vw, 1.15rem);
             line-height: 1.75;
             opacity: 0.85;
-            max-width: 800px;
+            margin: 0 auto;
         }
 
         .stats-container {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: clamp(20px, 6vw, 60px);
-            margin: 50px 0;
-            padding: clamp(20px, 4vw, 40px) 0;
+            margin: 48px 0;
+            padding: 32px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .stat-item {
-            min-width: 140px;
+            min-width: 120px;
         }
 
         .stat-number {
-            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
             font-weight: 800;
             color: #ff0000;
         }
 
         .stat-label {
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: 600;
             opacity: 0.7;
             margin-top: 12px;
             letter-spacing: 0.5px;
-            color: inherit;
+        }
+
+        .about-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .about-actions a,
+        .about-actions button {
+            width: 100%;
+            max-width: 260px;
         }
 
         .insta-btn {
@@ -113,16 +117,15 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
             padding: 16px 36px;
-            border-radius: 99px;
+            border-radius: 999px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
-            letter-spacing: 0.3px;
         }
 
         .insta-btn:hover {
@@ -130,144 +133,108 @@
             box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
         }
 
-        .fan-carousel {
-            position: relative;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1000px;
-            margin-top: 40px;
+
+        @media (min-width: 900px) {
+            .about-container {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 64px;
+                padding: 64px 48px;
+            }
+
+            .about-content {
+                max-width: 640px;
+            }
+
+            .about-actions {
+                justify-content: flex-start;
+            }
+
+            .about-logo {
+                transform: translateX(120px);
+                width: 300px;
+            }
+
         }
 
-        .fan-card {
-            position: absolute;
-            width: 280px;
-            height: 380px;
-            background: rgba(30, 30, 40, 0.95);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s ease;
-            cursor: pointer;
-            overflow: hidden;
-            border-color: #ff0000;
+        @media (min-width: 1200px) {
+            .about-container {
+                padding: 80px 0;
+            }
+
+            .about-content {
+                max-width: 720px;
+            }
         }
 
-        .fan-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .fan-info {
-            padding: 20px;
-        }
-
-        .fan-info h3 {
-            color: #ff0000;
-            margin: 0 0 5px;
-        }
-
-        .fan-info p {
-            margin: 0;
-            opacity: 0.7;
-            font-size: 0.9rem;
-            color: white;
-        }
-
-        /* POSITIONS */
         .center {
-            z-index: 10;
-            transform: scale(1);
-            box-shadow: 0 20px 50px rgba(255, 0, 85, 0.25);
-        }
-
-        .left-1 {
-            transform: translateX(-180px) scale(0.85) rotate(-12deg);
-            opacity: 0.8;
-        }
-
-        .right-1 {
-            transform: translateX(180px) scale(0.85) rotate(12deg);
-            opacity: 0.8;
-        }
-
-        .left-2 {
-            transform: translateX(-320px) scale(0.7) rotate(-25deg);
-            opacity: 0.4;
-        }
-
-        .right-2 {
-            transform: translateX(320px) scale(0.7) rotate(25deg);
-            opacity: 0.4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        @media (max-width: 900px) {
-            .about-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            #chamberLogo {
-                position: static;
-                margin-top: 30px;
-            }
-
-            .fan-carousel {
-                height: 350px;
-                margin-top: 20px;
-            }
-
-            .left-1 {
-                transform: translateX(-140px) scale(0.8) rotate(-10deg);
-            }
-
-            .right-1 {
-                transform: translateX(140px) scale(0.8) rotate(10deg);
-            }
-
-            .left-2 {
-                transform: translateX(-240px) scale(0.65) rotate(-20deg);
-                opacity: 0.3;
-            }
-
-            .right-2 {
-                transform: translateX(240px) scale(0.65) rotate(20deg);
-                opacity: 0.3;
-            }
+            display: none;
         }
 
         @media (max-width: 600px) {
-            .fan-carousel {
-                height: 300px;
+            .about-content {
+                max-width: 92%;
             }
 
-            .fan-card {
-                width: 220px;
-                height: 300px;
+
+            .about-actions {
+                flex-direction: row;
+                justify-content: center;
             }
 
-            .fan-card img {
-                height: 160px;
+            .about-actions a,
+            .about-actions button {
+                width: auto;
             }
 
-            .left-1 {
-                transform: translateX(-100px) scale(0.8) rotate(-8deg);
+            .about-desc {
+                font-size: 0.95rem;
+
             }
 
-            .right-1 {
-                transform: translateX(100px) scale(0.8) rotate(8deg);
+            .about-title {
+                margin-bottom: 16px;
             }
 
-            .left-2,
-            .right-2 {
-                display: none;
+            .stats-container {
+                border-top: none;
+            }
+
+            .stats-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px 12px;
+                margin: 32px 0;
+                padding: 24px 0;
+                text-align: center;
+            }
+
+            .stat-item {
+                min-width: auto;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .about-actions {
+                margin-top: 16px;
+            }
+
+            .insta-btn {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+            }
+
+            .about-logo {
+                width: 120px;
             }
         }
     </style>
@@ -326,51 +293,11 @@
                 <a href="https://www.instagram.com/chambers_fossceal" target="_blank" class="insta-btn">
                     <span>Check Out Our Instagram</span>
                 </a>
-
-                <h2 class="about-title" style="font-size:2rem; margin-top: 60px;">Student Showcases</h2>
-
-                <div class="fan-carousel" id="fanCarousel">
-                    <div class="fan-card" onclick="setActive(0)">
-                        <img src="create_figma_design_1767973037886.png">
-                        <div class="fan-info">
-                            <h3>UI Design</h3>
-                            <p>Figma Masterclass</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(1)">
-                        <img src="create_branding_showcase_1767973055635.png">
-                        <div class="fan-info">
-                            <h3>Branding</h3>
-                            <p>Visual Identity</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(2)">
-                        <img src="create_ui_kit_showcase_1767973162973.png">
-                        <div class="fan-info">
-                            <h3>UI Kit</h3>
-                            <p>System Fundamentals</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(3)">
-                        <img src="create_motion_design_project_1767973165000_1767973181752.png">
-                        <div class="fan-info">
-                            <h3>Motion Design</h3>
-                            <p>Fluid Animations</p>
-                        </div>
-                    </div>
-                    <div class="fan-card" onclick="setActive(4)">
-                        <img src="create_figma_design_1767973037886.png">
-                        <div class="fan-info">
-                            <h3>Creative Lead</h3>
-                            <p>Design Direction</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
         <div class="about-logo">
-            <img src="/chamber/101/101_clr_dark.png" alt="Create 101 Logo" id="chamberLogo">
+            <img src="/chamber/101/101_clr_dark.png" alt="Create 101 Logo" id="101Logo">
         </div>
 
     </div>
