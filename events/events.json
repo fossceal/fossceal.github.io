@@ -1,0 +1,97 @@
+{
+    "events": [
+        {
+            "name": "Chamber week '26",
+            "description": "",
+            "date": "2026-01-30",
+            "time": "16:00",
+            "colorVal": "#EAC0FF",
+            "clubs": [
+                "TinkerHub",
+                "IEDC CEAL",
+                "ISTE CEAL"
+            ]
+        },
+        {
+            "name": "FOSS++",
+            "description": "",
+            "date": "2026-01-15",
+            "time": "16:00",
+            "colorVal": "#4CAF50",
+            "clubs": [
+                ""
+            ]
+        },
+        {
+            "name": "SNAP",
+            "description": "Learn how to take ownership of your actions and life choices to foster personal growth.",
+            "date": "2025-10-28",
+            "time": "12:00",
+            "colorVal": "#6bcbef"
+        },
+        {
+            "name": "SIH",
+            "description": "Explore techniques to change negative behavior patterns and reinforce positive habits.",
+            "date": "2025-09-25",
+            "time": "09:00",
+            "colorVal": "#a63333",
+            "clubs": [
+                "IEDC CEAL",
+                "ISTE CEAL",
+                "IEEE CEAL",
+                "TinkerHub"
+            ]
+        },
+        {
+            "name": "TIDIBITS",
+            "description": "Express your emotions and reduce stress through creative painting and drawing sessions.",
+            "date": "2025-09-12",
+            "time": "09:00",
+            "colorVal": "#7777c9",
+            "clubs": [
+                "IEDC CEAL",
+                "ISTE CEAL",
+                "IEEE CEAL",
+                "TinkerHub"
+            ]
+        },
+        {
+            "name": "hiss & tell",
+            "description": "Stay fit and active during the holiday season with these simple workout routines.",
+            "date": "2025-09-13",
+            "time": "09:00",
+            "colorVal": "#f59f37",
+            "clubs": [
+                "ISTE CEAL"
+            ]
+        },
+        {
+            "name": "Make tea ()",
+            "description": "A hands on experience , workshop including Git, Github, docker",
+            "date": "2025-08-23",
+            "time": "09:00",
+            "colorVal": "#ffa500"
+        },
+        {
+            "name": "linux me up",
+            "description": "A Linux installation drive - hands on workshop",
+            "date": "2025-08-22",
+            "time": "09:00",
+            "colorVal": "#4d4d4d",
+            "clubs": [
+                "ICFOSS"
+            ]
+        },
+        {
+            "name": "UseLess Projects",
+            "description": "A hackathon to make your uselsss ideas coem true",
+            "date": "2025-08-02",
+            "time": "09:00",
+            "colorVal": "#6b7082",
+            "clubs": [
+                "TinkerHub",
+                "ISTE CEAL"
+            ]
+        }
+    ]
+}

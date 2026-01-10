@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hack404 | FOSS</title>
+    <link rel="stylesheet" href="/fonts/font.css" />
+    <script defer src="/dmode.js"></script>
+    <link id="h1n1" rel="stylesheet" href="/style.css" />
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 32px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .about-content {
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .about-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin: 0 0 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-desc {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.6;
+            opacity: 0.85;
+            margin: 0;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 12px;
+            margin: 28px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item:last-child {
+            grid-column: span 2;
+        }
+
+        .stat-number {
+            font-size: clamp(2.1rem, 6vw, 3.8rem);
+            font-weight: 800;
+            color: #25D366;
+            /* Green for Hack */
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .about-logo {
+            width: clamp(110px, 40vw, 200px);
+            margin-top: 8px;
+        }
+
+        .about-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            letter-spacing: 0.3px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        @media (min-width: 900px) {
+            .about-container {
+                flex-direction: row;
+                align-items: center;
+                gap: 64px;
+                padding: 64px 48px;
+                text-align: left;
+            }
+
+            .about-logo {
+                width: 300px;
+                transform: translateX(80px);
+                margin-top: 0;
+            }
+
+            .stats-container {
+                display: flex;
+                gap: 48px;
+            }
+
+            .stat-item:last-child {
+                grid-column: auto;
+            }
+
+        }
+
+        @media (min-width: 1200px) {
+            .about-container {
+                padding: 80px 0;
+
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-content {
+                margin-top: 60px;
+            }
+
+            .stats-container {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 24px;
+                margin: 32px 0;
+                padding: 24px 0;
+                text-align: center;
+                justify-content: space-between;
+            }
+
+            .stat-item {
+                min-width: auto;
+                flex: 1;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .whatsapp-btn {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+            }
+
+            .about-logo {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body style="opacity: 0; transition: opacity 0.3s ease;">
+
+    <div class="headder">
+        <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'"
+            style="cursor: pointer" />
+        <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-content">
+            <h1 class="about-title">What is Hack 404?</h1>
+            <p class="about-desc">
+                Hack 404 is a fast-paced build environment.
+                Teams tackle real-world problems under time constraints, combining creativity, technical thinking,
+                and collaboration. This stage simulates hackathon-style development—encouraging rapid ideation, smart
+                execution, and adaptive problem-solving.
+            </p>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="300">0</span>
+                    <div class="stat-label">Members</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <div class="stat-label">Opportunities</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="20">0</span>
+                    <div class="stat-label">Achievements</div>
+                </div>
+            </div>
+
+            <a href="https://whatsapp.com/channel/0029Vb7PEhoB4hdSCGvrQS3c" target="_blank" class="whatsapp-btn">
+                <span>Check Out Our Whatsapp Channel</span>
+            </a>
+        </div>
+
+        <div class="about-logo">
+            <img src="/chamber/404/404_clr_dark.png" alt="Hack 404 Logo" id="404Logo">
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-number');
+            const duration = 2000;
+
+            counters.forEach(counter => {
+                const target = +counter.dataset.target;
+                const start = performance.now();
+
+                const animate = (time) => {
+                    const progress = Math.min((time - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 4);
+                    counter.textContent = Math.floor(eased * target);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        counter.textContent = target + "+";
+                    }
+                };
+
+                requestAnimationFrame(animate);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy505 | FOSS</title>
+    <link rel="stylesheet" href="/fonts/font.css">
+    <link rel="stylesheet" id="h1n1" href="/style.css">
+    <script defer src="/dmode.js"></script>
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            text-align: center;
+        }
+
+        .about-logo {
+            width: clamp(120px, 40vw, 200px);
+            height: auto;
+        }
+
+        .about-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        #505Logo {
+            position: static;
+        }
+
+        .about-content {
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .about-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-desc {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.75;
+            opacity: 0.85;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(20px, 6vw, 60px);
+            margin: 48px 0;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item {
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 800;
+            color: #960f70;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.7;
+            margin-top: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        @media (min-width: 900px) {
+            .about-container {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 64px;
+                padding: 64px 48px;
+            }
+
+            .about-content {
+                max-width: 640px;
+            }
+
+            .about-logo {
+                transform: translateX(120px);
+                width: 300px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .about-container {
+                padding: 80px 0;
+            }
+
+            .about-content {
+                max-width: 720px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-content {
+                max-width: 92%;
+            }
+
+            .about-desc {
+                font-size: 0.95rem;
+            }
+
+            .about-title {
+                margin-bottom: 16px;
+            }
+
+            .stats-container {
+                border-top: none;
+            }
+
+            .stats-container {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 24px;
+                margin: 32px 0;
+                padding: 24px 0;
+                text-align: center;
+                justify-content: space-between;
+            }
+
+            .stat-item {
+                min-width: auto;
+                flex: 1;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .about-logo {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body style="opacity: 0; transition: opacity 0.3s ease;">
+
+    <div class="headder">
+        <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'"
+            style="cursor: pointer" />
+        <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
+    </div>
+
+    <div style="height: 40px; width: 100%"></div>
+
+    <div class="about-container">
+
+        <div class="about-content">
+            <h1 class="about-title">What is Deploy 505?</h1>
+            <p class="about-desc">
+                Deploy 505 is the final execution and release chamber. Members focus on shipping real projects,
+                deploying systems, documenting work, and building public-facing portfolios. This stage emphasizes
+                production readiness and real-world visibility.
+            </p>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <div class="stat-label">Members</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <div class="stat-label">Deployments</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1000">0</span>
+                    <div class="stat-label">Hours In Clouds</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-logo">
+            <img src="/chamber/505/505_clr_dark.png" id="505Logo">
+        </div>
+
+    </div>
+
+    <div style="height: 60px; width: 100%"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-number');
+            const duration = 2000;
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Ease out quart
+                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                    const current = Math.floor(ease * target);
+                    counter.innerText = current;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+
+                requestAnimationFrame(updateCount);
+            };
+
+            counters.forEach(animateCounter);
+        });
+    </script>
+</body>
+
+</html>

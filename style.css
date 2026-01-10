@@ -8,6 +8,7 @@
 	--ACIDGREEN: #00df08;
 	--BURPLEPLUM: #960f70;
 }
+
 body {
 	background: white;
 	background-image: radial-gradient(black 1px, transparent 0);
@@ -25,6 +26,7 @@ body {
 		opacity: 0;
 		/* transform: translate(-50%, -20%) scale(0.8); */
 	}
+
 	100% {
 		opacity: 1;
 		/* scale: 1; */
@@ -50,14 +52,17 @@ body {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	animation: pop 400ms forwards;
 }
-.headder > img {
+
+.headder>img {
 	height: 80%;
 	width: auto;
 }
-.headder > img:nth-child(2) {
+
+.headder>img:nth-child(2) {
 	height: 60%;
 	width: auto;
 }
+
 .cOntents {
 	height: fit-content;
 	top: 88px;
@@ -78,9 +83,11 @@ body {
 	align-items: center;
 	animation: pop 400ms 300ms forwards;
 }
-.cOntents > h1 {
+
+.cOntents>h1 {
 	font-weight: 800;
 }
+
 .teamContainer {
 	margin-top: 12px;
 	width: 90%;
@@ -93,7 +100,8 @@ body {
 
 	gap: 24px;
 }
-.teamContainer > div {
+
+.teamContainer>div {
 	width: 250px;
 	height: 250px;
 	position: relative;
@@ -106,10 +114,11 @@ body {
     transform: scale(0.6); */
 }
 
-.teamContainer > div:hover {
+.teamContainer>div:hover {
 	transform: scale(1.1);
 }
-.teamContainer > div > .shadow {
+
+.teamContainer>div>.shadow {
 	width: 110%;
 	height: 110%;
 	left: -1px;
@@ -122,17 +131,19 @@ body {
 	transition: 200ms;
 	z-index: 1;
 }
+
 .gifcase {
 	width: 100%;
 	height: 100%;
 	opacity: 1;
 	transition: 300ms;
 }
-.teamContainer > div:hover > .gifcasde {
+
+.teamContainer>div:hover>.gifcasde {
 	opacity: 0;
 }
 
-.teamContainer > div:hover > .shadow {
+.teamContainer>div:hover>.shadow {
 	transform: translateY(75%);
 	width: 200%;
 	height: 100%;
@@ -146,6 +157,7 @@ body {
 	transition: 200ms;
 	z-index: 1;
 }
+
 .teamPic {
 	width: auto;
 	height: 110%;
@@ -159,7 +171,7 @@ body {
 	transition: 400ms;
 }
 
-.teamBOXXX:hover > .teamPic {
+.teamBOXXX:hover>.teamPic {
 	transform: translate(-50%, -50%) scale(1.2);
 	opacity: 0;
 	filter: saturate(100%) blur(200px);
@@ -169,6 +181,7 @@ body {
 	-ms-transform: translate(-50%, -50%) scale(1.2);
 	-o-transform: translate(-50%, -50%) scale(1.2);
 }
+
 .teamName {
 	width: 100%;
 	height: 10%;
@@ -189,6 +202,7 @@ body {
 	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000, -1px 1px 0 #000,
 		1px 1px 0 #000;
 }
+
 .teamRole {
 	width: 100%;
 	height: 10%;
@@ -210,16 +224,19 @@ body {
 	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
 		1px 1px 0 #000;
 }
+
 #teamMM {
 	width: 70%;
 	height: auto;
 	margin-bottom: 12px;
 	border-radius: 24px;
 }
+
 @keyframes slideInFromLeft {
 	0% {
 		transform: translateX(-100%) rotate(-90deg);
 	}
+
 	100% {
 		transform: translateX(0) rotate(-45deg);
 	}
@@ -229,13 +246,16 @@ body {
 	0% {
 		transform: translateY(0%);
 	}
+
 	50% {
 		transform: translateY(-8%);
 	}
+
 	100% {
 		transform: translateY(0%);
 	}
 }
+
 .centerBox {
 	width: 70vw;
 	height: 75vh;
@@ -278,7 +298,8 @@ body {
 	top: 12px;
 	transform: translateX(-50%);
 }
-.boxHeader > img {
+
+.boxHeader>img {
 	height: 90%;
 	width: auto;
 }
@@ -299,7 +320,7 @@ body {
 	scale: 1.1;
 }
 
-#dad_toggle > img {
+#dad_toggle>img {
 	width: 100%;
 	height: 100%;
 }
@@ -319,7 +340,8 @@ body {
 	padding: 12px;
 	transition: 400ms;
 }
-.boxContents > div {
+
+.boxContents>div {
 	background-color: white;
 	border: 1px solid black;
 	border-radius: 25px;
@@ -341,15 +363,14 @@ body {
 	cursor: pointer;
 	overflow: hidden;
 }
+
 #GRDHero::after {
 	content: "";
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(
-		0deg,
-		rgba(0, 0, 0, 0.75) 0%,
-		rgba(0, 0, 0, 0) 100%
-	);
+	background: linear-gradient(0deg,
+			rgba(0, 0, 0, 0.75) 0%,
+			rgba(0, 0, 0, 0) 100%);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -376,7 +397,8 @@ body {
 	z-index: 3;
 	transition: 200ms;
 }
-.cntnts > .shadow {
+
+.cntnts>.shadow {
 	width: 110%;
 	height: 110%;
 	left: -1px;
@@ -388,32 +410,37 @@ body {
 	transition: 200ms;
 	z-index: 1;
 }
+
 #GRDHero:hover::after {
 	/* background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.5) 100%); */
 	opacity: 0;
 }
+
 .cntnts {
 	cursor: pointer;
 }
 
-.shadow > img {
+.shadow>img {
 	transform: translateX(-100%) rotate(-90deg);
 }
-.cntnts:hover > h1,
-.cntnts:hover > h3 {
+
+.cntnts:hover>h1,
+.cntnts:hover>h3 {
 	color: white;
 }
 
-.cntnts:hover.cntnts > .shadow {
+.cntnts:hover.cntnts>.shadow {
 	transform: translateY(0%);
 }
 
-.cntnts:hover .shadow > img {
+.cntnts:hover .shadow>img {
 	animation: slideInFromLeft 400ms 100ms forwards;
 }
+
 #GRDHero:hover #HeroCardTitle {
 	color: rgb(255, 255, 255);
 }
+
 #GRDUpSide {
 	grid-row: 1/2;
 	grid-column: 3/5;
@@ -427,7 +454,8 @@ body {
 	position: relative;
 	z-index: 2;
 }
-#GRDUpSide > #shadow2 {
+
+#GRDUpSide>#shadow2 {
 	width: 110%;
 	height: 110%;
 	left: -1px;
@@ -444,7 +472,7 @@ body {
 	color: white;
 }
 
-#GRDUpSide:hover#GRDUpSide > #shadow2 {
+#GRDUpSide:hover#GRDUpSide>#shadow2 {
 	transform: translateY(0%);
 }
 
@@ -464,6 +492,7 @@ body {
 	align-items: center;
 	z-index: 3;
 }
+
 #GRDminiL {
 	grid-row: 2/3;
 	grid-column: 3/4;
@@ -475,8 +504,8 @@ body {
 	background-position: center;
 }
 
-#GRDminiL > h3,
-#GRDminiR > h3 {
+#GRDminiL>h3,
+#GRDminiR>h3 {
 	width: 100%;
 	height: 10%;
 	/* background-color: rgba(0, 0, 0, 0.75); */
@@ -492,6 +521,7 @@ body {
 	align-items: center;
 	z-index: 3;
 }
+
 #GRDminiR {
 	grid-row: 2/3;
 	grid-column: 4/5;
@@ -499,12 +529,14 @@ body {
 	border-radius: 25px;
 	overflow: hidden;
 }
-.cOntents > h3 {
+
+.cOntents>h3 {
 	width: 95%;
 	text-align: left;
 	margin: 8px;
 }
-.cOntents > p {
+
+.cOntents>p {
 	width: 90%;
 	margin: 8px;
 	text-align: left;
@@ -523,10 +555,11 @@ body {
 	user-select: none;
 }
 
-.logoHolder > div > img {
+.logoHolder>div>img {
 	width: auto;
 	height: 80px;
 }
+
 .logoHolder {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -539,7 +572,8 @@ body {
 	align-items: center;
 	justify-items: stretch;
 }
-.logoHolder > div {
+
+.logoHolder>div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -549,6 +583,7 @@ body {
 	border-radius: 12px;
 	height: 100%;
 }
+
 #teamCont2025 .teamPic {
 	transform: translate(-90px, -90px);
 	-webkit-transform: translate(-90px, -90px);
@@ -556,6 +591,7 @@ body {
 	-ms-transform: translate(-90px, -90px);
 	-o-transform: translate(-90px, -90px);
 }
+
 #teamCont2025 #havis .teamPic {
 	transform: none !important;
 	-webkit-transform: none !important;
@@ -563,10 +599,12 @@ body {
 	-ms-transform: none !important;
 	-o-transform: none !important;
 }
+
 #teamCont2025 #havis .teamPic {
 	top: 0;
 	left: auto;
 }
+
 #teamCont2025 #newgod .teamPic {
 	transform: translate(-50%, -23%) !important;
 	-webkit-transform: translate(-50%, -23%) !important;
@@ -574,6 +612,7 @@ body {
 	-ms-transform: translate(-50%, -23%) !important;
 	-o-transform: translate(-50%, -23%) !important;
 }
+
 #teamCont2025 #sreehalli .teamPic {
 	transform: translate(-50%, -50%) !important;
 	-webkit-transform: translate(-50%, -50%) !important;
@@ -581,25 +620,31 @@ body {
 	-ms-transform: translate(-50%, -50%) !important;
 	-o-transform: translate(-50%, -50%) !important;
 }
+
 hr {
 	width: 90%;
 	margin: 25px;
 }
-.logoHolder > div > p {
+
+.logoHolder>div>p {
 	margin: 0px;
 }
-.logoHolder > div:nth-child(2) {
+
+.logoHolder>div:nth-child(2) {
 	background-color: #000;
 	color: white;
 }
-.logoHolder > div:nth-child(4) {
+
+.logoHolder>div:nth-child(4) {
 	background-color: #000;
 	color: white;
 }
-.logoHolder > div:nth-child(6) {
+
+.logoHolder>div:nth-child(6) {
 	background-color: #000;
 	color: white;
 }
+
 .chip {
 	display: flex;
 	flex-direction: row;
@@ -613,14 +658,16 @@ hr {
 	scale: 0.98;
 	transition: 200ms;
 }
+
 .chip:hover {
 	transform: scale(1.1);
 }
 
-.chip > p {
+.chip>p {
 	margin: 0px;
 }
-.chip > p:nth-child(1) {
+
+.chip>p:nth-child(1) {
 	font-weight: 800;
 }
 
@@ -629,30 +676,36 @@ hr {
 	grid-template-rows: 1fr 1fr;
 }
 
-#lgogo > div:nth-child(1) {
+#lgogo>div:nth-child(1) {
 	grid-column: 1/2;
 	grid-row: 1/2;
 }
-#lgogo > div:nth-child(2) {
+
+#lgogo>div:nth-child(2) {
 	grid-column: 2/3;
 	grid-row: 1/2;
 }
-#lgogo > div:nth-child(3) {
+
+#lgogo>div:nth-child(3) {
 	grid-column: 1/2;
 	grid-row: 2/3;
 }
-#lgogo > div:nth-child(4) {
+
+#lgogo>div:nth-child(4) {
 	grid-column: 2/3;
 	grid-row: 2/3;
 }
-#lgogo > div:nth-child(5) {
+
+#lgogo>div:nth-child(5) {
 	grid-column: 3/4;
 	grid-row: 1/3;
 }
-#lgogo > div:nth-child(6) {
+
+#lgogo>div:nth-child(6) {
 	grid-column: 4/5;
 	grid-row: 1/3;
 }
+
 .chipsPlus {
 	width: 90%;
 	gap: 8px;
@@ -663,11 +716,13 @@ hr {
 
 	font-size: 12px;
 }
-.chipsPlus > .chip {
+
+.chipsPlus>.chip {
 	padding: 0px;
 	border: none;
 }
-.chipsPlus > .chip > img {
+
+.chipsPlus>.chip>img {
 	width: 100%;
 	border-radius: 8px;
 	height: auto;
@@ -678,6 +733,7 @@ hr {
 		width: 90vw;
 		height: 90vh;
 	}
+
 	.boxHeader {
 		width: 90%;
 		height: 40px;
@@ -687,10 +743,12 @@ hr {
 		top: 12px;
 		transform: translateX(-50%);
 	}
-	.boxHeader > img {
+
+	.boxHeader>img {
 		height: 80%;
 		width: auto;
 	}
+
 	#dad_toggle {
 		width: 30px;
 		height: 30px;
@@ -702,18 +760,22 @@ hr {
 		gap: 6px;
 		padding: 6px;
 	}
+
 	#GRDHero {
 		grid-row: 1/3;
 		grid-column: 1/3;
 	}
+
 	#GRDUpSide {
 		grid-row: 3/4;
 		grid-column: 1/3;
 	}
+
 	#GRDminiL {
 		grid-row: 4/5;
 		grid-column: 1/2;
 	}
+
 	#GRDminiR {
 		grid-row: 4/5;
 		grid-column: 2/3;
@@ -724,32 +786,38 @@ hr {
 		grid-template-rows: 1fr 1fr 1fr;
 	}
 
-	#lgogo > div:nth-child(1) {
+	#lgogo>div:nth-child(1) {
 		grid-column: 1/2;
 		grid-row: 1/2;
 	}
-	#lgogo > div:nth-child(2) {
+
+	#lgogo>div:nth-child(2) {
 		grid-column: 2/3;
 		grid-row: 1/2;
 	}
-	#lgogo > div:nth-child(3) {
+
+	#lgogo>div:nth-child(3) {
 		grid-column: 1/2;
 		grid-row: 2/3;
 	}
-	#lgogo > div:nth-child(4) {
+
+	#lgogo>div:nth-child(4) {
 		grid-column: 2/3;
 		grid-row: 2/3;
 	}
-	#lgogo > div:nth-child(5) {
+
+	#lgogo>div:nth-child(5) {
 		grid-column: 1/2;
 		grid-row: 3/4;
 	}
-	#lgogo > div:nth-child(6) {
+
+	#lgogo>div:nth-child(6) {
 		grid-column: 2/3;
 		grid-row: 3/4;
 	}
-	#lgogo > div:nth-child(5) > img,
-	#lgogo > div:nth-child(6) > img {
+
+	#lgogo>div:nth-child(5)>img,
+	#lgogo>div:nth-child(6)>img {
 		height: 200px;
 	}
 
@@ -759,10 +827,12 @@ hr {
 		height: 120px;
 		font-size: 12px;
 	}
-	.logoHolder > div > img {
+
+	.logoHolder>div>img {
 		width: 90%;
 		height: auto;
 	}
+
 	.logoHolder {
 		height: 216px;
 	}
@@ -811,7 +881,7 @@ hr {
 	color: white;
 }
 
-#chambers > h1 {
+#chambers>h1 {
 	grid-column: 1 / -1;
 	text-align: center;
 	font-weight: 800;
@@ -827,11 +897,13 @@ hr {
 
 	font-size: 12px;
 }
-.chambers > .chip {
+
+.chambers>.chip {
 	padding: 0px;
 	border: none;
 }
-.chambers > .chip > img {
+
+.chambers>.chip>img {
 	width: 100%;
 	border-radius: 8px;
 	height: auto;

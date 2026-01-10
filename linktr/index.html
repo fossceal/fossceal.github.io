@@ -1,152 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>FOSS Club | Linktree</title>
-		<script
-			src="https://kit.fontawesome.com/cb7f83baaf.js"
-			crossorigin="anonymous"
-		></script>
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-				box-sizing: border-box;
-			}
+		<title>FOSS CEAL | Linktree</title>
+		<link id="h1n1" rel="stylesheet" href="/style.css" />
 
-			body {
-				background: #0f172a;
-				color: #fff;
-				font-family: "Segoe UI", sans-serif;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				min-height: 100vh;
-				padding: 1rem;
-			}
+		<link rel="stylesheet" href="/fonts/font.css">
 
-			.container {
-				max-width: 500px;
-				width: 100%;
-				text-align: center;
-			}
-
-			.logo {
-				width: 200px;
-				margin-bottom: 1rem;
-			}
-
-			h1 {
-				font-size: 2rem;
-				margin-bottom: 0.5rem;
-			}
-
-			.subtitle {
-				color: #94a3b8;
-				margin-bottom: 2rem;
-			}
-
-			.links {
-				display: flex;
-				flex-direction: column;
-				gap: 1rem;
-			}
-
-			.links a {
-				display: block;
-				background: #1e293b;
-				color: #fff;
-				text-decoration: none;
-				padding: 1rem;
-				border-radius: 12px;
-				transition: all 0.3s ease;
-			}
-
-			.links a:hover {
-				background: #334155;
-				transform: scale(1.03);
-			}
-
-			footer {
-				margin-top: 2rem;
-				color: #64748b;
-				font-size: 0.9rem;
-			}
-			.copyright {
-				text-align: center;
-				margin-top: 30px;
-				color: #aaa;
-				font-size: 14px;
-			}
-			.links i {
-				color: greenyellow;
-			}
-			.waterMark {
-				background: url("/IMG_20250806_125011.png") no-repeat center center;
-				width: 100vw;
-				height: 100vh;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				opacity: 0;
-				transition: 700ms;
-				pointer-events: none; /* Prevents blocking clicks */
-			}
-		</style>
+		<script src="https://kit.fontawesome.com/cb7f83baaf.js" crossorigin="anonymous"></script>
+		<script defer src="/dmode.js"></script>
 	</head>
-	<body>
-		<div class="container">
-			<img src="/Evantage_light_HZ.png" alt="FOSS Club Logo" class="logo" ondblclick="alert('who dare touch my tralala? \n - HGP')" />
-			<h1>FOSS CEAL</h1>
-			<p class="subtitle">Open Source • Community • Learning</p>
 
-			<div class="links">
-				<a href="https://foss.ceal.in/" target="_blank" class="off"
-					><i class="fas fa-globe"></i> Official Website</a
-				>
-				<a href="https://github.com/fossceal" target="_blank" class="git"
-					><i class="fab fa-github"></i> GitHub</a
-				>
-				<a
-					href="https://www.instagram.com/fossceal?igsh=OThmdWVlYnFtdndn"
-					target="_blank"
-					class="inst"
-					><i class="fab fa-instagram"></i> Instagram</a
-				>
-				<a href="https://discord.gg/N64AWcKFQN" target="_blank" class="discord"
-					><i class="fab fa-discord"></i> Join Discord</a
-				>
-				<a
-					href="https://whatsapp.com/channel/0029Vb7PEhoB4hdSCGvrQS3c"
-					target="_blank"
-					class="hack"
-					><i class="fab fa-whatsapp"></i> HACK 404
-				</a>
-				<a
-					href="https://www.linkedin.com/company/foss-ceal/?viewAsMember=true"
-					target="_blank"
-					class="linkedin"
-					><i class="fab fa-linkedin"></i> LinkedIn
-				</a>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			padding: 1rem;
+		}
+
+		.container {
+			max-width: 500px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.logo {
+			width: 200px;
+			margin-bottom: 1rem;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.subtitle {
+			color: #94a3b8;
+			margin-bottom: 2rem;
+		}
+
+		.links {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.links a {
+			display: block;
+			background: #38dd6a;
+			border: 1px solid currentColor;
+			color: #000;
+			text-decoration: none;
+			padding: 1rem;
+			border-radius: 12px;
+			transition: all 0.3s ease;
+			opacity: 0.8;
+		}
+
+		.links a:hover {
+			background: #ec75cb;
+			transform: scale(1.03);
+
+		}
+
+		footer {
+			margin-top: 2rem;
+			color: #64748b;
+			font-size: 0.9rem;
+		}
+
+		.copyright {
+			text-align: center;
+			margin-top: 30px;
+			color: #aaa;
+			font-size: 14px;
+		}
+
+		.links i {
+			color: rgb(255, 255, 255);
+		}
+	</style>
+</head>
+
+<body style="opacity: 0; transition: opacity 0.3s ease;">
+	<div class="container">
+		<img src="/Evantage_dark_HZ.png" alt="FOSS Club Logo" id="headerLogo" class="logo"
+			ondblclick="alert('who dare touch my tralala? \n - HGP')" />
+		<h1>FOSS CEAL</h1>
+		<p class="subtitle">Open Source • Community • Learning</p>
+
+		<div class="links">
+			<a href="https://foss.ceal.in/" target="_blank" class="off"><i class="fas fa-globe"></i> <strong>Official
+					Website</strong></a>
+			<a href="https://github.com/fossceal" target="_blank" class="git"><i class="fab fa-github"></i>
+				<strong>GitHub</strong></a>
+			<a href="https://www.instagram.com/fossceal?igsh=OThmdWVlYnFtdndn" target="_blank" class="inst"><i
+					class="fab fa-instagram"></i> <strong>Instagram</strong></a>
+			<a href="https://discord.gg/N64AWcKFQN" target="_blank" class="discord"><i class="fab fa-discord"></i>
+				<strong>Join Discord</strong></a>
+			<a href="https://whatsapp.com/channel/0029Vb7PEhoB4hdSCGvrQS3c" target="_blank" class="hack"><i
+					class="fab fa-whatsapp"></i> <strong>HACK 404</strong></a>
+			<a href="https://www.linkedin.com/company/foss-ceal/?viewAsMember=true" target="_blank" class="linkedin"><i
+					class="fab fa-linkedin"></i> <strong>LinkedIn</strong>
+			</a>
+		</div>
+
+		<footer>
+			<div class="copyright">
+				<p>
+					© Copyright
+					<strong>FOSS CEAL | TRAIN 303 <span id="yr"></span></strong>. All
+					Rights Reserved
+				</p>
 			</div>
-
-			<footer>
-				<div class="copyright">
-					<p>
-						© Copyright
-						<strong>FOSS CEAL | TRAIN 303 <span id="yr"></span></strong>. All
-						Rights Reserved
-					</p>
-				</div>
-				<script>
-					document.getElementById("yr").innerHTML = new Date().getFullYear();
-				</script>
-			</footer>
-			<div class="waterMark"></div>
-
 			<script>
+				document.getElementById("yr").innerHTML = new Date().getFullYear();
+			</script>
+		</footer>
+		<div class="waterMark"></div>
+
+		<!-- <script>
 				const styles = [
 					"color: white",
 
@@ -192,7 +177,8 @@
 				addWaterMarkHover(".whatsapp", "0.6");
 				addWaterMarkHover(".linkedin", "0.7");
 				addWaterMarkHover(".copyright", "0.7");
-			</script>
-		</div>
-	</body>
+			</script> -->
+	</div>
+</body>
+
 </html>

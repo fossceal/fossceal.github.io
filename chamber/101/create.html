@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create101 | FOSS</title>
+    <link rel="stylesheet" href="/fonts/font.css" />
+    <script defer src="/dmode.js"></script>
+    <link id="h1n1" rel="stylesheet" href="/style.css" />
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            text-align: center;
+        }
+
+        .about-logo {
+            width: clamp(120px, 40vw, 200px);
+            height: auto;
+        }
+
+        .about-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        #101Logo {
+            position: static;
+
+        }
+
+        .about-content {
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .about-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-desc {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            line-height: 1.75;
+            opacity: 0.85;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(20px, 6vw, 60px);
+            margin: 48px 0;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item {
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 800;
+            color: #ff0000;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.7;
+            margin-top: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .about-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .about-actions a,
+        .about-actions button {
+            width: 100%;
+            max-width: 260px;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 999px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+        }
+
+        .insta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
+        }
+
+
+        @media (min-width: 900px) {
+            .about-container {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                gap: 64px;
+                padding: 64px 48px;
+            }
+
+            .about-content {
+                max-width: 640px;
+            }
+
+            .about-actions {
+                justify-content: flex-start;
+            }
+
+            .about-logo {
+                transform: translateX(120px);
+                width: 300px;
+            }
+
+        }
+
+        @media (min-width: 1200px) {
+            .about-container {
+                padding: 80px 0;
+            }
+
+            .about-content {
+                max-width: 720px;
+            }
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .about-content {
+                max-width: 92%;
+            }
+
+
+            .about-actions {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .about-actions a,
+            .about-actions button {
+                width: auto;
+            }
+
+            .about-desc {
+                font-size: 0.95rem;
+
+            }
+
+            .about-title {
+                margin-bottom: 16px;
+            }
+
+            .stats-container {
+                border-top: none;
+            }
+
+            .stats-container {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 24px;
+                margin: 32px 0;
+                padding: 24px 0;
+                text-align: center;
+                justify-content: space-between;
+            }
+
+            .stat-item {
+                min-width: auto;
+                flex: 1;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .about-actions {
+                margin-top: 16px;
+            }
+
+            .insta-btn {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+            }
+
+            .about-logo {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body style="
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+			justify-content: space-between;
+			min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Open Sans', sans-serif; /* fallback */
+            opacity: 0; 
+            transition: opacity 0.3s ease;
+		">
+    <div class="headder">
+        <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'"
+            style="cursor: pointer" />
+        <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
+    </div>
+
+    <div style="height: 40px; width: 100%"></div>
+
+    <div class="about-container">
+
+        <div class="about-content">
+            <div class="about-section">
+                <h1 class="about-title">What is Create 101?</h1>
+                <p class="about-desc">
+                    Create 101 is a chamber built for beginners who want to explore design and creation without
+                    pressure.
+                    We believe learning happens best by doing—so our sessions focus on hands-on challenges, design
+                    logic, and
+                    real-world tools like Figma. From understanding visual fundamentals to thinking like a designer,
+                    Create 101
+                    helps members grow from curious beginners into confident creators. </p>
+
+                <!-- Counters -->
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="50">0</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3000">0</span>
+                        <span class="stat-label">Creations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Events</span>
+                    </div>
+                </div>
+
+                <!-- Instagram Button -->
+                <a href="https://www.instagram.com/chambers_fossceal" target="_blank" class="insta-btn">
+                    <span>Check Out Our Instagram</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="about-logo">
+            <img src="/chamber/101/101_clr_dark.png" alt="Create 101 Logo" id="101Logo">
+        </div>
+
+    </div>
+
+    <div style="height: 60px; width: 100%"></div>
+
+    <script>
+        const cards = document.querySelectorAll('.case-card');
+        let active = 2;
+
+        function update() {
+            cards.forEach((c, i) => {
+                c.className = 'case-card';
+                const d = i - active;
+                if (d === 0) c.classList.add('center');
+                else if (d === -1) c.classList.add('left-1');
+                else if (d === 1) c.classList.add('right-1');
+                else if (d === -2) c.classList.add('left-2');
+                else if (d === 2) c.classList.add('right-2');
+                else c.classList.add('hidden');
+            });
+        }
+
+        function setActive(i) {
+            active = i;
+            update();
+        }
+
+        update();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.stat-number');
+            const duration = 2000; // 2 seconds animation
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const startTime = performance.now();
+
+                const updateCount = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Ease out quart
+                    const ease = 1 - Math.pow(1 - progress, 4);
+
+                    const current = Math.floor(ease * target);
+                    counter.innerText = current;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+
+                requestAnimationFrame(updateCount);
+            };
+
+            counters.forEach(animateCounter);
+        });
+    </script>
+</body>
+
+</html>

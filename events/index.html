@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site is Under Construction</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events | FOSS</title>
+    <link rel="stylesheet" href="/fonts/font.css" />
+    <script defer src="/dmode.js"></script>
+    <script defer src="events.js"></script>
+    <link rel="stylesheet" href="events.css">
+
+    <link id="h1n1" rel="stylesheet" href="/style.css" />
 </head>
 <style>
-    .box{
-        background: #f9fbf8;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        display: flex;
-        flex-direction: column;
-        height: 70vh;
-        width: 60vw;
-        border-radius: 24px;
-        justify-content: center;
-        border: 2px solid #ffffff;
-        align-items: center;
+    .cOntents {
+        width: 70vw;
     }
-    body{
-        background: #dadada;
-    }
-    h4{
-        font-size: 1rem;
-        color: #000;
-    }
-    @media screen and (max-width:800px) {
-        .box{
-            width: 80vw;
+
+
+    @media screen and (max-width: 800px) {
+        .cOntents {
+            width: 90vw;
         }
 
+        .cOntents {
+            border-radius: 8px;
+        }
     }
 </style>
-<body>
-        <div class="box">
-            <h4>the Site is still under Construction</h4>
-            <img src="https://media1.tenor.com/m/XPRG-4ujVMIAAAAd/cat-work-in-progress.gif" style="width: 240px;height:auto;">
-            <h6><i>He's trying so hard</i></h6>
 
-            <a href="/" style="text-decoration: underline;color: #000;"><h4><- go home</h4></a>
-        </div>
+<body style="
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+			justify-content: space-between;
+			height: unset;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+		">
+    <div class="headder">
+        <img src="/arrBWD_black.png" id="back" onclick="location.href='/'" style="cursor: pointer" />
+        <img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
+    </div>
+    <div style="height: 150px; width: 100%"></div>
+    <div class="nav-buttons">
+        <button class="all-events active">ALL</button>
+        <button class="upcoming-events">UPCOMING</button>
+        <button class="past-events">PAST</button>
+    </div>
+
+    <section id="card-container" class="poster-grid"></section>
+    <div style="height: 45px; width: 100%"></div>
+
 
 </body>
+
 </html>
