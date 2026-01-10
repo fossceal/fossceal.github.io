@@ -305,12 +305,12 @@
     <div style="height: 60px; width: 100%"></div>
 
     <script>
-        const cards = document.querySelectorAll('.fan-card');
+        const cards = document.querySelectorAll('.case-card');
         let active = 2;
 
         function update() {
             cards.forEach((c, i) => {
-                c.className = 'fan-card';
+                c.className = 'case-card';
                 const d = i - active;
                 if (d === 0) c.classList.add('center');
                 else if (d === -1) c.classList.add('left-1');
