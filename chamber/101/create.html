@@ -208,16 +208,19 @@
             }
 
             .stats-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px 12px;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 24px;
                 margin: 32px 0;
                 padding: 24px 0;
                 text-align: center;
+                justify-content: space-between;
             }
 
             .stat-item {
                 min-width: auto;
+                flex: 1;
             }
 
             .stat-number {
