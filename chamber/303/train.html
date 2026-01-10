@@ -66,10 +66,7 @@
         .stats-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: clamp(20px, 6vw, 60px);
-            margin: 48px 0;
-            padding: 32px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
@@ -108,7 +105,6 @@
                 align-items: center;
                 text-align: left;
                 gap: 64px;
-                padding: 64px 48px;
             }
 
             .about-content {
@@ -123,6 +119,7 @@
             .stats-container {
                 display: flex;
                 gap: 48px;
+                padding-top: 20px;
             }
 
             .stat-item:last-child {
@@ -184,19 +181,150 @@
                 font-size: 2.2rem;
             }
 
-            .insta-btn {
-                padding: 14px 28px;
-                font-size: 0.95rem;
-            }
-
             .about-logo {
                 width: 120px;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 20px;
+            }
+
+            .about-container {
+                margin-top: 110px;
+            }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .project-tile {
+            position: relative;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-tile:hover {
+            transform: translateY(-5px);
+        }
+
+        .tile-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: all 0.4s ease;
+            transform: translateY(10px);
+            box-sizing: border-box;
+        }
+
+        .project-tile:hover .tile-overlay {
+            opacity: 1;
+            transform: translateY(0);
+            background: linear-gradient(to top, rgba(0, 204, 255, 0.9), rgba(0, 204, 255, 0.2));
+        }
+
+        .tile-overlay h3 {
+            margin: 0 0 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .tile-overlay p {
+            margin: 0;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.2s;
+        }
+
+        .project-tile:hover .tile-overlay h3,
+        .project-tile:hover .tile-overlay p {
+            transform: translateY(0);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.3s;
+        }
+
+        .project-btn {
+            padding: 8px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 99px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+
+        .project-btn:hover {
+            background: white;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        .project-tile:hover .project-links {
+            transform: translateY(0);
+        }
+
+        .see-more-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 80px;
+        }
+
+        .see-more-btn {
+            padding: 16px 48px;
+            border: 2px solid #00ccff;
+            border-radius: 99px;
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .see-more-btn:hover {
+            background: #00ccff;
+            color: black;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.4);
+            transform: translateY(-2px);
         }
     </style>
 </head>
 
-<body>
+<body style="opacity: 0; transition: opacity 0.3s ease;">
 
     <div class="headder">
         <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'" style="cursor:pointer">
@@ -211,9 +339,10 @@
             <h1 class="about-title">What is Train 303?</h1>
 
             <p class="about-desc">
-                Train 303 is a skill refinement chamber focused on Full Stack Development
-                and AI workflows. Members train through structured builds and real-world
-                systems.
+                Train 303 is an intensive skill refinement chamber dedicated to Full Stack Development and the evolving
+                landscape of AI. We focus on advanced coding practices, prompt engineering, and the implementation of
+                machine learning in real-world projects. Members undergo rigorous training through structured builds,
+                mastering the tools and workflows necessary to build the next generation of intelligent systems.
             </p>
 
             <div class="stats-container">
@@ -236,6 +365,43 @@
             <img src="/chamber/303/303_clr_dark.png" id="303Logo">
         </div>
 
+    </div>
+    <h1 style="text-align: center; font-size: 2.5rem; font-weight: 900;">Projects</h1>
+    <div class="projects-grid">
+        <div class="project-tile" style="background-image: url('/chamber/303/projetcs-placeholder/placeholder.jpg')">
+            <div class="tile-overlay">
+                <h3>IEEE SB CEAL Website</h3>
+                <p>Full Stack Website</p>
+                <div class="project-links">
+                    <a href="https://ieee.ceal.in/" class="project-btn">View Site</a>
+                    <a href="#" class="project-btn">View Repo</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-tile" style="background-image: url('/chamber/303/projetcs-placeholder/placeholder.jpg')">
+            <div class="tile-overlay">
+                <h3>IEDC CEAL Website</h3>
+                <p>Full Stack Website</p>
+                <div class="project-links">
+                    <a href="https://iedc.ceal.in/" class="project-btn">View Site</a>
+                    <a href="#" class="project-btn">View Repo</a>
+                </div>
+            </div>
+        </div>
+        <div class="project-tile" style="background-image: url('/chamber/303/projetcs-placeholder/placeholder.jpg')">
+            <div class="tile-overlay">
+                <h3>TinkerHub CEAL Website</h3>
+                <p>Full Stack Website</p>
+                <div class="project-links">
+                    <a href="/other/index.html" class="project-btn">View Site</a>
+                    <a href="#" class="project-btn">View Repo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="see-more-container">
+        <a href="https://github.com/orgs/fossceal/repositories" class="see-more-btn">See More Projects</a>
     </div>
 
     <script>

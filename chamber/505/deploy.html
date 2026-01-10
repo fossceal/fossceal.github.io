@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deploy505 | FOSS</title>
-
-    <link rel="stylesheet" href="/fonts/font.css" />
-    <link id="h1n1" rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/fonts/font.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style_dark.css">
     <script defer src="/dmode.js"></script>
 
     <style>
@@ -80,7 +80,6 @@
         .stats-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: clamp(20px, 6vw, 60px);
             margin: 48px 0;
             padding: 32px 0;
@@ -104,27 +103,6 @@
             opacity: 0.7;
             margin-top: 12px;
             letter-spacing: 0.5px;
-        }
-
-        .insta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 36px;
-            border-radius: 999px;
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
-        }
-
-        .insta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(220, 39, 67, 0.6);
         }
 
         @media (min-width: 900px) {
@@ -193,11 +171,6 @@
                 font-size: 2.2rem;
             }
 
-            .insta-btn {
-                padding: 14px 28px;
-                font-size: 0.95rem;
-            }
-
             .about-logo {
                 width: 120px;
             }
@@ -205,17 +178,8 @@
     </style>
 </head>
 
-<body style="
-			display: flex;
-			flex-direction: column;
-			align-content: center;
-			align-items: center;
-			justify-content: space-between;
-			min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
-            font-family: 'Open Sans', sans-serif; /* fallback */
-		">
+<body style="opacity: 0; transition: opacity 0.3s ease;">
+
     <div class="headder">
         <img src="/arrBWD_black.png" id="back" onclick="location.href='/chamber/chambers.html'"
             style="cursor: pointer" />
@@ -248,10 +212,6 @@
                     <div class="stat-label">Hours In Clouds</div>
                 </div>
             </div>
-
-            <a href="https://www.instagram.com/chambers_fossceal" target="_blank" class="insta-btn">
-                <span>Check Out Our Instagram</span>
-            </a>
         </div>
 
         <div class="about-logo">
