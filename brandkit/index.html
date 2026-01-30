@@ -1,476 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>brandKit | FOSS</title>
-		<link rel="stylesheet" href="/fonts/font.css" />
-		<script defer src="/dmode.js"></script>
 
-		<link id="h1n1" rel="stylesheet" href="/style.css" />
-	</head>
-	<style>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>brandKit | FOSS</title>
+	<link rel="stylesheet" href="/fonts/font.css" />
+	<script defer src="/dmode.js"></script>
 
-        .cOntents{
-            width: 70vw;
-        }
+	<link id="h1n1" rel="stylesheet" href="/style.css" />
+</head>
+<style>
+	.cOntents {
+		width: 70vw;
+	}
 
 
-		@media screen and (max-width: 800px) {
-            .cOntents{
-            width: 90vw;
-        }
-			
-			.cOntents {
-				border-radius: 8px;
-			}
+	@media screen and (max-width: 800px) {
+		.cOntents {
+			width: 90vw;
 		}
-	</style>
-	<body
-		style="
+
+		.cOntents {
+			border-radius: 8px;
+		}
+	}
+</style>
+
+<body style="
 			display: flex;
 			flex-direction: column;
 			align-content: center;
 			align-items: center;
 			justify-content: space-between;
 			height: unset;
-		"
-	>
-		<div class="headder">
-			<img
-				src="/arrBWD_black.png"
-				id="back"
-				onclick="location.href='/'"
-				style="cursor: pointer"
-			/>
-			<img src="/Evantage_dark_HZ.png" id="headerLogo" 			onclick="location.href='/'"/>
-		</div>
-		<div style="height: 150px; width: 100%"></div>
-		<!-- CREATE101 --RED
+		">
+	<div class="headder">
+		<img src="/arrBWD_black.png" id="back" onclick="location.href='/'" style="cursor: pointer" />
+		<img src="/Evantage_dark_HZ.png" id="headerLogo" onclick="location.href='/'" />
+	</div>
+	<div style="height: 150px; width: 100%"></div>
+	<!-- CREATE101 --RED
             EMBED202 --YELLOW
             TRAIN303 --BEETLEBLUE
             HACK404 --ACIDGREEN
             DEPLOY505 --BURPLEPLUM
 
         -->
-		<div class="cOntents">
-			<h3>FOSS</h3>
-			<p>Logos</p>
-			<div class="logoHolder">
-				<div>
-					<img src="/chamber/FOSS/Evantage_dark_HZ.png" />
-				</div>
-				<div>
-					<img src="/chamber/FOSS/Evantage_light_HZ.png" />
-				</div>
+	<div class="cOntents">
+		<h3>FOSS</h3>
+		<p>Logos</p>
+		<div class="logoHolder">
+			<div>
+				<img src="/chamber/FOSS/Evantage_dark_HZ.png" />
+			</div>
+			<div>
+				<img src="/chamber/FOSS/Evantage_light_HZ.png" />
+			</div>
 
-				<div>
-					<img src="/chamber/FOSS/Evantage_dark_HZ_STAMP.png" />
-				</div>
-				<div>
-					<img src="/chamber/FOSS/Evantage_light_HZ_STAMP.png" />
-				</div>
+			<div>
+				<img src="/chamber/FOSS/Evantage_dark_HZ_STAMP.png" />
 			</div>
-			<p>DOCS</p>
-			<div class="chipsPlus">
-				<div class="chip" onclick="openPDF(101)">
-					<img src="/chamber/101/create.png" />
-				</div>
-				<div class="chip" onclick="openPDF(202)">
-					<img src="/chamber/202/embed.png" />
-				</div>
-				<div class="chip" onclick="openPDF(303)">
-					<img src="/chamber/303/train.png" />
-				</div>
-				<div class="chip" onclick="openPDF(404)">
-					<img src="/chamber/404/hack.png" />
-				</div>
-				<div class="chip" onclick="openPDF(505)">
-					<img src="/chamber/505/deploy.png" />
-				</div>
+			<div>
+				<img src="/chamber/FOSS/Evantage_light_HZ_STAMP.png" />
 			</div>
-			<hr />
-			<h3>CREATE101</h3>
-			<p>Logos</p>
-			<div class="logoHolder">
-				<div>
-					<img src="/chamber/101/101_clr_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/101/101_clr_light.png" />
-				</div>
+		</div>
+		<p>DOCS</p>
+		<div class="chipsPlus">
+			<div class="chip" onclick="openPDF(101)">
+				<img src="/chamber/101/create.png" />
+			</div>
+			<div class="chip" onclick="openPDF(202)">
+				<img src="/chamber/202/embed.png" />
+			</div>
+			<div class="chip" onclick="openPDF(303)">
+				<img src="/chamber/303/train.png" />
+			</div>
+			<div class="chip" onclick="openPDF(404)">
+				<img src="/chamber/404/hack.png" />
+			</div>
+			<div class="chip" onclick="openPDF(505)">
+				<img src="/chamber/505/deploy.png" />
+			</div>
+		</div>
+		<hr />
+		<h3>CREATE101</h3>
+		<p>Logos</p>
+		<div class="logoHolder">
+			<div>
+				<img src="/chamber/101/101_clr_dark.png" />
+			</div>
+			<div>
+				<img src="/chamber/101/101_clr_light.png" />
+			</div>
 
-				<div>
-					<img src="/chamber/101/101_stamp_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/101/101_stamp_light.png" />
-				</div>
+			<div>
+				<img src="/chamber/101/101_stamp_dark.png" />
 			</div>
-			<p>Colours</p>
-			<div class="chips">
-				<div
-					class="chip"
-					style="
+			<div>
+				<img src="/chamber/101/101_stamp_light.png" />
+			</div>
+		</div>
+		<p>Colours</p>
+		<div class="chips">
+			<div class="chip" style="
 						background: var(--RED);
 						border-radius: 8px;
 						color: var(--BLACK);
-					"
-					ondblclick="copytoc('RED')"
-				>
-					<p>RED</p>
-					<p>#ff0000</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('RED')">
+				<p>RED</p>
+				<p>#ff0000</p>
+			</div>
+			<div class="chip" style="
 						background: var(--BLACK);
 						border-radius: 8px;
 						color: var(--WHITE);
-					"
-					ondblclick="copytoc('BLACK')"
-				>
-					<p>BLACK</p>
-					<p>#000000</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BLACK')">
+				<p>BLACK</p>
+				<p>#000000</p>
+			</div>
+			<div class="chip" style="
 						background: var(--39grey);
 						border-radius: 8px;
 						color: var(--RED);
-					"
-					ondblclick="copytoc('GREY39')"
-				>
-					<p>39 GREY</p>
-					<p>#393939</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('GREY39')">
+				<p>39 GREY</p>
+				<p>#393939</p>
+			</div>
+			<div class="chip" style="
 						background: var(--WHITE);
 						border-radius: 8px;
 						color: var(--39grey);
-					"
-					ondblclick="copytoc('WHITE')"
-				>
-					<p>WHITE</p>
-					<p>#ffffff</p>
-				</div>
+					" ondblclick="copytoc('WHITE')">
+				<p>WHITE</p>
+				<p>#ffffff</p>
+			</div>
+		</div>
+
+		<hr />
+		<h3>EMBED202</h3>
+		<p>Logos</p>
+		<div class="logoHolder">
+			<div>
+				<img src="/chamber/202/202_clr_dark.png" />
+			</div>
+			<div>
+				<img src="/chamber/202/202_clr_light.png" />
 			</div>
 
-			<hr />
-			<h3>EMBED202</h3>
-			<p>Logos</p>
-			<div class="logoHolder">
-				<div>
-					<img src="/chamber/202/202_clr_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/202/202_clr_light.png" />
-				</div>
-
-				<div>
-					<img src="/chamber/202/202_stamp_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/202/202_stamp_light.png" />
-				</div>
+			<div>
+				<img src="/chamber/202/202_stamp_dark.png" />
 			</div>
-			<p>Colours</p>
-			<div class="chips">
-				<div
-					class="chip"
-					style="
+			<div>
+				<img src="/chamber/202/202_stamp_light.png" />
+			</div>
+		</div>
+		<p>Colours</p>
+		<div class="chips">
+			<div class="chip" style="
 						background: var(--YELLOW);
 						border-radius: 8px;
 						color: var(--BLACK);
-					"
-					ondblclick="copytoc('YELLOW')"
-				>
-					<p>YELLOW</p>
-					<p>#ffe700</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('YELLOW')">
+				<p>YELLOW</p>
+				<p>#ffe700</p>
+			</div>
+			<div class="chip" style="
 						background: var(--BLACK);
 						border-radius: 8px;
 						color: var(--WHITE);
-					"
-					ondblclick="copytoc('BLACK')"
-				>
-					<p>BLACK</p>
-					<p>#000000</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BLACK')">
+				<p>BLACK</p>
+				<p>#000000</p>
+			</div>
+			<div class="chip" style="
 						background: var(--39grey);
 						border-radius: 8px;
 						color: var(--YELLOW);
-					"
-					ondblclick="copytoc('GREY39')"
-				>
-					<p>39 GREY</p>
-					<p>#393939</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('GREY39')">
+				<p>39 GREY</p>
+				<p>#393939</p>
+			</div>
+			<div class="chip" style="
 						background: var(--WHITE);
 						border-radius: 8px;
 						color: var(--39grey);
-					"
-					ondblclick="copytoc('WHITE')"
-				>
-					<p>WHITE</p>
-					<p>#ffffff</p>
-				</div>
+					" ondblclick="copytoc('WHITE')">
+				<p>WHITE</p>
+				<p>#ffffff</p>
+			</div>
+		</div>
+
+		<hr />
+		<h3>TRAIN303</h3>
+		<p>Logos</p>
+		<div class="logoHolder">
+			<div>
+				<img src="/chamber/303/303_clr_dark.png" />
+			</div>
+			<div>
+				<img src="/chamber/303/303_clr_light.png" />
 			</div>
 
-			<hr />
-			<h3>TRAIN303</h3>
-			<p>Logos</p>
-			<div class="logoHolder">
-				<div>
-					<img src="/chamber/303/303_clr_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/303/303_clr_light.png" />
-				</div>
-
-				<div>
-					<img src="/chamber/303/303_stamp_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/303/303_stamp_light.png" />
-				</div>
+			<div>
+				<img src="/chamber/303/303_stamp_dark.png" />
 			</div>
-			<p>Colours</p>
-			<div class="chips">
-				<div
-					class="chip"
-					style="
+			<div>
+				<img src="/chamber/303/303_stamp_light.png" />
+			</div>
+		</div>
+		<p>Colours</p>
+		<div class="chips">
+			<div class="chip" style="
 						background: var(--BEETLEBLUE);
 						border-radius: 8px;
 						color: var(--BLACK);
-					"
-					ondblclick="copytoc('BEETLEBLUE')"
-				>
-					<p>BEETLE BLUE</p>
-					<p>#ffe700</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BEETLEBLUE')">
+				<p>BEETLE BLUE</p>
+				<p>#84C0D2</p>
+			</div>
+			<div class="chip" style="
 						background: var(--BLACK);
 						border-radius: 8px;
 						color: var(--WHITE);
-					"
-					ondblclick="copytoc('BLACK')"
-				>
-					<p>BLACK</p>
-					<p>#000000</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BLACK')">
+				<p>BLACK</p>
+				<p>#000000</p>
+			</div>
+			<div class="chip" style="
 						background: var(--39grey);
 						border-radius: 8px;
 						color: var(--BEETLEBLUE);
-					"
-					ondblclick="copytoc('GREY39')"
-				>
-					<p>39 GREY</p>
-					<p>#393939</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('GREY39')">
+				<p>39 GREY</p>
+				<p>#393939</p>
+			</div>
+			<div class="chip" style="
 						background: var(--WHITE);
 						border-radius: 8px;
 						color: var(--39grey);
-					"
-					ondblclick="copytoc('WHITE')"
-				>
-					<p>WHITE</p>
-					<p>#ffffff</p>
-				</div>
+					" ondblclick="copytoc('WHITE')">
+				<p>WHITE</p>
+				<p>#ffffff</p>
 			</div>
-			<hr />
-			<h3>HACK404</h3>
-			<p>Logos</p>
-			<div class="logoHolder">
-				<div>
-					<img src="/chamber/404/404_clr_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/404/404_clr_light.png" />
-				</div>
+		</div>
+		<hr />
+		<h3>HACK404</h3>
+		<p>Logos</p>
+		<div class="logoHolder">
+			<div>
+				<img src="/chamber/404/404_clr_dark.png" />
+			</div>
+			<div>
+				<img src="/chamber/404/404_clr_light.png" />
+			</div>
 
-				<div>
-					<img src="/chamber/404/404_stamp_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/404/404_stamp_light.png" />
-				</div>
+			<div>
+				<img src="/chamber/404/404_stamp_dark.png" />
 			</div>
-			<p>Colours</p>
-			<div class="chips">
-				<div
-					class="chip"
-					style="
+			<div>
+				<img src="/chamber/404/404_stamp_light.png" />
+			</div>
+		</div>
+		<p>Colours</p>
+		<div class="chips">
+			<div class="chip" style="
 						background: var(--ACIDGREEN);
 						border-radius: 8px;
 						color: var(--BLACK);
-					"
-					ondblclick="copytoc('ACIDGREEN')"
-				>
-					<p>ACID GREEN</p>
-					<p>#ffe700</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('ACIDGREEN')">
+				<p>ACID GREEN</p>
+				<p>#ffe70</p>
+			</div>
+			<div class="chip" style="
 						background: var(--BLACK);
 						border-radius: 8px;
 						color: var(--WHITE);
-					"
-					ondblclick="copytoc('BLACK')"
-				>
-					<p>BLACK</p>
-					<p>#000000</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BLACK')">
+				<p>BLACK</p>
+				<p>#000000</p>
+			</div>
+			<div class="chip" style="
 						background: var(--39grey);
 						border-radius: 8px;
 						color: var(--ACIDGREEN);
-					"
-					ondblclick="copytoc('GREY39')"
-				>
-					<p>39 GREY</p>
-					<p>#393939</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('GREY39')">
+				<p>39 GREY</p>
+				<p>#393939</p>
+			</div>
+			<div class="chip" style="
 						background: var(--WHITE);
 						border-radius: 8px;
 						color: var(--39grey);
-					"
-					ondblclick="copytoc('WHITE')"
-				>
-					<p>WHITE</p>
-					<p>#ffffff</p>
-				</div>
+					" ondblclick="copytoc('WHITE')">
+				<p>WHITE</p>
+				<p>#ffffff</p>
 			</div>
-			<hr />
-			<h3>DEPLOY505</h3>
-			<p>Logos</p>
-			<div class="logoHolder">
-				<div>
-					<img src="/chamber/505/505_clr_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/505/505_clr_light.png" />
-				</div>
+		</div>
+		<hr />
+		<h3>DEPLOY505</h3>
+		<p>Logos</p>
+		<div class="logoHolder">
+			<div>
+				<img src="/chamber/505/505_clr_dark.png" />
+			</div>
+			<div>
+				<img src="/chamber/505/505_clr_light.png" />
+			</div>
 
-				<div>
-					<img src="/chamber/505/505_stamp_dark.png" />
-				</div>
-				<div>
-					<img src="/chamber/505/505_stamp_light.png" />
-				</div>
+			<div>
+				<img src="/chamber/505/505_stamp_dark.png" />
 			</div>
-			<p>Colours</p>
-			<div class="chips">
-				<div
-					class="chip"
-					style="
+			<div>
+				<img src="/chamber/505/505_stamp_light.png" />
+			</div>
+		</div>
+		<p>Colours</p>
+		<div class="chips">
+			<div class="chip" style="
 						background: var(--BURPLEPLUM);
 						border-radius: 8px;
 						color: var(--BLACK);
-					"
-					ondblclick="copytoc('BURPLEPLUM')"
-				>
-					<p>BURPLE PLUM</p>
-					<p>#ffe700</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BURPLEPLUM')">
+				<p>BURPLE PLUM</p>
+				<p>#9C51B6</p>
+			</div>
+			<div class="chip" style="
 						background: var(--BLACK);
 						border-radius: 8px;
 						color: var(--WHITE);
-					"
-					ondblclick="copytoc('BLACK')"
-				>
-					<p>BLACK</p>
-					<p>#000000</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('BLACK')">
+				<p>BLACK</p>
+				<p>#000000</p>
+			</div>
+			<div class="chip" style="
 						background: var(--39grey);
 						border-radius: 8px;
 						color: var(--BURPLEPLUM);
-					"
-					ondblclick="copytoc('GREY39')"
-				>
-					<p>39 GREY</p>
-					<p>#393939</p>
-				</div>
-				<div
-					class="chip"
-					style="
+					" ondblclick="copytoc('GREY39')">
+				<p>39 GREY</p>
+				<p>#393939</p>
+			</div>
+			<div class="chip" style="
 						background: var(--WHITE);
 						border-radius: 8px;
 						color: var(--39grey);
-					"
-					ondblclick="copytoc('WHITE')"
-				>
-					<p>WHITE</p>
-					<p>#ffffff</p>
-				</div>
+					" ondblclick="copytoc('WHITE')">
+				<p>WHITE</p>
+				<p>#ffffff</p>
 			</div>
-			<div style="height: 45px; width: 100%"></div>
 		</div>
-
 		<div style="height: 45px; width: 100%"></div>
+	</div>
 
-		<script>
-			var colors = {
-				RED: "#ff0000",
-				BLACK: "#000000",
-				GREY39: "#393939",
-				WHITE: "#ffffff",
-				YELLOW: "#ffe700",
-				BEETLEBLUE: "#008bff",
-				ACIDGREEN: "#00df08",
-				BURPLEPLUM: "#960f70",
-			};
+	<div style="height: 45px; width: 100%"></div>
 
-			function copytoc(clr) {
-				var colorValue = colors[clr.toUpperCase()];
-				if (colorValue) {
-					var tempInput = document.createElement("input");
-					tempInput.value = colorValue;
-					document.body.appendChild(tempInput);
-					tempInput.select();
-					document.execCommand("copy");
-					document.body.removeChild(tempInput);
-					alert("Copied " + colorValue + " to clipboard");
-				} else {
-					alert("Color not found");
-				}
+	<script>
+		var colors = {
+			RED: "#ff0000",
+			BLACK: "#000000",
+			GREY39: "#393939",
+			WHITE: "#ffffff",
+			YELLOW: "#ffe700",
+			BEETLEBLUE: "#008bff",
+			ACIDGREEN: "#00df08",
+			BURPLEPLUM: "#960f70",
+		};
+
+		function copytoc(clr) {
+			var colorValue = colors[clr.toUpperCase()];
+			if (colorValue) {
+				var tempInput = document.createElement("input");
+				tempInput.value = colorValue;
+				document.body.appendChild(tempInput);
+				tempInput.select();
+				document.execCommand("copy");
+				document.body.removeChild(tempInput);
+				alert("Copied " + colorValue + " to clipboard");
+			} else {
+				alert("Color not found");
 			}
+		}
 
-            function openPDF(id){
-                window.open("/chamber/"+id+"/brand-guidelines.pdf")
-            }
-		</script>
-	</body>
+		function openPDF(id) {
+			window.open("/chamber/" + id + "/brand-guidelines.pdf")
+		}
+	</script>
+</body>
+
 </html>
