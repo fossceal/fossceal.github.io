@@ -1,4 +1,3 @@
-/* ── Variables ────────────────────────────────────────────────────── */
 :root {
 	--bg-dark: #0b0b0b;
 	--card-dark: #141414;
@@ -7,16 +6,13 @@
 	--gap: 24px;
 	--radius: 12px;
 	--transition: 0.28s ease;
-	--title-font:
-		"Arial", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-		sans-serif;
+	--title-font: "Arial", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
 
 ::-webkit-scrollbar {
 	display: none;
 }
 
-/* ── Reset ────────────────────────────────────────────────────────── */
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -34,12 +30,10 @@ body {
 	padding: 32px 16px 80px;
 }
 
-/* Prevent scroll when modal is open */
 body.modal-open {
 	overflow: hidden;
 }
 
-/* ── Header ───────────────────────────────────────────────────────── */
 .site-header {
 	width: 100%;
 	max-width: 1200px;
@@ -68,7 +62,6 @@ body.modal-open {
 	opacity: 1;
 }
 
-/* ── Page title ───────────────────────────────────────────────────── */
 .page-title {
 	text-align: center;
 	font-size: 2rem;
@@ -77,7 +70,6 @@ body.modal-open {
 	color: orange;
 }
 
-/* ── Filter buttons ───────────────────────────────────────────────── */
 .nav-buttons {
 	display: flex;
 	gap: 12px;
@@ -117,7 +109,6 @@ body.modal-open {
 	opacity: 1;
 }
 
-/* ── Card container ───────────────────────────────────────────────── */
 #card-container {
 	width: min(1200px, 96%);
 	margin: 0 auto;
@@ -132,7 +123,6 @@ body.modal-open {
 	opacity: 0;
 }
 
-/* ── Card ─────────────────────────────────────────────────────────── */
 .card {
 	position: relative;
 	border-radius: var(--radius);
@@ -149,7 +139,6 @@ body.modal-open {
 	cursor: default;
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 
-	/* reveal start state */
 	opacity: 0;
 	transform: translateY(18px) scale(0.995);
 }
@@ -159,12 +148,10 @@ body.modal-open {
 	transform: translateY(0) scale(1);
 }
 
-/* has sub-events → pointer */
 .card.has-sub-events {
 	cursor: pointer;
 }
 
-/* diagonal sheen */
 .card::before {
 	content: "";
 	position: absolute;
@@ -186,7 +173,6 @@ body.modal-open {
 	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* ── Date decorations ─────────────────────────────────────────────── */
 .vertical-month {
 	position: absolute;
 	left: 18px;
@@ -226,7 +212,6 @@ body.modal-open {
 	margin-top: 4px;
 }
 
-/* ── Card body ────────────────────────────────────────────────────── */
 .card-body {
 	z-index: 2;
 	width: 100%;
@@ -253,7 +238,6 @@ body.modal-open {
 	overflow: hidden;
 }
 
-/* ── Clubs chips ──────────────────────────────────────────────────── */
 .event-clubs {
 	display: flex;
 	flex-wrap: wrap;
@@ -289,7 +273,6 @@ body.modal-open {
 	color: #222;
 }
 
-/* ── Sub-events badge (top-right corner) ─────────────────────────── */
 .sub-events-badge {
 	position: absolute;
 	top: 14px;
@@ -315,7 +298,6 @@ body.modal-open {
 	background: rgba(0, 0, 0, 0.5);
 }
 
-/* ── "Click to view" hint at card bottom ─────────────────────────── */
 .sub-events-hint {
 	display: flex;
 	align-items: center;
@@ -337,7 +319,6 @@ body.modal-open {
 	transform: translateY(0);
 }
 
-/* ── Palette fallbacks ────────────────────────────────────────────── */
 .card.palette-0 {
 	background: #1abc9c;
 }
@@ -363,7 +344,6 @@ body.modal-open {
 	background: #7f8c8d;
 }
 
-/* ── Modal overlay ────────────────────────────────────────────────── */
 #sub-events-modal {
 	position: fixed;
 	inset: 0;
@@ -373,14 +353,12 @@ body.modal-open {
 	justify-content: center;
 	padding: 24px 16px;
 
-	/* Frosted-glass backdrop set statically to avoid recalculation lag */
 	background: rgba(0, 0, 0, 0.58);
 	backdrop-filter: blur(16px) saturate(150%);
 	-webkit-backdrop-filter: blur(16px) saturate(150%);
 
 	opacity: 0;
 	pointer-events: none;
-	/* Just animate opacity */
 	transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 	will-change: opacity;
 	transition-delay: 0.3s;
@@ -392,13 +370,11 @@ body.modal-open {
 	transform: ease-in-out;
 }
 
-/* Closing: overlay fades back out */
 #sub-events-modal.closing {
 	opacity: 0;
 	pointer-events: none;
 }
 
-/* ── Modal sheet (inner panel) ────────────────────────────────────── */
 .modal-sheet {
 	position: relative;
 	width: min(960px, 100%);
@@ -411,7 +387,6 @@ body.modal-open {
 	flex-direction: column;
 	box-shadow: none;
 
-	/* Open: starts small + blurred, springs into place */
 	opacity: 0;
 	transform: translateY(40px) scale(0.93);
 	transition:
@@ -425,7 +400,6 @@ body.modal-open {
 	transform: translateY(0) scale(1);
 }
 
-/* Closing: sheet shrinks + fades back down */
 #sub-events-modal.closing .modal-sheet {
 	opacity: 0;
 	transform: translateY(24px) scale(0.95);
@@ -434,7 +408,6 @@ body.modal-open {
 		transform 0.25s cubic-bezier(0.4, 0, 1, 1);
 }
 
-/* ── Modal header ─────────────────────────────────────────────────── */
 .modal-header {
 	display: flex;
 	align-items: center;
@@ -478,7 +451,6 @@ body.modal-open {
 	color: #fff;
 }
 
-/* ── Modal close button ───────────────────────────────────────────── */
 .modal-close {
 	display: flex;
 	align-items: center;
@@ -501,7 +473,6 @@ body.modal-open {
 	transform: rotate(90deg);
 }
 
-/* ── Modal card grid ──────────────────────────────────────────────── */
 .modal-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -510,7 +481,6 @@ body.modal-open {
 	overflow-y: auto;
 }
 
-/* ── Sub-card stagger entrance ──────────────────────────────────── */
 .sub-card {
 	opacity: 0;
 	transform: translateY(20px) scale(0.97);
@@ -525,15 +495,12 @@ body.modal-open {
 	transform: translateY(0) scale(1);
 }
 
-/* ── Sub-card (inside modal) ──────────────────────────────────────── */
 .sub-card {
 	min-height: 280px;
 	border-radius: 14px;
 	cursor: default;
-	/* base state overridden by stagger block above */
 }
 
-/* ── Responsive ───────────────────────────────────────────────────── */
 @media (max-width: 640px) {
 	.big-date {
 		font-size: 56px;
@@ -574,7 +541,6 @@ body.modal-open {
 	}
 }
 
-/* ── Footer ───────────────────────────────────────────────────────── */
 .site-footer {
 	text-align: center;
 	margin-top: 40px;
@@ -582,7 +548,6 @@ body.modal-open {
 	font-size: 0.9rem;
 }
 
-/* hidden legacy elements */
 .imageslid,
 .deatails,
 .buttons {
