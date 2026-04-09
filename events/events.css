@@ -149,7 +149,6 @@ body.modal-open {
 	cursor: default;
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 
-	/* reveal start state */
 	opacity: 0;
 	transform: translateY(18px) scale(0.995);
 }
@@ -159,12 +158,10 @@ body.modal-open {
 	transform: translateY(0) scale(1);
 }
 
-/* has sub-events → pointer */
 .card.has-sub-events {
 	cursor: pointer;
 }
 
-/* diagonal sheen */
 .card::before {
 	content: "";
 	position: absolute;
@@ -373,14 +370,12 @@ body.modal-open {
 	justify-content: center;
 	padding: 24px 16px;
 
-	/* Frosted-glass backdrop set statically to avoid recalculation lag */
 	background: rgba(0, 0, 0, 0.58);
 	backdrop-filter: blur(16px) saturate(150%);
 	-webkit-backdrop-filter: blur(16px) saturate(150%);
 
 	opacity: 0;
 	pointer-events: none;
-	/* Just animate opacity */
 	transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 	will-change: opacity;
 	transition-delay: 0.3s;
@@ -392,13 +387,11 @@ body.modal-open {
 	transform: ease-in-out;
 }
 
-/* Closing: overlay fades back out */
 #sub-events-modal.closing {
 	opacity: 0;
 	pointer-events: none;
 }
 
-/* ── Modal sheet (inner panel) ────────────────────────────────────── */
 .modal-sheet {
 	position: relative;
 	width: min(960px, 100%);
@@ -411,7 +404,6 @@ body.modal-open {
 	flex-direction: column;
 	box-shadow: none;
 
-	/* Open: starts small + blurred, springs into place */
 	opacity: 0;
 	transform: translateY(40px) scale(0.93);
 	transition:
@@ -425,7 +417,6 @@ body.modal-open {
 	transform: translateY(0) scale(1);
 }
 
-/* Closing: sheet shrinks + fades back down */
 #sub-events-modal.closing .modal-sheet {
 	opacity: 0;
 	transform: translateY(24px) scale(0.95);
@@ -434,7 +425,6 @@ body.modal-open {
 		transform 0.25s cubic-bezier(0.4, 0, 1, 1);
 }
 
-/* ── Modal header ─────────────────────────────────────────────────── */
 .modal-header {
 	display: flex;
 	align-items: center;
@@ -478,7 +468,6 @@ body.modal-open {
 	color: #fff;
 }
 
-/* ── Modal close button ───────────────────────────────────────────── */
 .modal-close {
 	display: flex;
 	align-items: center;
@@ -501,7 +490,6 @@ body.modal-open {
 	transform: rotate(90deg);
 }
 
-/* ── Modal card grid ──────────────────────────────────────────────── */
 .modal-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -510,7 +498,6 @@ body.modal-open {
 	overflow-y: auto;
 }
 
-/* ── Sub-card stagger entrance ──────────────────────────────────── */
 .sub-card {
 	opacity: 0;
 	transform: translateY(20px) scale(0.97);
@@ -525,15 +512,12 @@ body.modal-open {
 	transform: translateY(0) scale(1);
 }
 
-/* ── Sub-card (inside modal) ──────────────────────────────────────── */
 .sub-card {
 	min-height: 280px;
 	border-radius: 14px;
 	cursor: default;
-	/* base state overridden by stagger block above */
 }
 
-/* ── Responsive ───────────────────────────────────────────────────── */
 @media (max-width: 640px) {
 	.big-date {
 		font-size: 56px;
@@ -574,15 +558,12 @@ body.modal-open {
 	}
 }
 
-/* ── Footer ───────────────────────────────────────────────────────── */
 .site-footer {
 	text-align: center;
 	margin-top: 40px;
 	color: var(--muted);
 	font-size: 0.9rem;
 }
-
-/* hidden legacy elements */
 .imageslid,
 .deatails,
 .buttons {
