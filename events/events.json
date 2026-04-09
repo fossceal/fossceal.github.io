@@ -1,97 +1,141 @@
 {
-    "events": [
-        {
-            "name": "Chamber week '26",
-            "description": "",
-            "date": "2026-01-30",
-            "time": "16:00",
-            "colorVal": "#EAC0FF",
-            "clubs": [
-                "TinkerHub",
-                "IEDC CEAL",
-                "ISTE CEAL"
-            ]
-        },
-        {
-            "name": "FOSS++",
-            "description": "",
-            "date": "2026-01-15",
-            "time": "16:00",
-            "colorVal": "#4CAF50",
-            "clubs": [
-                ""
-            ]
-        },
-        {
-            "name": "SNAP",
-            "description": "Learn how to take ownership of your actions and life choices to foster personal growth.",
-            "date": "2025-10-28",
-            "time": "12:00",
-            "colorVal": "#6bcbef"
-        },
-        {
-            "name": "SIH",
-            "description": "Explore techniques to change negative behavior patterns and reinforce positive habits.",
-            "date": "2025-09-25",
-            "time": "09:00",
-            "colorVal": "#a63333",
-            "clubs": [
-                "IEDC CEAL",
-                "ISTE CEAL",
-                "IEEE CEAL",
-                "TinkerHub"
-            ]
-        },
-        {
-            "name": "TIDIBITS",
-            "description": "Express your emotions and reduce stress through creative painting and drawing sessions.",
-            "date": "2025-09-12",
-            "time": "09:00",
-            "colorVal": "#7777c9",
-            "clubs": [
-                "IEDC CEAL",
-                "ISTE CEAL",
-                "IEEE CEAL",
-                "TinkerHub"
-            ]
-        },
-        {
-            "name": "hiss & tell",
-            "description": "Stay fit and active during the holiday season with these simple workout routines.",
-            "date": "2025-09-13",
-            "time": "09:00",
-            "colorVal": "#f59f37",
-            "clubs": [
-                "ISTE CEAL"
-            ]
-        },
-        {
-            "name": "Make tea ()",
-            "description": "A hands on experience , workshop including Git, Github, docker",
-            "date": "2025-08-23",
-            "time": "09:00",
-            "colorVal": "#ffa500"
-        },
-        {
-            "name": "linux me up",
-            "description": "A Linux installation drive - hands on workshop",
-            "date": "2025-08-22",
-            "time": "09:00",
-            "colorVal": "#4d4d4d",
-            "clubs": [
-                "ICFOSS"
-            ]
-        },
-        {
-            "name": "UseLess Projects",
-            "description": "A hackathon to make your uselsss ideas coem true",
-            "date": "2025-08-02",
-            "time": "09:00",
-            "colorVal": "#6b7082",
-            "clubs": [
-                "TinkerHub",
-                "ISTE CEAL"
-            ]
-        }
-    ]
+	"events": [
+		{
+			"name": "Chamber Week '26",
+			"description": "A multi-disciplinary technical festival covering design, development, hardware, cybersecurity, and deployment through hands-on sessions and workshops.",
+			"date": "2026-02-02",
+			"time": "16:00",
+			"colorVal": "linear-gradient(to right, #9e0e00, #b27a01, #13751a, #0b3c82, #5a095e)",
+			"clubs": ["FOSS CEAL"],
+			"subEvents": [
+				{
+					"name": "Creative Masterclass",
+					"description": "Exploring design thinking, Figma basics, and visual storytelling with hands-on creative activities.",
+					"date": "2026-02-02",
+					"time": "16:00",
+					"colorVal": "#9e0e00",
+					"clubs": ["CREATE 101"]
+				},
+				{
+					"name": "Embedding Like a Pro",
+					"description": "Introduction to embedded systems, microcontrollers, and hands-on circuit building.",
+					"date": "2026-02-03",
+					"time": "16:00",
+					"colorVal": "#b27a01",
+					"clubs": ["EMBED 202"]
+				},
+				{
+					"name": "303 Ways to Web",
+					"description": "Fundamentals of web development including HTML, CSS, JavaScript, and building a basic web app.",
+					"date": "2026-02-04",
+					"time": "16:00",
+					"colorVal": "#0b3c82",
+					"clubs": ["TRAIN 303"]
+				},
+				{
+					"name": "Hack Em All",
+					"description": "A hackathon-style session focused on problem-solving, teamwork, and rapid prototyping.",
+					"date": "2026-02-05",
+					"time": "16:00",
+					"colorVal": "#13751a",
+					"clubs": ["HACK 404"]
+				},
+				{
+					"name": "Deploy and Forget",
+					"description": "Introduction to deployment, hosting, and CI/CD with live project deployment.",
+					"date": "2026-02-06",
+					"time": "16:00",
+					"colorVal": "#5a095e",
+					"clubs": ["DEPLOY 505"]
+				}
+			]
+		},
+		{
+			"name": "FOSS++",
+			"description": "A deep-dive into the Free and Open Source Software ecosystem.",
+			"date": "2026-01-15",
+			"time": "16:00",
+			"colorVal": "#4CAF50",
+			"clubs": [""]
+		},
+		{
+			"name": "SNAP",
+			"description": "Learn how to take ownership of your actions and life choices to foster personal growth.",
+			"date": "2025-10-28",
+			"time": "12:00",
+			"colorVal": "#6bcbef"
+		},
+		{
+			"name": "SIH",
+			"description": "Explore techniques to change negative behavior patterns and reinforce positive habits.",
+			"date": "2025-09-25",
+			"time": "09:00",
+			"colorVal": "#a63333",
+			"clubs": ["IEDC CEAL", "ISTE CEAL", "IEEE CEAL", "TinkerHub"]
+		},
+		{
+			"name": "TIDIBITS",
+			"description": "Express your emotions and reduce stress through creative painting and drawing sessions.",
+			"date": "2025-09-12",
+			"time": "09:00",
+			"colorVal": "#7777c9",
+			"clubs": ["IEDC CEAL", "ISTE CEAL", "IEEE CEAL", "TinkerHub"]
+		},
+		{
+			"name": "hiss & tell",
+			"description": "Stay fit and active during the holiday season with these simple workout routines.",
+			"date": "2025-09-13",
+			"time": "09:00",
+			"colorVal": "#f59f37",
+			"clubs": ["ISTE CEAL"]
+		},
+		{
+			"name": "Make tea ()",
+			"description": "A hands on experience , workshop including Git, Github, docker",
+			"date": "2025-08-23",
+			"time": "09:00",
+			"colorVal": "#ffa500"
+		},
+		{
+			"name": "linux me up",
+			"description": "A Linux installation drive - hands on workshop",
+			"date": "2025-08-22",
+			"time": "09:00",
+			"colorVal": "#4d4d4d",
+			"clubs": ["ICFOSS"]
+		},
+		{
+			"name": "UseLess Projects",
+			"description": "A hackathon to make your uselsss ideas coem true",
+			"date": "2025-08-02",
+			"time": "09:00",
+			"colorVal": "#6b7045",
+			"clubs": ["TinkerHub", "ISTE CEAL"]
+		},
+		{
+			"name": "Blender Workshop DY '26",
+			"description": "A hands-on workshop introducing 3D modeling and animation using Blender, covering interface, tools, lighting, materials, and rendering with practical project creation.",
+			"date": "2026-03-23",
+			"time": "13:00",
+			"colorVal": "#D5885A",
+			"clubs": ["CREATE 101"]
+		},
+		{
+			"name": "From Engineering Student to Tech Leader",
+			"description": "An interactive online talk session where Swathy Suresh shared her journey, challenges, and insights on career growth, leadership, and skill development in engineering and technology.",
+			"date": "2026-04-04",
+			"time": "19:00",
+			"colorVal": "#6C63FF",
+			"clubs": ["FOSS CEAL"]
+		},
+		{
+			"name": "Valorant eSports Tournament",
+			"description": "An online gaming tournament featuring Valorant, where three teams competed against each other in a competitive eSports format during an evening session.",
+			"date": "2026-03-21",
+			"time": "18:00",
+			"endTime": "22:00",
+			"colorVal": "#9B5DE5",
+			"clubs": ["FOSS CEAL"]
+		}
+	]
 }

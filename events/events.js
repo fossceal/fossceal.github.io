@@ -6,147 +6,33 @@ async function fetchData() {
         const data = await res.json();
         allEventsData = data.events || [];
 
-        // Sort descending by date (latest first)
         allEventsData.sort((a, b) => {
-            const dateA = new Date(`${a.date}T${a.time}`);
-            const dateB = new Date(`${b.date}T${b.time}`);
+            const dateA = new Date(`${a.date}T${a.time || a.startTime || '00:00'}`);
+            const dateB = new Date(`${b.date}T${b.time || b.startTime || '00:00'}`);
             return dateB - dateA;
         });
 
         createCards(allEventsData);
         attachDateSorting();
+        injectModal();
     } catch (err) {
         console.error('Failed to load events.json', err);
-        document.getElementById('card-container').innerHTML = '<p style="color:#bbb;padding:24px">Failed to load events.</p>';
+        document.getElementById('card-container').innerHTML =
+            '<p style="color:#bbb;padding:24px">Failed to load events.</p>';
     }
 }
 
-function monthShortUpper(dateString) {
-    const d = new Date(dateString);
-    if (isNaN(d)) return '';
-    return d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+/* ── Date helpers ─────────────────────────────────────────────────── */
+function monthShortUpper(dateStr) {
+    const d = new Date(dateStr);
+    return isNaN(d) ? '' : d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
 }
-function dayNumber(dateString) {
-    const d = new Date(dateString);
-    if (isNaN(d)) return '';
-    return String(d.getDate()).padStart(2, '0');
-}
-function dateShort(dateString) {
-    const d = new Date(dateString);
-    return d.toLocaleString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+function dayNumber(dateStr) {
+    const d = new Date(dateStr);
+    return isNaN(d) ? '' : String(d.getDate()).padStart(2, '0');
 }
 
-function createCards(events) {
-    const container = document.getElementById('card-container');
-    container.innerHTML = '';
-
-    events.forEach((event, idx) => {
-        const card = document.createElement('article');
-        card.className = `card`;
-
-        // Use color from JSON if available
-        if (event.colorVal) {
-            card.style.background = event.colorVal;
-        }
-
-        const dateTimeStr = event.date ? `${event.date}T${event.time}` : null;
-        const month = dateTimeStr ? monthShortUpper(dateTimeStr) : 'TBA';
-        const day = dateTimeStr ? dayNumber(dateTimeStr) : '--';
-        const iconClass = event.icon || 'fa-calendar-day';
-        const year = dateTimeStr ? new Date(dateTimeStr).getFullYear() : '----';
-
-        // Generate Clubs HTML
-        let clubsHtml = '';
-        const validClubs = (event.clubs || []).filter(c => c && c.trim() !== '');
-        if (validClubs.length > 0) {
-            clubsHtml = `<div class="event-clubs">
-                <span class="clubs-label">Clubs:</span>
-                ${validClubs.map(c => `<span class="club-chip">${escapeHtml(c)}</span>`).join('')}
-            </div>`;
-        }
-
-        card.innerHTML = `
-            <div class="vertical-month">
-                ${escapeHtml(month)}
-            </div>
-
-            <div class="date-group">
-                <div class="big-date">${escapeHtml(day)}</div>
-                <div class="vertical-year">${escapeHtml(year)}</div>
-            </div>
-
-            <div class="card-body">
-                <div class="event-title">${escapeHtml(event.name)}</div>
-                ${clubsHtml}
-                <div class="event-desc">${escapeHtml(event.description || '')}</div>
-            </div>
-        `;
-
-        // Add subtle animation delay based on index
-        card.style.transitionDelay = `${idx * 50}ms`;
-        container.appendChild(card);
-    });
-
-    observeCards();
-}
-
-/* IntersectionObserver reveal */
-function observeCards() {
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    cards.forEach(c => observer.observe(c));
-}
-
-/* Filtering buttons with smooth transition */
-function attachDateSorting() {
-    const btnAll = document.querySelector('.all-events');
-    const btnUp = document.querySelector('.upcoming-events');
-    const btnPast = document.querySelector('.past-events');
-
-    const switchFilter = (selector, filterFn) => {
-        const btn = document.querySelector(selector);
-        if (!btn) return;
-
-        btn.addEventListener('click', () => {
-            if (btn.classList.contains('active')) return;
-
-            setActiveButton(selector);
-            const container = document.getElementById('card-container');
-            container.classList.add('fade-out');
-
-            setTimeout(() => {
-                const filtered = filterFn ? allEventsData.filter(filterFn) : allEventsData;
-                createCards(filtered);
-                container.classList.remove('fade-out');
-            }, 300);
-        });
-    };
-
-    switchFilter('.all-events', null);
-    switchFilter('.upcoming-events', e => {
-        const dateTime = new Date(`${e.date}T${e.time}`);
-        return !isNaN(dateTime) && dateTime > new Date();
-    });
-    switchFilter('.past-events', e => {
-        const dateTime = new Date(`${e.date}T${e.time}`);
-        return !isNaN(dateTime) && dateTime < new Date();
-    });
-}
-
-function setActiveButton(selector) {
-    document.querySelectorAll('.nav-buttons button').forEach(b => b.classList.remove('active'));
-    const el = document.querySelector(selector);
-    if (el) el.classList.add('active');
-}
-
-/* small utility: escape text */
+/* ── Escape HTML ─────────────────────────────────────────────────── */
 function escapeHtml(str) {
     if (!str && str !== 0) return '';
     return String(str)
@@ -157,5 +43,229 @@ function escapeHtml(str) {
         .replaceAll("'", '&#39;');
 }
 
-/* init */
+/* ── Build clubs chips HTML ──────────────────────────────────────── */
+function buildClubsHtml(clubs) {
+    const valid = (clubs || []).filter(c => c && c.trim() !== '');
+    if (!valid.length) return '';
+    return `<div class="event-clubs">
+        <span class="clubs-label">Clubs:</span>
+        ${valid.map(c => `<span class="club-chip">${escapeHtml(c)}</span>`).join('')}
+    </div>`;
+}
+
+/* ── Render a single card element (reused for both grids) ────────── */
+function buildCardEl(event, idx, isSubCard = false) {
+    const card = document.createElement('article');
+    card.className = 'card' + (isSubCard ? ' sub-card' : '');
+
+    if (event.colorVal) card.style.background = event.colorVal;
+
+    const timeStr = event.time || event.startTime || '00:00';
+    const dateTimeStr = event.date ? `${event.date}T${timeStr}` : null;
+    const month = dateTimeStr ? monthShortUpper(dateTimeStr) : 'TBA';
+    const day   = dateTimeStr ? dayNumber(dateTimeStr) : '--';
+    const year  = dateTimeStr ? new Date(dateTimeStr).getFullYear() : '----';
+
+    const clubsHtml = buildClubsHtml(event.clubs);
+
+    card.innerHTML = `
+        <div class="vertical-month">${escapeHtml(month)}</div>
+        <div class="date-group">
+            <div class="big-date">${escapeHtml(day)}</div>
+            <div class="vertical-year">${escapeHtml(year)}</div>
+        </div>
+        <div class="card-body">
+            <div class="event-title">${escapeHtml(event.name)}</div>
+            ${clubsHtml}
+            <div class="event-desc">${escapeHtml(event.description || '')}</div>
+        </div>
+    `;
+
+    card.style.transitionDelay = `${idx * 60}ms`;
+    return card;
+}
+
+/* ── Main card grid renderer ─────────────────────────────────────── */
+function createCards(events) {
+    const container = document.getElementById('card-container');
+    container.innerHTML = '';
+
+    events.forEach((event, idx) => {
+        const hasSubEvents = Array.isArray(event.subEvents) && event.subEvents.length > 0;
+
+        const card = buildCardEl(event, idx);
+
+        if (hasSubEvents) {
+            card.classList.add('has-sub-events');
+
+            // Badge
+            const badge = document.createElement('div');
+            badge.className = 'sub-events-badge';
+            badge.title = `${event.subEvents.length} sub-events — click to view`;
+            badge.innerHTML = `
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                ${event.subEvents.length}`;
+            card.appendChild(badge);
+
+            // "Tap to expand" hint
+            const hint = document.createElement('div');
+            hint.className = 'sub-events-hint';
+            hint.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Click to view sub-events`;
+            card.querySelector('.card-body').appendChild(hint);
+
+            card.addEventListener('click', () => openModal(event));
+        }
+
+        card.style.transitionDelay = `${idx * 50}ms`;
+        container.appendChild(card);
+    });
+
+    observeCards();
+}
+
+/* ── IntersectionObserver reveal ─────────────────────────────────── */
+function observeCards() {
+    const cards = document.querySelectorAll('.card:not(.sub-card)');
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    cards.forEach(c => observer.observe(c));
+}
+
+/* ── Modal: inject once into DOM ─────────────────────────────────── */
+function injectModal() {
+    if (document.getElementById('sub-events-modal')) return;
+
+    const overlay = document.createElement('div');
+    overlay.id = 'sub-events-modal';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Sub-events');
+    overlay.innerHTML = `
+        <div class="modal-sheet" id="modal-sheet">
+            <div class="modal-header">
+                <div class="modal-parent-info">
+                    <span class="modal-label">SUB-EVENTS OF</span>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                </div>
+                <button class="modal-close" id="modal-close" aria-label="Close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-grid" id="modal-grid"></div>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    // Close handlers
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+}
+
+/* ── Open modal with sub-events of a parent event ────────────────── */
+function openModal(parentEvent) {
+    const overlay = document.getElementById('sub-events-modal');
+    const title   = document.getElementById('modal-title');
+    const grid    = document.getElementById('modal-grid');
+
+    title.textContent = parentEvent.name;
+    grid.innerHTML = '';
+
+    // Inherit parent color as accent on modal header if set
+    const sheet = document.getElementById('modal-sheet');
+    sheet.style.setProperty('--modal-accent', parentEvent.colorVal || '#ffffff');
+
+    // Sort sub-events by date
+    const sorted = [...(parentEvent.subEvents || [])].sort((a, b) => {
+        return new Date(`${a.date}T${a.time || a.startTime || '00:00'}`) - new Date(`${b.date}T${b.time || b.startTime || '00:00'}`);
+    });
+
+    sorted.forEach((se, idx) => {
+        // Sub-events inherit parent color if they don't have their own
+        if (!se.colorVal) se.colorVal = parentEvent.colorVal;
+        const card = buildCardEl(se, idx, true);
+        // stagger delay per card
+        card.style.transitionDelay = `${80 + idx * 70}ms`;
+        grid.appendChild(card);
+    });
+
+    // Animate in
+    overlay.classList.add('open');
+    document.body.classList.add('modal-open');
+
+    // Reveal sub-cards with a slight delay after the overlay appears
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            grid.querySelectorAll('.sub-card').forEach(c => c.classList.add('visible'));
+        });
+    });
+}
+
+/* ── Close modal ────────────────────────────────────────────── */
+function closeModal() {
+    const overlay = document.getElementById('sub-events-modal');
+    if (!overlay.classList.contains('open')) return;
+
+    // Play exit animation first
+    overlay.classList.remove('open');
+    overlay.classList.add('closing');
+
+    // After the closing transition finishes, reset state
+    setTimeout(() => {
+        overlay.classList.remove('closing');
+        document.body.classList.remove('modal-open');
+    }, 320); // matches longest closing transition (0.28s + small buffer)
+}
+
+/* ── Filter buttons ──────────────────────────────────────────────── */
+function attachDateSorting() {
+    const switchFilter = (selector, filterFn) => {
+        const btn = document.querySelector(selector);
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+            setActiveButton(selector);
+            const container = document.getElementById('card-container');
+            container.classList.add('fade-out');
+            setTimeout(() => {
+                const filtered = filterFn ? allEventsData.filter(filterFn) : allEventsData;
+                createCards(filtered);
+                container.classList.remove('fade-out');
+            }, 300);
+        });
+    };
+
+    switchFilter('.all-events', null);
+    switchFilter('.upcoming-events', e => {
+        const dt = new Date(`${e.date}T${e.time || e.startTime || '00:00'}`);
+        return !isNaN(dt) && dt > new Date();
+    });
+    switchFilter('.past-events', e => {
+        const dt = new Date(`${e.date}T${e.time || e.startTime || '00:00'}`);
+        return !isNaN(dt) && dt < new Date();
+    });
+}
+
+function setActiveButton(selector) {
+    document.querySelectorAll('.nav-buttons button').forEach(b => b.classList.remove('active'));
+    const el = document.querySelector(selector);
+    if (el) el.classList.add('active');
+}
+
+/* ── Init ────────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', fetchData);
