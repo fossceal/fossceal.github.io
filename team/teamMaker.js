@@ -48,9 +48,9 @@ async function main() {
 	let data = await fetchandretjson();
 // Added execom 2025 section
 
-	if (data["2025"]) {
-		let team2025 = elem("teamCont2025");
-		data["2025"].forEach((member, i) => {
+	if (data["2026"]) {
+		let team2025 = elem("teamCont2026");
+		data["2026"].forEach((member, i) => {
 			team2025.innerHTML += generate(
 				member.aqute,
 				member.gif,
@@ -65,9 +65,9 @@ async function main() {
 		});
 	}
 
-	if (data["2024"]) {
+	if (data["2025"]) {
 		let team = elem("teamCont");
-		data["2024"].forEach((member, i) => {
+		data["2025"].forEach((member, i) => {
 			team.innerHTML += generate(
 				member.aqute,
 				member.gif,
