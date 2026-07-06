@@ -52,12 +52,12 @@
 		}
 
 		.links {
-			display: grid;
-            grid-template-columns: repeat(5, 80px); 
+			display: flex;
             gap: 15px; 
-            max-width: 350 px ;
+            max-width: min(500px,80vw) ;
 			justify-content: center;
             margin: 0 auto;
+			flex-wrap: wrap;
 		}
 
 		.links a 
@@ -75,6 +75,7 @@
             border-radius: 12px;
             transition: all 0.3s ease;
             opacity: 0.8;
+			width: 60px;
 		}
 
 		.links a:hover {
