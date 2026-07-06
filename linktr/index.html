@@ -31,7 +31,7 @@
 		}
 
 		.container {
-			max-width: 500px;
+			/* max-width: 500px; */
 			width: 100%;
 			text-align: center;
 		}
@@ -52,21 +52,29 @@
 		}
 
 		.links {
-			display: flex;
-			flex-direction: column;
-			gap: 1rem;
+			display: grid;
+            grid-template-columns: repeat(5, 80px); 
+            gap: 15px; 
+            max-width: 350 px ;
+			justify-content: center;
+            margin: 0 auto;
 		}
 
-		.links a {
-			display: block;
-			background: #38dd6a;
-			border: 1px solid currentColor;
-			color: #000;
-			text-decoration: none;
-			padding: 1rem;
-			border-radius: 12px;
-			transition: all 0.3s ease;
-			opacity: 0.8;
+		.links a 
+		{
+			display: flex; 
+   			justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #38dd6a;
+            border: 1px solid currentColor;
+            color: #000;
+            text-decoration: none;
+			aspect-ratio: 1/1;
+            padding: 1rem ; 
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
 		}
 
 		.links a:hover {
@@ -102,19 +110,20 @@
 		<p class="subtitle">Open Source • Community • Learning</p>
 
 		<div class="links">
-			<a href="https://foss.ceal.in/" target="_blank" class="off"><i class="fas fa-globe"></i> <strong>Official
-					Website</strong></a>
+			<a href="https://foss.ceal.in/" target="_blank" class="off"><i class="fas fa-globe"></i>
+					</strong></a>
 			<a href="https://github.com/fossceal" target="_blank" class="git"><i class="fab fa-github"></i>
-				<strong>GitHub</strong></a>
+				</a>
 			<a href="https://www.instagram.com/fossceal?igsh=OThmdWVlYnFtdndn" target="_blank" class="inst"><i
-					class="fab fa-instagram"></i> <strong>Instagram</strong></a>
+					class="fab fa-instagram"></i> </a>
 			<a href="https://discord.gg/N64AWcKFQN" target="_blank" class="discord"><i class="fab fa-discord"></i>
-				<strong>Join Discord</strong></a>
+				</a>
 			<a href="https://whatsapp.com/channel/0029Vb7PEhoB4hdSCGvrQS3c" target="_blank" class="hack"><i
-					class="fab fa-whatsapp"></i> <strong>HACK 404</strong></a>
+					class="fab fa-whatsapp"></i> </a>
 			<a href="https://www.linkedin.com/company/foss-ceal/?viewAsMember=true" target="_blank" class="linkedin"><i
-					class="fab fa-linkedin"></i> <strong>LinkedIn</strong>
+					class="fab fa-linkedin"></i> 
 			</a>
+			
 		</div>
 
 		<footer>
