@@ -1,160 +1,17 @@
 {
 	"2026": [
 		{
-			"aqute": "Harigovind",
-			"name": "Harigovind P Nair",
-			"role": "Mentor",
-			"pic": "newgod",
-			"gif": "/hgp.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/harigovind-p-nair-89a4992b8/",
-				"github": "https://github.com/hari2629-p",
-				"instagram": "https://www.instagram.com/_h._.gp/",
-				"email": "www.hariatl10@gmail.com"
-			}
-		},
-		{
-			"aqute": "Lakshmi",
-			"name": "Lakshmi G Nair",
-			"role": "CFA",
-			"pic": "Lakshmi",
-			"gif": "Lakshmi_cfa.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/lakshmi-g-nair",
-				"github": "https://github.com/LakshmiGNair",
-				"instagram": "https://www.instagram.com/l.a.ksh_mi",
-				"email": "gitalachu123@gmail.com"
-			}
-		},
-		{
-			"aqute": "Adithyan",
-			"name": "Adithyan U P",
-			"role": "CFA",
-			"pic": "Adithyan",
-			"gif": "/cute.gif",
-			"socials": {
-				"linkedin": "www.linkedin.com/in/adithyan07",
-				"github": "https://github.com/ZEON-07/",
-				"instagram": "https://www.instagram.com/zeon_ig",
-				"email": "mr.adhi125@gmail.com"
-			}
-		},
-		{
-			"aqute": "SEETHA",
-			"name": "SEETHA LEKSHMI G",
-			"role": "Deputy CFA",
-			"pic": "seetha",
-			"gif": "",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/seetha-lekshmi-7773052b7/",
-				"github": "https://github.com/Seethalekshmy",
-				"instagram": "http://instagram.com/__see.tha__/",
-				"email": "seethalekshmi2005@gmail.com"
-			}
-		},
-		{
-			"aqute": "Jeevan",
-			"name": "Jeevan S",
-			"role": "Deputy CFA",
-			"pic": "jeevan",
-			"gif": "/jeevan_sanal.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/jeevansanal2872",
-				"github": "https://github.com/Jeevansanal2872",
-				"instagram": "https://www.instagram.com/jeevansanal_2872",
-				"email": "jeevan9846s@gmail.com"
-			}
-		},
-		{
-			"aqute": "Lekshmy",
-			"name": "Lekshmy S Raju",
-			"role": "Secretary",
-			"pic": "Lekshmy",
-			"gif": "Lekshmy_S.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/lekshmy-s-raju-978a67345",
-				"github": "https://github.com/Lekshmy-sr",
-				"instagram": "https://www.instagram.com/lekshmy_s_r",
-				"email": "lekshmys33@gmail.com"
-			}
-		},
-		{
-			"aqute": "Samvrtha",
-			"name": "Samvrtha Vichithran",
-			"role": "Joint Secretary",
-			"pic": "Samvrtha",
-			"gif": ""
-		},
-		{
-			"aqute": "Saranya",
-			"name": "Saranya A",
-			"role": "Finance Lead",
-			"pic": "saranya",
-			"gif": "/thumbsup.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/saranya-a-01a56a291",
-				"github": "https://github.com/Saranya53430",
-				"instagram": "https://www.instagram.com/s_xranya",
-				"email": "ssaranya53430@gmail.com"
-			}
-		},
-		{
-			"aqute": "Aromal",
-			"name": "Aromal A S",
-			"role": "Tech Lead",
-			"pic": "Aromal",
-			"socials": {
-				"github": "https://github.com/zyndor1548",
-				"email": "a.s.aromal2006@gmail.com",
-				"linkedin": "https://www.linkedin.com/in/aromal1548",
-				"instagram": "https://www.instagram.com/aromal1548"
-			}
-		},
-		{
-			"aqute": "Karthikeyan",
-			"name": "Karthikeyan D K",
-			"role": "Tech Lead",
-			"pic": "Karthikeyan",
-			"gif": "",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/karthikeyan-dk-435238354",
-				"github": "https://github.com/MRKN10",
-				"instagram": "https://www.instagram.com/__mr_kn_10__",
-				"email": "Karthikeyanashari5@gmail.com"
-			}
-		},
-		{
-			"aqute": "Nandana",
-			"name": "Nandana J V",
-			"role": "WIT",
-			"pic": "Nandana",
-			"gif": "nandana.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/nandana-j-v-32779737a",
-				"github": "https://github.com/nandanajesudas",
-				"instagram": "https://www.instagram.com/nandnah_jesudas",
-				"email": "nandanajesudas123@gmail.com"
-			}
-		},
-		{
 			"aqute": "Akash",
 			"name": "Akash U",
 			"role": "Community Lead",
 			"pic": "Akash",
-			"gif": ""
-		},
-		{
-			"aqute": "Aswal",
-			"name": "Aswal",
-			"role": "Community Team",
-			"pic": "Aswal"
-		},
-		{
-			"aqute": "Sadath",
-			"name": "Sadath A S",
-			"role": "Community Team",
-			"pic": "Muhammed",
-			"gif": "/indhu.gif"
+			"gif": "",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/akash-u-269725291",
+				"github": "https://github.com/Akashunnikrishanan",
+				"instagram": "https://www.instagram.com/akash__unnikrishnan",
+				"email": "akashunnikrishnan1844@gmail.com"
+			}
 		},
 		{
 			"aqute": "Pranav",
@@ -167,69 +24,126 @@
 			"name": "Revathi S",
 			"role": "Outreach and social media",
 			"pic": "Revathi",
-			"gif": ""
+			"gif": "",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/revathi-s-00880837a",
+				"github": "https://github.com/revathicharu2816-commits",
+				"instagram": "https://www.instagram.com/_revathi_partha_",
+				"email": "revathicharu2816@gmail.com"
+			}
 		},
 		{
 			"aqute": "Sreelekshmi",
 			"name": "Sreelekshmi BS",
 			"role": "Outreach & Social media",
 			"pic": "Sreelekshmi",
-			"gif": ""
+			"gif": "",
+			"socials": {
+				"linkedin": "www.linkedin.com/in/sreelekshmi-b-nair-635401380",
+				"github": "https://github.com/sreelekshmi827",
+				"instagram": "https://www.instagram.com/sreeleksh_mi__",
+				"email": "sreelekshmipinky4@gmail.com"
+			}
 		},
 		{
 			"aqute": "AMEEN",
 			"name": "AMEEN ANAS",
 			"role": "Media team",
 			"pic": "Ameen",
-			"gif": "Ameen_Anas.gif"
+			"gif": "Ameen_Anas.gif",
+			"socials": {
+				"linkedin": "https://linkedin.com/in/ameen-anas",
+				"github": "https://github.com/AMEE3103",
+				"instagram": "https://instagram.com/amee__anas",
+				"email": "ameenanas2005@gmail.com"
+			}
 		},
 		{
 			"aqute": "Chidambaranath",
 			"name": "Chidambaranath pl",
 			"role": "Media team",
 			"pic": "Chidambaranath",
-			"gif": "CHIDAMBARA_NATH.gif"
+			"gif": "CHIDAMBARA_NATH.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/chidambara-nath-077023420",
+				"instagram": "https://www.instagram.com/_chidambaran_",
+				"email": "chithambaranath60@gmail.com"
+			}
 		},
 		{
 			"aqute": "SIDHARTH",
 			"name": "SIDHARTH D",
 			"role": "Media team",
-			"pic": "sidharth",
-			"gif": ""
-		},
-		{
-			"aqute": "Kalyani",
-			"name": "Kalyani R",
-			"role": "Design Team",
-			"pic": "Kalyani"
+			"pic": "Sidharth",
+			"gif": "",
+			"socials": {
+				"github": "https://github.com/UG-SIDHARTH",
+				"email": "appuvichu10@gmail.com"
+			}
 		},
 		{
 			"aqute": "Navaneeth",
 			"name": "Navaneeth Krishna A",
 			"role": "Design team",
 			"pic": "Navaneeth",
-			"gif": "Navaneeth_Krishna.gif"
+			"gif": "Navaneeth_Krishna.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/navaneethkrishnaa",
+				"github": "https://github.com/navaneethkrishna259",
+				"instagram": "https://www.instagram.com/itsnavaneeth.__",
+				"email": "navaneethkrishna259@gmail.com"
+			}
 		},
 		{
 			"aqute": "Nadiya",
 			"name": "Nadiya S",
 			"role": "Design team",
 			"pic": "Nadiya",
-			"gif": "Nadiya_s.gif"
+			"gif": "Nadiya_s.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/nadiya-s-1877b337a",
+				"github": "https://github.com/Nadiyashamnad",
+				"instagram": "https://www.instagram.com/__.nadi_ya.__",
+				"email": "nadiyashamnade@gmail.com"
+			}
 		},
 		{
 			"aqute": "Abhirami",
 			"name": "Abhirami Anil",
 			"role": "Documentation & Content",
 			"pic": "Abhirami",
-			"gif": "Abhirami_Anil.gif"
+			"gif": "Abhirami_Anil.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/abhirami-anil-b73ba1331",
+				"github": "https://github.com/Abhirami-123456",
+				"instagram": "https://www.instagram.com/a__abhi.__.__",
+				"email": "maniveena225@gmail.com"
+			}
 		},
 		{
 			"aqute": "Amrutha",
 			"name": "Amrutha Manoj",
 			"role": "Documentation & Content",
 			"pic": "Amrutha",
-			"gif": "amurtha.gif"
+			"gif": "amurtha.gif",
+			"socials": {
+				"linkedin": "https://linkedin.com/in/amrutha-manoj524",
+				"github": "https://github.com/Am-rutha",
+				"instagram": "https://instagram.com/am__rithaa_",
+				"email": "amruthamanoj524@gmail.com"
+			}
+		},
+		{
+			"aqute": "Sadath",
+			"name": "Sadath A S",
+			"role": "Community Team",
+			"pic": "Muhammed",
+			"gif": "/indhu.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/sadath-muhammad-885233334",
+				"instagram": "https://www.instagram.com/sad._x_.ath",
+				"email": "sadathmuhammad07@gmail.com"
+			}
 		}
 	],
 	"2025": [
