@@ -5,7 +5,7 @@
 			"name": "Harigovind P Nair",
 			"role": "Mentor",
 			"pic": "newgod",
-			"gif": "/hgp.gif",
+			"gif": "hari.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/harigovind-p-nair-89a4992b8/",
 				"github": "https://github.com/hari2629-p",
@@ -18,7 +18,7 @@
 			"name": "Lakshmi G Nair",
 			"role": "CFA",
 			"pic": "Lakshmi",
-			"gif": "Lakshmi_cfa.gif",
+			"gif": "lakshmy_cfa.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/lakshmi-g-nair",
 				"github": "https://github.com/LakshmiGNair",
@@ -31,7 +31,7 @@
 			"name": "Adithyan U P",
 			"role": "CFA",
 			"pic": "Adithyan",
-			"gif": "/cute.gif",
+			"gif": "up2026.gif",
 			"socials": {
 				"linkedin": "www.linkedin.com/in/adithyan07",
 				"github": "https://github.com/ZEON-07/",
@@ -42,9 +42,9 @@
 		{
 			"aqute": "SEETHA",
 			"name": "SEETHA LEKSHMI G",
-			"role": "Deputy CFA",
+			"role": "Deputy CFA #1",
 			"pic": "seetha",
-			"gif": "",
+			"gif": "seetha.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/seetha-lekshmi-7773052b7/",
 				"github": "https://github.com/Seethalekshmy",
@@ -55,9 +55,9 @@
 		{
 			"aqute": "Jeevan",
 			"name": "Jeevan S",
-			"role": "Deputy CFA",
+			"role": "Deputy CFA #2",
 			"pic": "jeevan",
-			"gif": "/jeevan_sanal.gif",
+			"gif": "jeevan.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/jeevansanal2872",
 				"github": "https://github.com/Jeevansanal2872",
@@ -83,14 +83,18 @@
 			"name": "Samvrtha Vichithran",
 			"role": "Joint Secretary",
 			"pic": "Samvrtha",
-			"gif": ""
+			"gif": "samvrtha.gif",
+			"socials": {
+				"github": "hhttps://github.com/samvrtha",
+				"email": "samvrthasree@gmail.com"
+			}
 		},
 		{
 			"aqute": "Saranya",
 			"name": "Saranya A",
 			"role": "Finance Lead",
-			"pic": "saranya",
-			"gif": "/thumbsup.gif",
+			"pic": "Saranya",
+			"gif": "saranya.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/saranya-a-01a56a291",
 				"github": "https://github.com/Saranya53430",
@@ -103,6 +107,7 @@
 			"name": "Aromal A S",
 			"role": "Tech Lead",
 			"pic": "Aromal",
+			"gif": "c.gif",
 			"socials": {
 				"github": "https://github.com/zyndor1548",
 				"email": "a.s.aromal2006@gmail.com",
@@ -115,7 +120,7 @@
 			"name": "Karthikeyan D K",
 			"role": "Tech Lead",
 			"pic": "Karthikeyan",
-			"gif": "",
+			"gif": "karthikeyan.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/karthikeyan-dk-435238354",
 				"github": "https://github.com/MRKN10",
@@ -128,7 +133,7 @@
 			"name": "Nandana J V",
 			"role": "WIT",
 			"pic": "Nandana",
-			"gif": "nandana.gif",
+			"gif": "nandana_j_v.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/nandana-j-v-32779737a",
 				"github": "https://github.com/nandanajesudas",
@@ -137,30 +142,18 @@
 			}
 		},
 		{
-			"aqute": "Akash",
-			"name": "Akash U",
-			"role": "Community Lead",
-			"pic": "Akash",
-			"gif": "",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/akash-u-269725291",
-				"github": "https://github.com/Akashunnikrishanan",
-				"instagram": "https://www.instagram.com/akash__unnikrishnan",
-				"email": "akashunnikrishnan1844@gmail.com"
-			}
-		},
-		{
 			"aqute": "Pranav",
 			"name": "Pranav S",
 			"role": "Outreach & Social media",
-			"pic": "Pranav"
+			"pic": "Pranav",
+			"gif": "pranav.gif"
 		},
 		{
 			"aqute": "Revathi",
 			"name": "Revathi S",
 			"role": "Outreach and social media",
 			"pic": "Revathi",
-			"gif": "",
+			"gif": "revathy.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/revathi-s-00880837a",
 				"github": "https://github.com/revathicharu2816-commits",
@@ -173,7 +166,7 @@
 			"name": "Sreelekshmi BS",
 			"role": "Outreach & Social media",
 			"pic": "Sreelekshmi",
-			"gif": "",
+			"gif": "sreelekshmi.gif",
 			"socials": {
 				"linkedin": "www.linkedin.com/in/sreelekshmi-b-nair-635401380",
 				"github": "https://github.com/sreelekshmi827",
@@ -186,7 +179,7 @@
 			"name": "AMEEN ANAS",
 			"role": "Media team",
 			"pic": "Ameen",
-			"gif": "Ameen_Anas.gif",
+			"gif": "ameen.gif",
 			"socials": {
 				"linkedin": "https://linkedin.com/in/ameen-anas",
 				"github": "https://github.com/AMEE3103",
@@ -199,7 +192,7 @@
 			"name": "Chidambaranath pl",
 			"role": "Media team",
 			"pic": "Chidambaranath",
-			"gif": "CHIDAMBARA_NATH.gif",
+			"gif": "chidambranath.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/chidambara-nath-077023420",
 				"instagram": "https://www.instagram.com/_chidambaran_",
@@ -211,7 +204,7 @@
 			"name": "SIDHARTH D",
 			"role": "Media team",
 			"pic": "Sidharth",
-			"gif": "",
+			"gif": "sidharth.gif",
 			"socials": {
 				"github": "https://github.com/UG-SIDHARTH",
 				"email": "appuvichu10@gmail.com"
@@ -222,7 +215,7 @@
 			"name": "Navaneeth Krishna A",
 			"role": "Design team",
 			"pic": "Navaneeth",
-			"gif": "Navaneeth_Krishna.gif",
+			"gif": "navaneeth.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/navaneethkrishnaa",
 				"github": "https://github.com/navaneethkrishna259",
@@ -235,7 +228,7 @@
 			"name": "Nadiya S",
 			"role": "Design team",
 			"pic": "Nadiya",
-			"gif": "Nadiya_s.gif",
+			"gif": "nadiya.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/nadiya-s-1877b337a",
 				"github": "https://github.com/Nadiyashamnad",
@@ -244,11 +237,24 @@
 			}
 		},
 		{
+			"aqute": "kalyani",
+			"name": "Kalyani R",
+			"role": "Design Team",
+			"pic": "kalyani",
+			"gif": "kalyani.gif",
+			"socials": {
+				"github": "https://github.com/kalyanir2807-blip",
+				"instagram": "https://www.instagram.com/kalyani__r____",
+				"linkedin": "https://www.linkedin.com/in/kalyani-r-386575380",
+				"email": "kalyanir2807@gmail.com"
+			}
+		},
+		{
 			"aqute": "Abhirami",
 			"name": "Abhirami Anil",
 			"role": "Documentation & Content",
 			"pic": "Abhirami",
-			"gif": "Abhirami_Anil.gif",
+			"gif": "abhirami.gif",
 			"socials": {
 				"linkedin": "https://www.linkedin.com/in/abhirami-anil-b73ba1331",
 				"github": "https://github.com/Abhirami-123456",
@@ -261,12 +267,25 @@
 			"name": "Amrutha Manoj",
 			"role": "Documentation & Content",
 			"pic": "Amrutha",
-			"gif": "amurtha.gif",
+			"gif": "amurtha2026.gif",
 			"socials": {
 				"linkedin": "https://linkedin.com/in/amrutha-manoj524",
 				"github": "https://github.com/Am-rutha",
 				"instagram": "https://instagram.com/am__rithaa_",
 				"email": "amruthamanoj524@gmail.com"
+			}
+		},
+		{
+			"aqute": "Akash",
+			"name": "Akash U",
+			"role": "Community Lead",
+			"pic": "Akash",
+			"gif": "akash.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/akash-u-269725291",
+				"github": "https://github.com/Akashunnikrishanan",
+				"instagram": "https://www.instagram.com/akash__unnikrishnan",
+				"email": "akashunnikrishnan1844@gmail.com"
 			}
 		},
 		{
@@ -276,9 +295,23 @@
 			"pic": "Muhammed",
 			"gif": "/indhu.gif",
 			"socials": {
+				"github": "https://github.com/SalvatorZ",
 				"linkedin": "https://www.linkedin.com/in/sadath-muhammad-885233334",
 				"instagram": "https://www.instagram.com/sad._x_.ath",
 				"email": "sadathmuhammad07@gmail.com"
+			}
+		},
+		{
+			"aqute": "aswal",
+			"name": "Aswal",
+			"role": "Community Team",
+			"pic": "Aswal",
+			"gif": "aswal.gif",
+			"socials": {
+				"github": "https://github.com/aswadevan",
+				"linkedin": "https://www.linkedin.com/in/aswal-a-s-151647400",
+				"instagram": "https://www.instagram.com/aswadevan_",
+				"email": "aswaladarsh01@gmail.com"
 			}
 		}
 	],
