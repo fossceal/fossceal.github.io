@@ -85,7 +85,7 @@
 			"pic": "Samvrtha",
 			"gif": "samvrtha.gif",
 			"socials": {
-				"github": "hhttps://github.com/samvrtha",
+				"github": "https://github.com/samvrtha",
 				"email": "samvrthasree@gmail.com"
 			}
 		},
@@ -110,9 +110,9 @@
 			"gif": "c.gif",
 			"socials": {
 				"github": "https://github.com/zyndor1548",
-				"email": "a.s.aromal2006@gmail.com",
 				"linkedin": "https://www.linkedin.com/in/aromal1548",
-				"instagram": "https://www.instagram.com/aromal1548"
+				"instagram": "https://www.instagram.com/aromal1548",
+				"email": "a.s.aromal2006@gmail.com"
 			}
 		},
 		{
@@ -168,7 +168,7 @@
 			"pic": "Sreelekshmi",
 			"gif": "sreelekshmi.gif",
 			"socials": {
-				"linkedin": "www.linkedin.com/in/sreelekshmi-b-nair-635401380",
+				"linkedin": "https://www.linkedin.com/in/sreelekshmi-b-nair-635401380",
 				"github": "https://github.com/sreelekshmi827",
 				"instagram": "https://www.instagram.com/sreeleksh_mi__",
 				"email": "sreelekshmipinky4@gmail.com"
