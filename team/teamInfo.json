@@ -189,7 +189,7 @@
 		},
 		{
 			"aqute": "Chidambaranath",
-			"name": "Chidambaranath pl",
+			"name": "Chidambaranath",
 			"role": "Media team",
 			"pic": "Chidambaranath",
 			"gif": "chidambranath.gif",
@@ -212,7 +212,7 @@
 		},
 		{
 			"aqute": "Navaneeth",
-			"name": "Navaneeth Krishna A",
+			"name": "Navaneeth",
 			"role": "Design team",
 			"pic": "Navaneeth",
 			"gif": "navaneeth.gif",
@@ -240,26 +240,13 @@
 			"aqute": "kalyani",
 			"name": "Kalyani R",
 			"role": "Design Team",
-			"pic": "kalyani",
+			"pic": "Kalyani",
 			"gif": "kalyani.gif",
 			"socials": {
 				"github": "https://github.com/kalyanir2807-blip",
 				"instagram": "https://www.instagram.com/kalyani__r____",
 				"linkedin": "https://www.linkedin.com/in/kalyani-r-386575380",
 				"email": "kalyanir2807@gmail.com"
-			}
-		},
-		{
-			"aqute": "Abhirami",
-			"name": "Abhirami Anil",
-			"role": "Documentation & Content",
-			"pic": "Abhirami",
-			"gif": "abhirami.gif",
-			"socials": {
-				"linkedin": "https://www.linkedin.com/in/abhirami-anil-b73ba1331",
-				"github": "https://github.com/Abhirami-123456",
-				"instagram": "https://www.instagram.com/a__abhi.__.__",
-				"email": "maniveena225@gmail.com"
 			}
 		},
 		{
@@ -273,6 +260,19 @@
 				"github": "https://github.com/Am-rutha",
 				"instagram": "https://instagram.com/am__rithaa_",
 				"email": "amruthamanoj524@gmail.com"
+			}
+		},
+		{
+			"aqute": "Abhirami",
+			"name": "Abhirami Anil",
+			"role": "Documentation & Content",
+			"pic": "Abhirami",
+			"gif": "abhirami.gif",
+			"socials": {
+				"linkedin": "https://www.linkedin.com/in/abhirami-anil-b73ba1331",
+				"github": "https://github.com/Abhirami-123456",
+				"instagram": "https://www.instagram.com/a__abhi.__.__",
+				"email": "maniveena225@gmail.com"
 			}
 		},
 		{
