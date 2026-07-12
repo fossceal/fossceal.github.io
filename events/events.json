@@ -1,6 +1,20 @@
 {
 	"events": [
 		{
+			"name": "PortFolio Competition",
+			"description": "Showcase Your projects, skills and creativity while competing for exciting prizes",
+			"date": "2026-07-17",
+			"time": "19:00",
+			"colorVal": "#fcf792"
+		},
+		{
+			"name": "Friday Study Jam",
+			"description": "A Weekly Design meetup to learn, practice and improve your design skills through collabrative sessions and creative challenges",
+			"date": "2026-07-17",
+			"time": "20:00",
+			"colorVal": "#b8fc80"
+		},
+		{
 			"name": "Chamber Week '26",
 			"description": "A multi-disciplinary technical festival covering design, development, hardware, cybersecurity, and deployment through hands-on sessions and workshops.",
 			"date": "2026-02-02",
