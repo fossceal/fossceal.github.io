@@ -1,5 +1,24 @@
 {
 	"events": [
+    {
+			"name": "Annual General Meeting",
+			"description": "No merge conflicts. Only memories. ❤️
+
+Every sticky note tells a story.
+Every face carries a memory.
+Every contribution shaped this community.
+
+As one tenure signs off, another begins—with the same spirit of openness, collaboration, and community.
+
+Here's to the people who built, broke, fixed, laughed, deployed, and stayed.
+
+"Maintainers may change, but the repository lives on."
+
+#Maythefossbewithyou",
+			"date": "2026-07-17",
+			"time": "14:30",
+			"colorVal": "#9d9e9d”
+		},
 		{
 			"name": "PortFolio Competition",
 			"description": "Showcase Your projects, skills and creativity while competing for exciting prizes",
