@@ -47,7 +47,7 @@ function buildClubsHtml(clubs) {
 	const valid = (clubs || []).filter((c) => c && c.trim() !== "");
 	if (!valid.length) return "";
 	return `<div class="event-clubs">
-        <span class="clubs-label">Clubs:</span>
+        <span class="clubs-label">Collabs:</span>
         ${valid.map((c) => `<span class="club-chip">${escapeHtml(c)}</span>`).join("")}
     </div>`;
 }
