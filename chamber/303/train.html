@@ -7,10 +7,119 @@
     <title>Train303 | FOSS</title>
 
     <link rel="stylesheet" href="/fonts/font.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link id="h1n1" rel="stylesheet" href="/style.css" />
     <script defer src="/dmode.js"></script>
 
     <style>
+        .lead-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lead-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 20px 32px;
+            border-radius: 20px;
+            background: rgba(128, 128, 128, 0.08);
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lead-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .lead-img-wrapper {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #00ccff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(0, 204, 255, 0.3);
+            background: rgba(128, 128, 128, 0.15);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lead-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transform: scale(1.25);
+            transform-origin: top center;
+        }
+
+        .lead-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .lead-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .lead-role {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #00ccff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lead-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .lead-social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(128, 128, 128, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+        }
+
+        .lead-social-link:hover {
+            background: #00ccff;
+            color: black;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .lead-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 24px;
+            }
+            .lead-details {
+                align-items: center;
+            }
+        }
         html,
         body {
             margin: 0;
@@ -365,6 +474,25 @@
             <img src="/chamber/303/303_clr_dark.png" id="303Logo">
         </div>
 
+    </div>
+
+    <!-- Chamber Lead Section -->
+    <div class="lead-section">
+        <div class="lead-card">
+            <div class="lead-img-wrapper">
+                <img src="/teamPics/Adithyan.webp" alt="Adithyan U P" class="lead-photo" />
+            </div>
+            <div class="lead-details">
+                <h3 class="lead-name">Adithyan U P</h3>
+                <span class="lead-role">Chamber Lead</span>
+                <div class="lead-socials">
+                    <a href="https://www.linkedin.com/in/adithyan07" target="_blank" class="lead-social-link" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://github.com/ZEON-07/" target="_blank" class="lead-social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/zeon_ig" target="_blank" class="lead-social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:mr.adhi125@gmail.com" class="lead-social-link" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
     <h1 style="text-align: center; font-size: 2.5rem; font-weight: 900;">Projects</h1>
     <div class="projects-grid">
