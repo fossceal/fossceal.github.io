@@ -14,36 +14,27 @@
             width: 90vw;
             max-width: 1200px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px 24px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
             justify-content: center;
             justify-items: center;
             padding: 20px 0 60px;
         }
 
-        .champ-card {
-            width: 100%;
-            max-width: 240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .champ-card:hover {
-            transform: translateY(-8px);
-        }
-
         .champ {
             width: 100%;
+            max-width: 280px;
             aspect-ratio: 1;
+            cursor: pointer;
+            transition: transform 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
+        }
+
+        .champ:hover {
+            transform: translateY(-8px);
+            filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.3));
         }
 
         .champ img {
@@ -51,58 +42,6 @@
             height: 100%;
             object-fit: contain;
             border-radius: 50%;
-        }
-
-        .lead-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 14px;
-            padding: 6px 16px 6px 8px;
-            border-radius: 50px;
-            background: rgba(128, 128, 128, 0.12);
-            border: 1px solid rgba(128, 128, 128, 0.25);
-            backdrop-filter: blur(8px);
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .champ-card:hover .lead-badge {
-            background: rgba(128, 128, 128, 0.22);
-            border-color: rgba(128, 128, 128, 0.45);
-            transform: scale(1.05);
-        }
-
-        .lead-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: top center;
-            transform: scale(1.2);
-            transform-origin: top center;
-            background: rgba(128, 128, 128, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .lead-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .lead-name {
-            font-size: 0.9rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .lead-title {
-            font-size: 0.72rem;
-            opacity: 0.75;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -113,7 +52,7 @@
 			align-content: center;
 			align-items: center;
 			justify-content: space-between;
-			min-height: 100vh;
+			height: 100vh;
             margin: 0;
             overflow-x: hidden;
             opacity: 0;
@@ -128,69 +67,20 @@
     <div style="height: 120px; width: 100%"></div>
 
     <div class="grid-container">
-        <div class="champ-card" onclick="location.href='/chamber/101/create.html'">
-            <div class="champ">
-                <img src="/chamber/101/create.png" alt="Create 101" />
-            </div>
-            <div class="lead-badge">
-                <img src="/teamPics/jeevan.webp" alt="Jeevan S" class="lead-avatar" />
-                <div class="lead-info">
-                    <span class="lead-name">Jeevan S</span>
-                    <span class="lead-title">Lead 101</span>
-                </div>
-            </div>
+        <div class="champ" onclick="location.href='/chamber/101/create.html'">
+            <img src="/chamber/101/create.png" alt="Create 101" />
         </div>
-
-        <div class="champ-card" onclick="location.href='/chamber/202/embed.html'">
-            <div class="champ">
-                <img src="/chamber/202/embed.png" alt="Embed 202" />
-            </div>
-            <div class="lead-badge">
-                <img src="/teamPics/abhinav.webp" alt="Abhinav N A" class="lead-avatar" />
-                <div class="lead-info">
-                    <span class="lead-name">Abhinav N A</span>
-                    <span class="lead-title">Lead 202</span>
-                </div>
-            </div>
+        <div class="champ" onclick="location.href='/chamber/202/embed.html'">
+            <img src="/chamber/202/embed.png" alt="Embed 202" />
         </div>
-
-        <div class="champ-card" onclick="location.href='/chamber/303/train.html'">
-            <div class="champ">
-                <img src="/chamber/303/train.png" alt="Train 303" />
-            </div>
-            <div class="lead-badge">
-                <img src="/teamPics/Adithyan.webp" alt="Adithyan U P" class="lead-avatar" />
-                <div class="lead-info">
-                    <span class="lead-name">Adithyan U P</span>
-                    <span class="lead-title">Lead 303</span>
-                </div>
-            </div>
+        <div class="champ" onclick="location.href='/chamber/303/train.html'">
+            <img src="/chamber/303/train.png" alt="Train 303" />
         </div>
-
-        <div class="champ-card" onclick="location.href='/chamber/404/hack.html'">
-            <div class="champ">
-                <img src="/chamber/404/hack.png" alt="Hack 404" />
-            </div>
-            <div class="lead-badge">
-                <img src="/teamPics/Kalyani.webp" alt="Kalyani R" class="lead-avatar" />
-                <div class="lead-info">
-                    <span class="lead-name">Kalyani R</span>
-                    <span class="lead-title">Lead 404</span>
-                </div>
-            </div>
+        <div class="champ" onclick="location.href='/chamber/404/hack.html'">
+            <img src="/chamber/404/hack.png" alt="Hack 404" />
         </div>
-
-        <div class="champ-card" onclick="location.href='/chamber/505/deploy.html'">
-            <div class="champ">
-                <img src="/chamber/505/deploy.png" alt="Deploy 505" />
-            </div>
-            <div class="lead-badge">
-                <img src="/teamPics/Aromal.webp" alt="Aromal A S" class="lead-avatar" />
-                <div class="lead-info">
-                    <span class="lead-name">Aromal A S</span>
-                    <span class="lead-title">Lead 505</span>
-                </div>
-            </div>
+        <div class="champ" onclick="location.href='/chamber/505/deploy.html'">
+            <img src="/chamber/505/deploy.png" alt="Deploy 505" />
         </div>
     </div>
 
