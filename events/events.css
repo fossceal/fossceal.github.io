@@ -273,6 +273,44 @@ body.modal-open {
 	color: #222;
 }
 
+/* ── Chamber chips ───────────────────────────────── */
+.event-chambers {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	margin-bottom: 6px;
+}
+
+.chambers-label {
+	font-size: 0.75rem;
+	font-weight: 700;
+	opacity: 0.8;
+	text-transform: uppercase;
+	margin-right: 4px;
+}
+
+.chamber-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	padding: 2px 9px 2px 7px;
+	border: 1px solid rgba(255, 255, 255, 0.55);
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.18);
+	color: inherit;
+	white-space: nowrap;
+}
+
+.chamber-chip svg {
+	flex-shrink: 0;
+	opacity: 0.9;
+}
+
 .sub-events-badge {
 	position: absolute;
 	top: 14px;
