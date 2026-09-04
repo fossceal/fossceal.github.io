@@ -1,4 +1,7 @@
 let allEventsData = [];
+let selectedYear = "ALL"; // "ALL" | specific year string e.g. "2026"
+let availableYears = [];
+let viewMode = "yearHub"; // "yearHub" | "yearEvents" | "upcoming"
 
 async function fetchData() {
 	try {
@@ -12,14 +15,359 @@ async function fetchData() {
 			return dateB - dateA;
 		});
 
-		createCards(allEventsData);
-		attachDateSorting();
+		extractYears();
+		attachListeners();
 		injectModal();
+
+		// Parse initial URL query params
+		const urlParams = new URLSearchParams(window.location.search);
+		const yearParam = urlParams.get("year");
+		const viewParam = urlParams.get("view");
+
+		if (yearParam && availableYears.includes(yearParam)) {
+			selectedYear = yearParam;
+			viewMode = "yearEvents";
+		} else if (viewParam === "upcoming") {
+			selectedYear = "ALL";
+			viewMode = "upcoming";
+		} else {
+			viewMode = "yearHub";
+			selectedYear = "ALL";
+		}
+
+		syncViewUI();
+		window.addEventListener("popstate", handlePopState);
 	} catch (err) {
 		console.error("Failed to load events.json", err);
 		document.getElementById("card-container").innerHTML =
-			'<p style="color:#bbb;padding:24px">Failed to load events.</p>';
+			'<p style="color:#bbb;padding:24px;text-align:center">Failed to load events.</p>';
 	}
+}
+
+function extractYears() {
+	const yearsSet = new Set();
+	allEventsData.forEach((event) => {
+		if (event.date) {
+			const dt = new Date(`${event.date}T${event.time || event.startTime || "00:00"}`);
+			if (!isNaN(dt)) {
+				yearsSet.add(String(dt.getFullYear()));
+			}
+		}
+	});
+	availableYears = Array.from(yearsSet).sort((a, b) => b - a);
+}
+
+function attachListeners() {
+	// Back button on Second Page
+	const backToYearsBtn = document.getElementById("back-to-years-btn");
+	if (backToYearsBtn) {
+		backToYearsBtn.addEventListener("click", () => {
+			selectedYear = "ALL";
+			viewMode = "yearHub";
+			updateUrlState();
+			syncViewUI();
+		});
+	}
+}
+
+function handlePopState() {
+	const urlParams = new URLSearchParams(window.location.search);
+	const yearParam = urlParams.get("year");
+	const viewParam = urlParams.get("view");
+
+	if (yearParam && availableYears.includes(yearParam)) {
+		selectedYear = yearParam;
+		viewMode = "yearEvents";
+	} else if (viewParam === "upcoming") {
+		selectedYear = "ALL";
+		viewMode = "upcoming";
+	} else {
+		selectedYear = "ALL";
+		viewMode = "yearHub";
+	}
+	syncViewUI();
+}
+
+function updateUrlState() {
+	const url = new URL(window.location.href);
+	if (viewMode === "yearEvents" && selectedYear !== "ALL") {
+		url.searchParams.set("year", selectedYear);
+		url.searchParams.delete("view");
+	} else if (viewMode === "upcoming") {
+		url.searchParams.set("view", "upcoming");
+		url.searchParams.delete("year");
+	} else {
+		url.searchParams.delete("year");
+		url.searchParams.delete("view");
+	}
+	window.history.pushState({}, "", url.pathname + url.search);
+}
+
+function syncViewUI() {
+	const yearHubContainer = document.getElementById("year-hub-container");
+	const cardContainer = document.getElementById("card-container");
+	const yearActiveBar = document.getElementById("year-active-bar");
+	const activeYearTitle = document.getElementById("active-year-title");
+
+	if (viewMode === "yearHub") {
+		// Front Page
+		if (yearHubContainer) yearHubContainer.style.display = "grid";
+		if (cardContainer) cardContainer.style.display = "none";
+		if (yearActiveBar) yearActiveBar.style.display = "none";
+
+		renderYearHub();
+	} else if (viewMode === "yearEvents") {
+		// Second Page: Year Detail View
+		if (yearHubContainer) yearHubContainer.style.display = "none";
+		if (cardContainer) cardContainer.style.display = "flex";
+		if (yearActiveBar) yearActiveBar.style.display = "flex";
+
+		if (activeYearTitle) activeYearTitle.textContent = selectedYear;
+
+		renderYearEvents();
+	} else if (viewMode === "upcoming") {
+		// Second Page: Upcoming Events View
+		if (yearHubContainer) yearHubContainer.style.display = "none";
+		if (cardContainer) cardContainer.style.display = "flex";
+		if (yearActiveBar) yearActiveBar.style.display = "flex";
+
+		if (activeYearTitle) activeYearTitle.textContent = "UPCOMING EVENTS";
+
+		renderUpcomingEvents();
+	}
+}
+
+function renderYearHub() {
+	const container = document.getElementById("year-hub-container");
+	if (!container) return;
+	container.innerHTML = "";
+
+	const now = new Date();
+
+	// 1. Render UPCOMING EVENTS Card on Front Page
+	const upcomingEvents = allEventsData.filter((e) => {
+		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
+		return !isNaN(dt) && dt > now;
+	});
+
+	const upcomingCard = document.createElement("article");
+	upcomingCard.className = "year-hub-card upcoming-hub-card";
+	upcomingCard.style.transitionDelay = `0ms`;
+
+	const nextUpcoming = upcomingEvents[upcomingEvents.length - 1] || upcomingEvents[0];
+	const hasUpcoming = upcomingEvents.length > 0;
+
+	upcomingCard.innerHTML = `
+        <div class="year-card-top">
+            <span class="year-card-number">UPCOMING</span>
+            <span class="year-card-badge upcoming-badge">${
+							hasUpcoming
+								? `${upcomingEvents.length} ${upcomingEvents.length === 1 ? "EVENT" : "EVENTS"}`
+								: "NO EVENTS"
+						}</span>
+        </div>
+        <div class="year-card-stats">
+            <span class="year-stat-tag upcoming">● ${
+							hasUpcoming ? `${upcomingEvents.length} Scheduled` : "No Events Scheduled"
+						}</span>
+        </div>
+        ${
+					nextUpcoming
+						? `
+        <div class="year-card-highlight">
+            <span class="highlight-label">NEXT UPCOMING EVENT</span>
+            <h3 class="highlight-title">${escapeHtml(nextUpcoming.name)}</h3>
+            <p class="highlight-desc">${escapeHtml(nextUpcoming.description || "")}</p>
+        </div>
+        `
+						: `
+        <div class="year-card-highlight">
+            <span class="highlight-label">STATUS</span>
+            <h3 class="highlight-title">No upcoming events scheduled</h3>
+        </div>
+        `
+				}
+        <div class="year-card-action">
+            <span>View Upcoming Events</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+        </div>
+    `;
+
+	upcomingCard.addEventListener("click", () => {
+		selectedYear = "ALL";
+		viewMode = "upcoming";
+		updateUrlState();
+		syncViewUI();
+	});
+
+	container.appendChild(upcomingCard);
+	requestAnimationFrame(() => upcomingCard.classList.add("visible"));
+
+	// 2. Render Year Cards (2026, 2025, etc.) on Front Page
+	availableYears.forEach((year, index) => {
+		const yearEvents = allEventsData.filter((e) => {
+			const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
+			return !isNaN(dt) && String(dt.getFullYear()) === year;
+		});
+
+		const totalCount = yearEvents.length;
+		const topEvent = yearEvents[0];
+		const accentColor = topEvent && topEvent.colorVal ? topEvent.colorVal : "#6C63FF";
+
+		const card = document.createElement("article");
+		card.className = "year-hub-card";
+		card.style.transitionDelay = `${(index + 1) * 60}ms`;
+		if (accentColor.includes("gradient")) {
+			card.style.background = accentColor;
+		} else {
+			card.style.borderColor = accentColor;
+		}
+
+		card.innerHTML = `
+            <div class="year-card-top">
+                <span class="year-card-number">${escapeHtml(year)}</span>
+                <span class="year-card-badge">${totalCount} ${totalCount === 1 ? "EVENT" : "EVENTS"}</span>
+            </div>
+            ${
+							topEvent
+								? `
+            <div class="year-card-highlight">
+                <span class="highlight-label">FEATURED EVENT</span>
+                <h3 class="highlight-title">${escapeHtml(topEvent.name)}</h3>
+                <p class="highlight-desc">${escapeHtml(topEvent.description || "")}</p>
+            </div>
+            `
+								: ""
+						}
+            <div class="year-card-action">
+                <span>View ${year} Events</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </div>
+        `;
+
+		card.addEventListener("click", () => {
+			selectedYear = year;
+			viewMode = "yearEvents";
+			updateUrlState();
+			syncViewUI();
+		});
+
+		container.appendChild(card);
+		requestAnimationFrame(() => card.classList.add("visible"));
+	});
+}
+
+function renderYearEvents() {
+	const container = document.getElementById("card-container");
+	if (!container) return;
+	container.innerHTML = "";
+
+	const filtered = allEventsData.filter((e) => {
+		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
+		return !isNaN(dt) && String(dt.getFullYear()) === selectedYear;
+	});
+
+	if (filtered.length === 0) {
+		container.innerHTML = `
+            <div class="empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <h3>No Events Found</h3>
+                <p>There are no events listed for ${escapeHtml(selectedYear)}.</p>
+            </div>
+        `;
+		return;
+	}
+
+	const grid = document.createElement("div");
+	grid.className = "poster-grid";
+
+	filtered.forEach((event, idx) => {
+		const hasSubEvents = Array.isArray(event.subEvents) && event.subEvents.length > 0;
+		const card = buildCardEl(event, idx);
+
+		if (hasSubEvents) {
+			card.classList.add("has-sub-events");
+
+			const badge = document.createElement("div");
+			badge.className = "sub-events-badge";
+			badge.title = `${event.subEvents.length} sub-events — click to view`;
+			badge.innerHTML = `
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                ${event.subEvents.length}`;
+			card.appendChild(badge);
+
+			const hint = document.createElement("div");
+			hint.className = "sub-events-hint";
+			hint.innerHTML = `
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Click to view sub-events`;
+			card.querySelector(".card-body").appendChild(hint);
+
+			card.addEventListener("click", () => openModal(event));
+		}
+
+		card.style.transitionDelay = `${(idx % 8) * 50}ms`;
+		grid.appendChild(card);
+	});
+
+	container.appendChild(grid);
+	observeCards();
+}
+
+function renderUpcomingEvents() {
+	const container = document.getElementById("card-container");
+	if (!container) return;
+	container.innerHTML = "";
+
+	const now = new Date();
+	const upcoming = allEventsData.filter((e) => {
+		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
+		return !isNaN(dt) && dt > now;
+	});
+
+	if (upcoming.length === 0) {
+		container.innerHTML = `
+            <div class="empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h3>No Upcoming Events</h3>
+                <p>Stay tuned! New events will be announced soon.</p>
+            </div>
+        `;
+		return;
+	}
+
+	const grid = document.createElement("div");
+	grid.className = "poster-grid";
+
+	upcoming.forEach((event, idx) => {
+		const hasSubEvents = Array.isArray(event.subEvents) && event.subEvents.length > 0;
+		const card = buildCardEl(event, idx);
+
+		if (hasSubEvents) {
+			card.classList.add("has-sub-events");
+			card.addEventListener("click", () => openModal(event));
+		}
+
+		grid.appendChild(card);
+	});
+
+	container.appendChild(grid);
+	observeCards();
 }
 
 function monthShortUpper(dateStr) {
@@ -28,6 +376,7 @@ function monthShortUpper(dateStr) {
 		? ""
 		: d.toLocaleString("en-US", { month: "short" }).toUpperCase();
 }
+
 function dayNumber(dateStr) {
 	const d = new Date(dateStr);
 	return isNaN(d) ? "" : String(d.getDate()).padStart(2, "0");
@@ -79,50 +428,8 @@ function buildCardEl(event, idx, isSubCard = false) {
         </div>
     `;
 
-	card.style.transitionDelay = `${idx * 60}ms`;
+	card.style.transitionDelay = `${idx * 50}ms`;
 	return card;
-}
-
-function createCards(events) {
-	const container = document.getElementById("card-container");
-	container.innerHTML = "";
-
-	events.forEach((event, idx) => {
-		const hasSubEvents =
-			Array.isArray(event.subEvents) && event.subEvents.length > 0;
-
-		const card = buildCardEl(event, idx);
-
-		if (hasSubEvents) {
-			card.classList.add("has-sub-events");
-
-			const badge = document.createElement("div");
-			badge.className = "sub-events-badge";
-			badge.title = `${event.subEvents.length} sub-events — click to view`;
-			badge.innerHTML = `
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-                ${event.subEvents.length}`;
-			card.appendChild(badge);
-
-			const hint = document.createElement("div");
-			hint.className = "sub-events-hint";
-			hint.innerHTML = `
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
-                Click to view sub-events`;
-			card.querySelector(".card-body").appendChild(hint);
-
-			card.addEventListener("click", () => openModal(event));
-		}
-
-		card.style.transitionDelay = `${idx * 50}ms`;
-		container.appendChild(card);
-	});
-
-	observeCards();
 }
 
 function observeCards() {
@@ -136,7 +443,7 @@ function observeCards() {
 				}
 			});
 		},
-		{ threshold: 0.08 },
+		{ threshold: 0.05 },
 	);
 	cards.forEach((c) => observer.observe(c));
 }
@@ -225,44 +532,6 @@ function closeModal() {
 		overlay.classList.remove("closing");
 		document.body.classList.remove("modal-open");
 	}, 320);
-}
-
-function attachDateSorting() {
-	const switchFilter = (selector, filterFn) => {
-		const btn = document.querySelector(selector);
-		if (!btn) return;
-		btn.addEventListener("click", () => {
-			if (btn.classList.contains("active")) return;
-			setActiveButton(selector);
-			const container = document.getElementById("card-container");
-			container.classList.add("fade-out");
-			setTimeout(() => {
-				const filtered = filterFn
-					? allEventsData.filter(filterFn)
-					: allEventsData;
-				createCards(filtered);
-				container.classList.remove("fade-out");
-			}, 300);
-		});
-	};
-
-	switchFilter(".all-events", null);
-	switchFilter(".upcoming-events", (e) => {
-		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-		return !isNaN(dt) && dt > new Date();
-	});
-	switchFilter(".past-events", (e) => {
-		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-		return !isNaN(dt) && dt < new Date();
-	});
-}
-
-function setActiveButton(selector) {
-	document
-		.querySelectorAll(".nav-buttons button")
-		.forEach((b) => b.classList.remove("active"));
-	const el = document.querySelector(selector);
-	if (el) el.classList.add("active");
 }
 
 document.addEventListener("DOMContentLoaded", fetchData);
