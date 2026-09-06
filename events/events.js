@@ -58,14 +58,18 @@ function extractYears() {
 }
 
 function attachListeners() {
-	// Back button on Second Page
-	const backToYearsBtn = document.getElementById("back-to-years-btn");
-	if (backToYearsBtn) {
-		backToYearsBtn.addEventListener("click", () => {
-			selectedYear = "ALL";
-			viewMode = "yearHub";
-			updateUrlState();
-			syncViewUI();
+	// Header back arrow button
+	const backBtn = document.getElementById("back");
+	if (backBtn) {
+		backBtn.addEventListener("click", () => {
+			if (viewMode !== "yearHub") {
+				selectedYear = "ALL";
+				viewMode = "yearHub";
+				updateUrlState();
+				syncViewUI();
+			} else {
+				window.location.href = "/";
+			}
 		});
 	}
 }
