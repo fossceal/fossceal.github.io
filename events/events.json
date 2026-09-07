@@ -23,6 +23,11 @@
 			"time": "18:30",
 			"clubs": ["CREATE 101","HACK 404"],
 			"colorVal": "#FFAA00"
+			"name": "Mystery Box",
+			"description": "Step into the shoes of a real designer where the client never reveals everything at once.",
+			"date": "2026-08-07",
+			"time": "13:00",
+			"colorVal": "#FA2A55"
 		},
 		{
 			"name": "Annual General Meeting",
@@ -45,6 +50,7 @@
 			"date": "2026-07-17",
 			"time": "20:00",
 			"clubs":["CREATE 101"],
+			"chamber": ["101"],
 			"colorVal": "#ed650b"
 		},
 		{
@@ -53,7 +59,7 @@
 			"date": "2026-02-02",
 			"time": "16:00",
 			"colorVal": "linear-gradient(to right, #9e0e00, #b27a01, #13751a, #0b3c82, #5a095e)",
-			"clubs": ["FOSS CEAL"],
+			"chamber": ["101", "202", "303", "404", "505"],
 			"subEvents": [
 				{
 					"name": "Creative Masterclass",
@@ -61,7 +67,7 @@
 					"date": "2026-02-02",
 					"time": "16:00",
 					"colorVal": "#9e0e00",
-					"clubs": ["CREATE 101"]
+					"chamber": ["101"]
 				},
 				{
 					"name": "Embedding Like a Pro",
@@ -69,7 +75,7 @@
 					"date": "2026-02-03",
 					"time": "16:00",
 					"colorVal": "#b27a01",
-					"clubs": ["EMBED 202"]
+					"chamber": ["202"]
 				},
 				{
 					"name": "303 Ways to Web",
@@ -77,7 +83,7 @@
 					"date": "2026-02-04",
 					"time": "16:00",
 					"colorVal": "#0b3c82",
-					"clubs": ["TRAIN 303"]
+					"chamber": ["303"]
 				},
 				{
 					"name": "Hack Em All",
@@ -85,7 +91,7 @@
 					"date": "2026-02-05",
 					"time": "16:00",
 					"colorVal": "#13751a",
-					"clubs": ["HACK 404"]
+					"chamber": ["404"]
 				},
 				{
 					"name": "Deploy and Forget",
@@ -93,7 +99,7 @@
 					"date": "2026-02-06",
 					"time": "16:00",
 					"colorVal": "#5a095e",
-					"clubs": ["DEPLOY 505"]
+					"chamber": ["505"]
 				}
 			]
 		},
@@ -103,7 +109,8 @@
 			"date": "2026-01-15",
 			"time": "16:00",
 			"colorVal": "#4CAF50",
-			"clubs": [""]
+			"clubs": [""],
+			"chamber": ["FOSS"]
 		},
 		{
 			"name": "SNAP",
@@ -165,15 +172,15 @@
 			"date": "2026-03-23",
 			"time": "13:00",
 			"colorVal": "#D5885A",
-			"clubs": ["CREATE 101"]
+			"clubs": ["CREATE 101"],
+			"chamber": ["101"]
 		},
 		{
 			"name": "From Engineering Student to Tech Leader",
 			"description": "An interactive online talk session where Swathy Suresh shared her journey, challenges, and insights on career growth, leadership, and skill development in engineering and technology.",
 			"date": "2026-04-04",
 			"time": "19:00",
-			"colorVal": "#6C63FF",
-			"clubs": ["FOSS CEAL"]
+			"colorVal": "#6C63FF"
 		},
 		{
 			"name": "Valorant eSports Tournament",
@@ -181,8 +188,7 @@
 			"date": "2026-03-21",
 			"time": "18:00",
 			"endTime": "22:00",
-			"colorVal": "#9B5DE5",
-			"clubs": ["FOSS CEAL"]
+			"colorVal": "#9B5DE5"
 		}
 	]
 }
