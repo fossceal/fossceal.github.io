@@ -46,10 +46,11 @@ async function fetchData() {
 
 function extractYears() {
 	const yearsSet = new Set();
+	const now = new Date();
 	allEventsData.forEach((event) => {
 		if (event.date) {
 			const dt = new Date(`${event.date}T${event.time || event.startTime || "00:00"}`);
-			if (!isNaN(dt)) {
+			if (!isNaN(dt) && dt <= now) {
 				yearsSet.add(String(dt.getFullYear()));
 			}
 		}
@@ -149,27 +150,28 @@ function renderYearHub() {
 	const now = new Date();
 
 	// 1. Render UPCOMING EVENTS Card on Front Page
-	const upcomingEvents = allEventsData.filter((e) => {
-		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-		return !isNaN(dt) && dt > now;
-	});
+	const upcomingEvents = allEventsData
+		.filter((e) => {
+			const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
+			return !isNaN(dt) && dt > now;
+		})
+		.sort((a, b) => {
+			const dateA = new Date(`${a.date}T${a.time || a.startTime || "00:00"}`);
+			const dateB = new Date(`${b.date}T${b.time || b.startTime || "00:00"}`);
+			return dateA - dateB;
+		});
 
 	const upcomingCard = document.createElement("article");
 	upcomingCard.className = "year-hub-card upcoming-hub-card";
 	upcomingCard.style.transitionDelay = `0ms`;
 
-	const nextUpcoming = upcomingEvents[upcomingEvents.length - 1] || upcomingEvents[0];
+	const nextUpcoming = upcomingEvents[0];
 	const hasUpcoming = upcomingEvents.length > 0;
 
 	upcomingCard.innerHTML = `
         <div class="year-card-top">
-            <span class="year-card-number">UPCOMING</span>
-            <span class="year-card-badge upcoming-badge">${
-							hasUpcoming
-								? `${upcomingEvents.length} ${upcomingEvents.length === 1 ? "EVENT" : "EVENTS"}`
-								: "NO EVENTS"
-						}</span>
-        </div>
+            <span class="year-card-number">UPCOMING</span>  
+			</div>
         <div class="year-card-stats">
             <span class="year-stat-tag upcoming">● ${
 							hasUpcoming ? `${upcomingEvents.length} Scheduled` : "No Events Scheduled"
@@ -213,7 +215,7 @@ function renderYearHub() {
 	availableYears.forEach((year, index) => {
 		const yearEvents = allEventsData.filter((e) => {
 			const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-			return !isNaN(dt) && String(dt.getFullYear()) === year;
+			return !isNaN(dt) && String(dt.getFullYear()) === year && dt <= now;
 		});
 
 		const totalCount = yearEvents.length;
@@ -270,9 +272,10 @@ function renderYearEvents() {
 	if (!container) return;
 	container.innerHTML = "";
 
+	const now = new Date();
 	const filtered = allEventsData.filter((e) => {
 		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-		return !isNaN(dt) && String(dt.getFullYear()) === selectedYear;
+		return !isNaN(dt) && String(dt.getFullYear()) === selectedYear && dt <= now;
 	});
 
 	if (filtered.length === 0) {
@@ -291,10 +294,47 @@ function renderYearEvents() {
 		return;
 	}
 
+	renderCardsGrid(filtered, container);
+}
+
+function renderUpcomingEvents() {
+	const container = document.getElementById("card-container");
+	if (!container) return;
+	container.innerHTML = "";
+
+	const now = new Date();
+	const upcoming = allEventsData
+		.filter((e) => {
+			const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
+			return !isNaN(dt) && dt > now;
+		})
+		.sort((a, b) => {
+			const dateA = new Date(`${a.date}T${a.time || a.startTime || "00:00"}`);
+			const dateB = new Date(`${b.date}T${b.time || b.startTime || "00:00"}`);
+			return dateA - dateB;
+		});
+
+	if (upcoming.length === 0) {
+		container.innerHTML = `
+            <div class="empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+                <h3>No Upcoming Events</h3>
+                <p>Stay tuned! New events will be announced soon.</p>
+            </div>
+        `;
+		return;
+	}
+
+	renderCardsGrid(upcoming, container);
+}
+
+function renderCardsGrid(eventsList, container) {
 	const grid = document.createElement("div");
 	grid.className = "poster-grid";
 
-	filtered.forEach((event, idx) => {
+	eventsList.forEach((event, idx) => {
 		const hasSubEvents = Array.isArray(event.subEvents) && event.subEvents.length > 0;
 		const card = buildCardEl(event, idx);
 
@@ -324,49 +364,6 @@ function renderYearEvents() {
 		}
 
 		card.style.transitionDelay = `${(idx % 8) * 50}ms`;
-		grid.appendChild(card);
-	});
-
-	container.appendChild(grid);
-	observeCards();
-}
-
-function renderUpcomingEvents() {
-	const container = document.getElementById("card-container");
-	if (!container) return;
-	container.innerHTML = "";
-
-	const now = new Date();
-	const upcoming = allEventsData.filter((e) => {
-		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-		return !isNaN(dt) && dt > now;
-	});
-
-	if (upcoming.length === 0) {
-		container.innerHTML = `
-            <div class="empty-state">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                </svg>
-                <h3>No Upcoming Events</h3>
-                <p>Stay tuned! New events will be announced soon.</p>
-            </div>
-        `;
-		return;
-	}
-
-	const grid = document.createElement("div");
-	grid.className = "poster-grid";
-
-	upcoming.forEach((event, idx) => {
-		const hasSubEvents = Array.isArray(event.subEvents) && event.subEvents.length > 0;
-		const card = buildCardEl(event, idx);
-
-		if (hasSubEvents) {
-			card.classList.add("has-sub-events");
-			card.addEventListener("click", () => openModal(event));
-		}
-
 		grid.appendChild(card);
 	});
 
