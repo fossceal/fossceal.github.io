@@ -5,10 +5,9 @@
 			"description": "This is an open-source contribution event",
 			"date": "2026-10-04",
 			"time": "09:00",
-			"clubs": ["DEPLOY 505"],
-			"colorVal": "#FF5722"
+			"clubs": ["DEPLOY 505", "FOSS LBSTW"],
+			"colorVal": "#FA2A55"
 		},
-		
 		{
 			"name": "Vadakkunokiyatham",
 			"description": "An exciting Online GeoGuessr Challenge! ",
@@ -17,17 +16,13 @@
 			"clubs": ["HACK 404"],
 			"colorVal": "#232931"
 		},
-		{ "name": "Mystrybox",
+		{
+			"name": "Mystrybox",
 			"description": "A glimpse of the amazing minds who came together for MYSTERY BOX – Design Challenge",
 			"date": "2026-08-07",
 			"time": "18:30",
-			"clubs": ["CREATE 101","HACK 404"],
+			"clubs": ["CREATE 101", "HACK 404"],
 			"colorVal": "#FFAA00"
-			"name": "Mystery Box",
-			"description": "Step into the shoes of a real designer where the client never reveals everything at once.",
-			"date": "2026-08-07",
-			"time": "13:00",
-			"colorVal": "#FA2A55"
 		},
 		{
 			"name": "Annual General Meeting",

@@ -39,8 +39,11 @@ async function fetchData() {
 		window.addEventListener("popstate", handlePopState);
 	} catch (err) {
 		console.error("Failed to load events.json", err);
-		document.getElementById("card-container").innerHTML =
-			'<p style="color:#bbb;padding:24px;text-align:center">Failed to load events.</p>';
+		const errMsg = '<p style="color:#bbb;padding:24px;text-align:center">Failed to load events.</p>';
+		const hubContainer = document.getElementById("year-hub-container");
+		const cardContainer = document.getElementById("card-container");
+		if (hubContainer) hubContainer.innerHTML = errMsg;
+		if (cardContainer) cardContainer.innerHTML = errMsg;
 	}
 }
 
@@ -170,8 +173,8 @@ function renderYearHub() {
 
 	upcomingCard.innerHTML = `
         <div class="year-card-top">
-            <span class="year-card-number">UPCOMING</span>  
-			</div>
+            <span class="year-card-number">UPCOMING</span>
+        </div>
         <div class="year-card-stats">
             <span class="year-stat-tag upcoming">● ${
 							hasUpcoming ? `${upcomingEvents.length} Scheduled` : "No Events Scheduled"
