@@ -46,10 +46,11 @@ async function fetchData() {
 
 function extractYears() {
 	const yearsSet = new Set();
+	const now = new Date();
 	allEventsData.forEach((event) => {
 		if (event.date) {
 			const dt = new Date(`${event.date}T${event.time || event.startTime || "00:00"}`);
-			if (!isNaN(dt)) {
+			if (!isNaN(dt) && dt <= now) {
 				yearsSet.add(String(dt.getFullYear()));
 			}
 		}
@@ -169,13 +170,8 @@ function renderYearHub() {
 
 	upcomingCard.innerHTML = `
         <div class="year-card-top">
-            <span class="year-card-number">UPCOMING</span>
-            <span class="year-card-badge upcoming-badge">${
-							hasUpcoming
-								? `${upcomingEvents.length} ${upcomingEvents.length === 1 ? "EVENT" : "EVENTS"}`
-								: "NO EVENTS"
-						}</span>
-        </div>
+            <span class="year-card-number">UPCOMING</span>  
+			</div>
         <div class="year-card-stats">
             <span class="year-stat-tag upcoming">● ${
 							hasUpcoming ? `${upcomingEvents.length} Scheduled` : "No Events Scheduled"
@@ -219,7 +215,7 @@ function renderYearHub() {
 	availableYears.forEach((year, index) => {
 		const yearEvents = allEventsData.filter((e) => {
 			const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-			return !isNaN(dt) && String(dt.getFullYear()) === year;
+			return !isNaN(dt) && String(dt.getFullYear()) === year && dt <= now;
 		});
 
 		const totalCount = yearEvents.length;
@@ -276,9 +272,10 @@ function renderYearEvents() {
 	if (!container) return;
 	container.innerHTML = "";
 
+	const now = new Date();
 	const filtered = allEventsData.filter((e) => {
 		const dt = new Date(`${e.date}T${e.time || e.startTime || "00:00"}`);
-		return !isNaN(dt) && String(dt.getFullYear()) === selectedYear;
+		return !isNaN(dt) && String(dt.getFullYear()) === selectedYear && dt <= now;
 	});
 
 	if (filtered.length === 0) {
