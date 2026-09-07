@@ -1,6 +1,20 @@
 {
 	"events": [
-    {
+    { "name": "Vadakkunokiyatham",
+			"description": "An exciting Online GeoGuessr Challenge! ",
+			"date": "2026-08-30",
+			"time": "18:30",
+			"clubs": ["HACK 404"],
+			"colorVal": "#232931"
+		},
+		{ "name": "Mystrybox",
+			"description": "A glimpse of the amazing minds who came together for MYSTERY BOX – Design Challenge",
+			"date": "2026-08-07",
+			"time": "18:30",
+			"clubs": ["CREATE 101","HACK 404"],
+			"colorVal": "#FFAA00"
+		},
+		{
 			"name": "Annual General Meeting",
 			"description": "Torch passing and old execom awarding ceremony",
 			"date": "2026-07-17",
@@ -12,6 +26,7 @@
 			"description": "Showcase Your projects, skills and creativity while competing for exciting prizes",
 			"date": "2026-07-17",
 			"time": "19:00",
+			"clubs": ["TRAIN 303", "HACK 404"],
 			"colorVal": "#479b03"
 		},
 		{
@@ -19,6 +34,7 @@
 			"description": "A Weekly Design meetup to learn, practice and improve your design skills through collabrative sessions and creative challenges",
 			"date": "2026-07-17",
 			"time": "20:00",
+			"clubs":["CREATE 101"],
 			"colorVal": "#ed650b"
 		},
 		{
