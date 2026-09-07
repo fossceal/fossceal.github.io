@@ -1,6 +1,16 @@
 {
 	"events": [
-    { "name": "Vadakkunokiyatham",
+		{
+			"name": "Commit overflow",
+			"description": "This is an open-source contribution event",
+			"date": "2026-10-04",
+			"time": "09:00",
+			"clubs": ["DEPLOY 505"],
+			"colorVal": "#FF5722"
+		},
+		
+		{
+			"name": "Vadakkunokiyatham",
 			"description": "An exciting Online GeoGuessr Challenge! ",
 			"date": "2026-08-30",
 			"time": "18:30",
