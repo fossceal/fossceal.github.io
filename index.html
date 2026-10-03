@@ -1959,7 +1959,7 @@
 			sidebar.classList.toggle('open', sidebarOpen);
 			tab.style.display = sidebarOpen ? 'none' : 'flex';
 			if (sidebarOpen && document.getElementById('labTermInput')) {
-				setTimeout(() => document.getElementById('labTermInput').focus(), 400);
+				document.getElementById('labTermInput').focus();
 			}
 		}
 
@@ -2504,13 +2504,25 @@ Links:
 
 		// Auto-focus terminal input when typing globally (if sidebar is open)
 		document.addEventListener('keydown', (e) => {
-			if (sidebarOpen && !isPlaying) {
+			if (sidebarOpen && !isPlaying && !document.body.classList.contains("cmd-open")) {
 				if (e.ctrlKey || e.metaKey || e.altKey) return;
 				if (document.activeElement !== termInput) {
 					termInput.focus();
 				}
 			}
 		});
+
+		// Handle mobile viewport resizing (virtual keyboards)
+		if (window.visualViewport) {
+			window.visualViewport.addEventListener("resize", () => {
+				if (sidebarOpen) {
+					document.getElementById('fossLabSidebar').style.height = window.visualViewport.height + "px";
+					setTimeout(() => { termOutput.scrollTop = termOutput.scrollHeight; }, 100);
+				} else {
+					document.getElementById('fossLabSidebar').style.height = "100%";
+				}
+			});
+		}
 
 		// Welcome message / Boot sequence
 		const asciiArt = `       ________  ________  ____________   __ 
