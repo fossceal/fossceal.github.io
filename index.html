@@ -727,7 +727,7 @@
 
 			.centerBox {
 				width: 92vw !important;
-				height: auto !important;
+				height: calc(100dvh - 90px) !important;
 				min-height: unset !important;
 				max-height: none !important;
 				position: relative !important;
@@ -748,9 +748,20 @@
 				padding: 16px 16px 0 16px !important;
 			}
 
-			.headerAffiliation,
-			.cmdKeyPill {
+			.headerAffiliation {
 				display: none !important;
+			}
+
+			.cmdKeyPill {
+				padding: 5px !important;
+			}
+			
+			.cmdKeyPill .desktopCmdText {
+				display: none !important;
+			}
+			
+			.cmdKeyPill .mobileCmdIcon {
+				display: block !important;
 			}
 
 			.headerTelemetry {
@@ -760,7 +771,7 @@
 
 			.boxContents {
 				width: 100% !important;
-				height: auto !important;
+				flex: 1 1 auto !important;
 				min-height: unset !important;
 				top: auto !important;
 				left: auto !important;
@@ -768,7 +779,7 @@
 				transform: none !important;
 				margin: 0 !important;
 				grid-template-columns: 1fr 1fr !important;
-				grid-template-rows: 200px 125px 120px !important;
+				grid-template-rows: 200fr 125fr 120fr !important;
 				gap: 10px !important;
 				padding: 0 14px !important;
 				box-sizing: border-box !important;
@@ -813,6 +824,29 @@
 			.cardSubtitle {
 				bottom: 8px !important;
 				font-size: 0.7rem !important;
+			}
+
+			.cmdModal {
+				padding-top: 24px !important;
+			}
+
+			.cmdDialog {
+				width: 94vw !important;
+				max-height: calc(100dvh - 50px) !important;
+			}
+			
+			/* Hide scrollbar in command palette on mobile */
+			.cmdResultsContainer::-webkit-scrollbar {
+				display: none;
+			}
+			.cmdResultsContainer {
+				-ms-overflow-style: none;
+				scrollbar-width: none;
+			}
+			
+			/* Auto-hide Lab tab when Command Palette is open */
+			body.cmd-open #fossLabTab {
+				display: none !important;
 			}
 		}
 
@@ -1112,7 +1146,8 @@
 				</div>
 
 				<div class="cmdKeyPill" id="cmdKeyBtn" title="Quick Launcher (Press ⌘K or /)">
-					<span>⌘K</span>
+					<span class="desktopCmdText">⌘K</span>
+					<svg class="mobileCmdIcon" style="display:none;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
 				</div>
 
 				<div id="dad_toggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
@@ -1345,6 +1380,7 @@
 
 			function openCmdPalette() {
 				if (!cmdModal) return;
+				document.body.classList.add("cmd-open");
 				cmdModal.style.display = "flex";
 				cmdModal.setAttribute("aria-hidden", "false");
 				cmdTerminal.style.display = "none";
@@ -1356,6 +1392,7 @@
 
 			function closeCmdPalette() {
 				if (!cmdModal) return;
+				document.body.classList.remove("cmd-open");
 				cmdModal.style.display = "none";
 				cmdModal.setAttribute("aria-hidden", "true");
 				cmdTerminal.style.display = "none";
@@ -1575,32 +1612,6 @@
 	</script>
 
 	<style>
-		/* Sidebar — Mobile Adaptations */
-		@media (max-width: 800px) {
-			#fossLabTab {
-				top: auto;
-				bottom: 0;
-				right: 50%;
-				transform: translateX(50%);
-				width: 120px;
-				height: 32px;
-				border-radius: 8px 8px 0 0;
-				border-left: 1px solid rgba(255, 255, 255, 0.12);
-				border-right: 1px solid rgba(255, 255, 255, 0.12);
-				border-bottom: none;
-				writing-mode: horizontal-tb;
-			}
-			#fossLabTab:hover {
-				height: 38px;
-				width: 120px;
-			}
-			#fossLabSidebar {
-				width: 100vw;
-				right: -100vw;
-				border-left: none;
-			}
-		}
-
 		#fossLabTab {
 			position: fixed;
 			right: 0;
@@ -1617,7 +1628,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			transition: background 200ms ease, width 200ms ease;
+			transition: background 200ms ease, width 200ms ease, height 200ms ease;
 			writing-mode: vertical-rl;
 			font-family: 'Satoshi', 'Courier New', monospace;
 			font-size: 11px;
@@ -1627,10 +1638,44 @@
 			user-select: none;
 		}
 
-		#fossLabTab:hover {
-			background: #2a2a2a;
-			color: rgba(255, 255, 255, 0.9);
-			width: 34px;
+		/* Desktop-only Hover Effect (Disabled on touch devices to prevent sticky hovers) */
+		@media (hover: hover) and (pointer: fine) {
+			#fossLabTab:hover {
+				background: #2a2a2a;
+				color: rgba(255, 255, 255, 0.9);
+				width: 34px;
+			}
+		}
+
+		/* Sidebar — Mobile Adaptations */
+		@media (max-width: 800px) {
+			#fossLabTab {
+				top: auto;
+				bottom: 0;
+				left: 50%;
+				right: auto;
+				transform: translateX(-50%);
+				width: 120px;
+				height: 32px;
+				border-radius: 8px 8px 0 0;
+				border-left: 1px solid rgba(255, 255, 255, 0.12);
+				border-right: 1px solid rgba(255, 255, 255, 0.12);
+				border-bottom: none;
+				writing-mode: horizontal-tb;
+				z-index: 9999;
+			}
+			/* Touch feedback for mobile */
+			@media (hover: none) {
+				#fossLabTab:active {
+					background: #2a2a2a;
+					height: 36px;
+				}
+			}
+			#fossLabSidebar {
+				width: 100vw;
+				right: -100vw;
+				border-left: none;
+			}
 		}
 
 		#fossLabSidebar {
