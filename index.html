@@ -1518,6 +1518,770 @@
 			}
 		})();
 	</script>
+
+	<!-- ========================================================================
+	     FOSS CEAL LAB SIDEBAR
+	     Desktop-only collapsible panel with Interactive Terminal.
+	     Set SIDEBAR_ENABLED = false to hide the entire feature.
+	     ======================================================================== -->
+	<script>
+		window.SIDEBAR_ENABLED = true;
+	</script>
+
+	<style>
+		/* Sidebar — Desktop Only */
+		@media (max-width: 1100px) {
+			#fossLabSidebar, #fossLabTab { display: none !important; }
+		}
+
+		#fossLabTab {
+			position: fixed;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			z-index: 900;
+			width: 28px;
+			height: 80px;
+			background: #1a1a1a;
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			border-right: none;
+			border-radius: 8px 0 0 8px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background 200ms ease, width 200ms ease;
+			writing-mode: vertical-rl;
+			font-family: 'Satoshi', 'Courier New', monospace;
+			font-size: 11px;
+			font-weight: 700;
+			color: rgba(255, 255, 255, 0.6);
+			letter-spacing: 0.1em;
+			user-select: none;
+		}
+
+		#fossLabTab:hover {
+			background: #2a2a2a;
+			color: rgba(255, 255, 255, 0.9);
+			width: 34px;
+		}
+
+		#fossLabSidebar {
+			position: fixed;
+			right: -600px;
+			top: 0;
+			width: 600px;
+			height: 100vh;
+			background: #111111;
+			border-left: 1px solid rgba(255, 255, 255, 0.08);
+			z-index: 901;
+			display: block;
+			transition: right 400ms cubic-bezier(0.4, 0, 0.2, 1);
+			box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4);
+		}
+
+		#fossLabSidebar.open {
+			right: 0;
+		}
+
+		.labHeader {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 16px 20px;
+			z-index: 904;
+			background: linear-gradient(to bottom, rgba(17,17,17,0.9) 0%, rgba(17,17,17,0) 100%);
+		}
+
+		.labHeader h3 {
+			margin: 0;
+			font-family: 'Satoshi', sans-serif;
+			font-size: 14px;
+			font-weight: 700;
+			color: #ffffff;
+			letter-spacing: 0.03em;
+		}
+
+		.labCloseBtn {
+			width: 28px;
+			height: 28px;
+			background: rgba(255, 255, 255, 0.06);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 6px;
+			color: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 16px;
+			transition: all 150ms ease;
+		}
+
+		.labCloseBtn:hover {
+			background: rgba(255, 255, 255, 0.12);
+			color: #ffffff;
+		}
+
+		/* Terminal Interface */
+		.labTerminal {
+			position: absolute;
+			top: 60px; /* Below header */
+			left: 20px;
+			right: 20px;
+			bottom: 20px;
+			z-index: 903;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+			font-family: 'Courier New', 'Consolas', monospace;
+			font-size: 13px;
+			background: rgba(10, 10, 10, 0.95);
+			border-radius: 8px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		.labTermOutput {
+			flex: 1;
+			overflow-y: auto;
+			padding: 14px 16px;
+			color: #d4d4d4;
+			line-height: 1.6;
+			white-space: pre-wrap;
+			word-break: break-word;
+		}
+
+		.labTermOutput::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		.labTermOutput::-webkit-scrollbar-thumb {
+			background: rgba(255, 255, 255, 0.15);
+			border-radius: 4px;
+		}
+
+		.labTermOutput .termPrompt {
+			color: #00df08;
+		}
+
+		.labTermOutput .termCmd {
+			color: #ffffff;
+		}
+
+		.labTermOutput .termResult {
+			color: #a0a0a0;
+		}
+
+		.labTermOutput .termError {
+			color: #ff5f56;
+		}
+
+		.labTermOutput .termLink {
+			color: #00df08;
+			text-decoration: underline;
+			text-decoration-style: dashed;
+			cursor: pointer;
+		}
+		.labTermOutput .termLink:hover {
+			color: #ffffff;
+		}
+
+		.labTermInputLine {
+			display: flex;
+			align-items: center;
+			padding: 10px 16px;
+			border-top: 1px solid rgba(255, 255, 255, 0.06);
+			background: rgba(0, 0, 0, 0.3);
+		}
+
+		.labTermInputLine .prompt {
+			color: #00df08;
+			margin-right: 8px;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		#labTermInput {
+			flex: 1;
+			background: none;
+			border: none;
+			outline: none;
+			color: #ffffff;
+			font-family: inherit;
+			font-size: inherit;
+			caret-color: #00df08;
+		}
+	</style>
+
+	<!-- Sidebar HTML -->
+	<div id="fossLabTab" title="Open FOSS Lab">LAB</div>
+	<div id="fossLabSidebar">
+		<div class="labHeader">
+			<h3>⌘ FOSS CEAL Lab</h3>
+			<button class="labCloseBtn" id="labCloseBtn" title="Close">✕</button>
+		</div>
+		<div class="labTerminal">
+			<div class="labTermOutput" id="labTermOutput"></div>
+			<div class="labTermInputLine">
+				<span class="prompt">foss@ceal:~$</span>
+				<input type="text" id="labTermInput" placeholder="type 'help'..." autocomplete="off" spellcheck="false" />
+			</div>
+		</div>
+	</div>
+
+	<script>
+		if (!window.SIDEBAR_ENABLED) {
+			document.getElementById('fossLabTab').style.display = 'none';
+			document.getElementById('fossLabSidebar').style.display = 'none';
+		} else {
+
+		// ========================================================================
+		// 🛠️ EDIT THIS DATA TO UPDATE THE TERMINAL CONTENT
+		// ========================================================================
+		const TERMINAL_DATA = {
+			quotes: [
+				"Software is like sex: it's better when it's free. - Linus Torvalds",
+				"Free software is a matter of liberty, not price. - Richard Stallman",
+				"Talk is cheap. Show me the code. - Linus Torvalds",
+				"Programs must be written for people to read. - Hal Abelson",
+				"First, solve the problem. Then, write the code. - John Johnson"
+			],
+			projects: [
+				"CEAL WebOS (this site)",
+				"Campus Network Monitor",
+				"Open Library System",
+				"Check https://github.com/fossceal for more."
+			],
+			history: [
+				"2024: FOSS CEAL was born.",
+				"2025: The 5 Chambers were constructed.",
+				"2026: Open Source world domination begins."
+			],
+			manuals: {
+				"chambers": "CHAMBERS(1)\n\nNAME\n  chambers - The 5 domains of FOSS CEAL\n\nDESCRIPTION\n  101: Linux & Sysadmin\n  202: Web & Cloud\n  303: AI & Data\n  404: Security\n  505: Hardware & IoT"
+			},
+			routes: {
+				'events': '/events', 
+				'brandkit': '/brandkit', 
+				'team': '/team',
+				'explore': '/explore.html', 
+				'101': '/chamber/101/create.html',
+				'202': '/chamber/202/embed.html', 
+				'303': '/chamber/303/train.html',
+				'404': '/chamber/404/hack.html', 
+				'505': '/chamber/505/deploy.html'
+			}
+		};
+
+		// === SIDEBAR TOGGLE ===
+		const tab = document.getElementById('fossLabTab');
+		const sidebar = document.getElementById('fossLabSidebar');
+		const closeBtn = document.getElementById('labCloseBtn');
+		let sidebarOpen = false;
+
+		function toggleSidebar() {
+			sidebarOpen = !sidebarOpen;
+			sidebar.classList.toggle('open', sidebarOpen);
+			tab.style.display = sidebarOpen ? 'none' : 'flex';
+			if (sidebarOpen && document.getElementById('labTermInput')) {
+				setTimeout(() => document.getElementById('labTermInput').focus(), 400);
+			}
+		}
+
+		tab.addEventListener('click', toggleSidebar);
+		closeBtn.addEventListener('click', toggleSidebar);
+
+		// === TERMINAL ===
+		const termOutput = document.getElementById('labTermOutput');
+		const termInput = document.getElementById('labTermInput');
+
+		let activeProcess = null; // Used for running background terminal jobs
+
+		const COMMANDS = {
+			help: {
+				desc: 'List available commands',
+				run: () => Object.entries(COMMANDS)
+					.map(([k, v]) => `  <span class="termCmd">${k.padEnd(14)}</span> ${v.desc}`)
+					.join('\n')
+			},
+			join: {
+				desc: 'Join the FOSS CEAL Resistance',
+				run: () => {
+					setTimeout(() => window.open('https://github.com/fossceal', '_blank'), 1500);
+					return "Initializing secure connection...\nRouting to registration portal...\nWelcome to the resistance.";
+				}
+			},
+			theme: {
+				desc: 'Change theme (light/dark/hacker)',
+				run: (args) => {
+					const t = (args[0] || '').toLowerCase();
+					if (t === 'hacker') {
+						document.body.style.filter = 'sepia(1) hue-rotate(60deg) saturate(3)';
+						return 'Hacker mode activated.';
+					} else if (t === 'light') {
+						document.body.style.filter = 'invert(1)';
+						return 'Light mode? My eyes!';
+					} else {
+						document.body.style.filter = 'none';
+						return 'Theme reset to default.';
+					}
+				}
+			},
+			search: {
+				desc: 'Search the website',
+				run: (args) => {
+					if(!args.length) return 'Usage: search <keyword>';
+					return `Searching for "${args.join(' ')}"... No matches found in local index.`;
+				}
+			},
+			status: {
+				desc: 'Live server status',
+				run: () => `FOSS CEAL NODE STATUS\n---------------------\nChamber 101: 🟢 ONLINE   (Load: 12%)\nChamber 202: 🟢 ONLINE   (Load: 4%)\nChamber 303: 🟡 TRAINING (Load: 99%)\nChamber 404: 🟢 ONLINE   (Load: 1%)\nChamber 505: 🟢 ONLINE   (Load: 42%)\n\nCPU: [||||||....] 60%\nRAM: 1.2GB / 4.0GB`
+			},
+			events: {
+				desc: 'Query FOSS CEAL events database',
+				run: (args) => {
+					printLine('<span class="termResult">Querying live events database...</span>');
+					// Fetch directly from the production events JSON!
+					fetch('events/events.json?v=' + Date.now())
+						.then(res => res.json())
+						.then(data => {
+							const evts = data.events || [];
+							const flag = (args[0] || '').toLowerCase();
+							const param = (args.slice(1).join(' ') || '').toLowerCase();
+							let filtered = evts;
+							
+							if (flag === '--upcoming') {
+								const now = new Date();
+								filtered = evts.filter(e => new Date(`${e.date}T${e.time||'00:00'}`) > now);
+							} else if (flag === '--grep' && param) {
+								filtered = evts.filter(e => JSON.stringify(e).toLowerCase().includes(param));
+							} else if (flag === '--chamber' && param) {
+								filtered = evts.filter(e => (e.clubs||[]).some(c => c.toLowerCase().includes(param)) || (e.chamber||[]).some(c => c.toLowerCase().includes(param)));
+							} else if (flag !== '--all') {
+								printLine(`<span class="termResult">Usage: events [--all | --upcoming | --grep &lt;text&gt; | --chamber &lt;id&gt;]</span>`);
+								return;
+							}
+							
+							if (!filtered.length) {
+								printLine('<span class="termResult">No events matched your query.</span>');
+								return;
+							}
+							
+							// Sort chronologically (newest first)
+							filtered.sort((a,b) => new Date(`${b.date}T${b.time||'00:00'}`) - new Date(`${a.date}T${a.time||'00:00'}`));
+							
+							const out = filtered.map((e, i) => {
+								const title = (e.name||'').replace(/</g, '&lt;');
+								const desc = (e.description||'').replace(/</g, '&lt;');
+								return `${i+1}. <span class="termCmd">${title}</span> [${e.date || 'TBA'}]\n   ${desc}`;
+							}).join('\n\n');
+							
+							printLine(`\n<span class="termResult">${out}</span>\n`);
+						})
+						.catch(err => printLine('<span class="termError">Failed to fetch events data. Database offline.</span>'));
+					return null;
+				}
+			},
+			history: {
+				desc: 'Club timeline',
+				run: () => TERMINAL_DATA.history.join('\n')
+			},
+			projects: {
+				desc: 'Active open-source projects',
+				run: () => TERMINAL_DATA.projects.map((p, i) => `${i+1}. ${p}`).join('\n')
+			},
+			man: {
+				desc: 'Read system manuals',
+				run: (args) => {
+					const target = args[0] || '';
+					if (TERMINAL_DATA.manuals[target]) return TERMINAL_DATA.manuals[target];
+					return `No manual entry for ${target || 'nothing'}`;
+				}
+			},
+			sudo: {
+				desc: 'Execute command as superuser',
+				run: (args) => {
+					if(args.join(' ') === 'rm -rf /') {
+						document.body.style.transition = 'all 3s ease';
+						document.body.style.filter = 'blur(10px) grayscale(100%)';
+						setTimeout(() => location.reload(), 3500);
+						return `Deleting /var...\nDeleting /usr...\nDeleting /home...\nSystem failure. Goodbye.`;
+					}
+					return `sudo: ${args[0]||''}: command not found`;
+				}
+			},
+			cowsay: {
+				desc: 'Moo.',
+				run: (args) => {
+					const text = args.join(' ') || 'FOSS CEAL rules!';
+					const border = '-'.repeat(text.length + 2);
+					return ` ${border}\n< ${text} >\n ${border}\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||`;
+				}
+			},
+			weather: {
+				desc: 'Check real weather (Requires internet)',
+				run: () => {
+					printLine('<span class="termResult">Fetching weather for Attingal...</span>');
+					fetch('https://wttr.in/Attingal?0Tq')
+						.then(res => res.text())
+						.then(txt => printLine(`<span class="termResult">${txt}</span>`))
+						.catch(() => printLine('<span class="termError">Weather API unreachable.</span>'));
+					return null;
+				}
+			},
+			whoami: {
+				desc: 'Print user info',
+				run: () => `User: guest\nOS: ${navigator.platform}\nAgent: ${navigator.userAgent}\nStatus: Unverified`
+			},
+			quote: {
+				desc: 'Print a random quote',
+				run: () => {
+					const quotes = TERMINAL_DATA.quotes;
+					return quotes[Math.floor(Math.random()*quotes.length)];
+				}
+			},
+			ping: {
+				desc: 'Simulate network ping',
+				run: (args) => {
+					const target = args[0] || 'github.com';
+					let count = 0;
+					printLine(`<span class="termResult">PING ${target} (56 data bytes)</span>`);
+					if (activeProcess) clearInterval(activeProcess);
+					activeProcess = setInterval(() => {
+						printLine(`<span class="termResult">64 bytes from ${target}: icmp_seq=${count++} ttl=54 time=${Math.floor(Math.random()*20+10)} ms</span>`);
+						if(count > 4) {
+							clearInterval(activeProcess);
+							activeProcess = null;
+						}
+					}, 800);
+					return null;
+				}
+			},
+			neofetch: {
+				desc: 'System info',
+				run: () =>
+`   .-------------------.    foss@ceal
+  /  _____   ____   ____\\   ---------------------
+ |  |  ___| / __ \\ / ___||  OS: FOSS CEAL WebOS 26.4
+ |  | |_   | |  | |\\___ \\|  Host: CE Attingal
+ |  |  _|  | |  | | ___) |  Chambers: 101, 202, 303, 404, 505
+ |  |_|     \\____/ |____/|  Uptime: Active Tenure 2026
+  \\                     /   Shell: bash / zsh
+   '-------------------'    Memory: 100% Free & Open Source`
+			},
+			ls: {
+				desc: 'List directories',
+				run: () => 'chambers/\n  101/   202/   303/   404/   505/\npages/\n  events/   brandkit/   team/   explore.html'
+			},
+			cd: {
+				desc: 'Navigate to page (e.g. cd events)',
+				run: (args) => {
+					const routes = TERMINAL_DATA.routes;
+					const target = (args[0] || '').toLowerCase();
+					if (routes[target]) {
+						setTimeout(() => location.href = routes[target], 400);
+						return `Navigating to ${target}...`;
+					}
+					return `cd: no such directory: ${args[0] || '(none)'}`;
+				}
+			},
+			open: {
+				desc: 'Alias for cd',
+				run: (args) => COMMANDS.cd.run(args)
+			},
+			clear: {
+				desc: 'Clear terminal',
+				run: () => { termOutput.innerHTML = ''; return null; }
+			},
+			play: {
+				desc: 'Play terminal games',
+				run: (args) => {
+					const game = (args[0]||'').toLowerCase();
+					if (game === 'dino') {
+						if (typeof startDinoGame === 'function') startDinoGame();
+						return null;
+					}
+					if (game === 'snake') {
+						if (typeof startSnakeGame === 'function') startSnakeGame();
+						return null;
+					}
+					return 'Games available: dino, snake\nUsage: play <game>';
+				}
+			}
+		};
+
+		function printLine(html) {
+			// Auto-linkify http/https links
+			const linkedHtml = html.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" class="termLink">$1</a>');
+			termOutput.innerHTML += linkedHtml + '\n';
+			termOutput.scrollTop = termOutput.scrollHeight;
+		}
+
+		// Enforce Ctrl+Click for terminal links
+		termOutput.addEventListener('click', (e) => {
+			if (e.target.classList.contains('termLink')) {
+				if (!e.ctrlKey && !e.metaKey) {
+					e.preventDefault();
+					printLine('<span class="termError">Hint: Ctrl+Click (or Cmd+Click) to open links.</span>');
+				}
+			}
+		});
+
+		function handleCommand(input) {
+			const raw = input.trim();
+			printLine(`<span class="termPrompt">foss@ceal:~$</span> <span class="termCmd">${raw}</span>`);
+
+			if (!raw) return;
+
+			const parts = raw.split(/\s+/);
+			const cmd = parts[0].toLowerCase();
+			const args = parts.slice(1);
+
+			if (COMMANDS[cmd]) {
+				const result = COMMANDS[cmd].run(args);
+				if (result) printLine(`<span class="termResult">${result}</span>`);
+			} else {
+				printLine(`<span class="termError">command not found: ${cmd}. Type 'help' for available commands.</span>`);
+			}
+		}
+
+		let isPlaying = false;
+		let dinoState = null;
+		let snakeState = null;
+
+		function startDinoGame() {
+			if (isPlaying) return;
+			isPlaying = true;
+			snakeState = null;
+			termOutput.innerHTML = '';
+			
+			dinoState = {
+				score: 0,
+				dinoY: 0, // 0 = ground, 1 = air
+				jumpTimer: 0,
+				obstacleX: 35,
+				gameSpeed: 90
+			};
+			
+			const renderGame = () => {
+				const trackLength = 40;
+				let trackArr = new Array(trackLength).fill('_');
+				let skyArr = new Array(trackLength).fill('&nbsp;');
+
+				if (dinoState.obstacleX >= 0 && dinoState.obstacleX < trackLength) {
+					trackArr[dinoState.obstacleX] = '🌵';
+				}
+
+				// Player
+				const dinoChar = '<span style="display:inline-block; transform:scaleX(-1);">🦖</span>';
+				if (dinoState.dinoY > 0) {
+					skyArr[4] = dinoChar;
+					trackArr[4] = '_';
+				} else {
+					trackArr[4] = dinoChar;
+				}
+
+				termOutput.innerHTML = `
+<br><br><br>
+<span class="termResult" style="margin-left: 16px;">SCORE: ${dinoState.score}</span><br><br>
+<span class="termCmd" style="font-size:16px; margin-left: 16px; white-space: pre;">${skyArr.join('')}</span><br>
+<span class="termCmd" style="font-size:16px; margin-left: 16px; white-space: pre;">${trackArr.join('')}</span><br><br>
+<span class="termResult" style="margin-left: 16px;">Press [SPACE] or [UP] to jump. Press [Q] to quit.</span>
+`;
+			};
+
+			dinoState.renderGame = renderGame;
+
+			const setGameLoop = () => {
+				if (activeProcess) clearInterval(activeProcess);
+				activeProcess = setInterval(() => {
+					// Physics
+					if (dinoState.dinoY > 0) {
+						dinoState.jumpTimer--;
+						if (dinoState.jumpTimer <= 0) dinoState.dinoY = 0;
+					}
+
+					dinoState.obstacleX--;
+					if (dinoState.obstacleX < 0) {
+						dinoState.obstacleX = Math.floor(Math.random() * 15) + 25;
+						dinoState.score += 10;
+						
+						// Speed up over time
+						if (dinoState.score % 50 === 0 && dinoState.gameSpeed > 30) {
+							dinoState.gameSpeed -= 5;
+							setGameLoop(); // Re-bind with faster interval
+						}
+					}
+
+					// Collision
+					if (dinoState.obstacleX === 4 && dinoState.dinoY === 0) {
+						clearInterval(activeProcess);
+						activeProcess = null;
+						isPlaying = false;
+						printLine(`<br><span class="termError" style="margin-left: 16px;">GAME OVER! Final Score: ${dinoState.score}</span>`);
+						printLine('<span class="termResult" style="margin-left: 16px;">Type "play dino" to try again.</span>');
+						return;
+					}
+
+					renderGame();
+				}, dinoState.gameSpeed);
+			};
+
+			setGameLoop();
+		}
+
+		function startSnakeGame() {
+			if (isPlaying) return;
+			isPlaying = true;
+			dinoState = null;
+			termOutput.innerHTML = '';
+			
+			snakeState = {
+				gridW: 16,
+				gridH: 10,
+				snake: [{x: 5, y: 5}, {x: 4, y: 5}, {x: 3, y: 5}],
+				dir: {x: 1, y: 0},
+				nextDir: {x: 1, y: 0},
+				food: {x: 10, y: 5},
+				score: 0,
+				gameSpeed: 220
+			};
+
+			const spawnFood = () => {
+				let newX, newY;
+				while(true) {
+					newX = Math.floor(Math.random() * snakeState.gridW);
+					newY = Math.floor(Math.random() * snakeState.gridH);
+					if (!snakeState.snake.some(s => s.x === newX && s.y === newY)) break;
+				}
+				snakeState.food = {x: newX, y: newY};
+			};
+
+			const renderSnake = () => {
+				let html = `<br><span class="termResult" style="margin-left:16px;">SCORE: ${snakeState.score}</span><br><br>`;
+				for (let y = 0; y < snakeState.gridH; y++) {
+					let row = '';
+					for (let x = 0; x < snakeState.gridW; x++) {
+						if (x === snakeState.food.x && y === snakeState.food.y) {
+							row += '🍎 ';
+						} else {
+							const sIdx = snakeState.snake.findIndex(s => s.x === x && s.y === y);
+							if (sIdx === 0) row += '🐸 '; // Head
+							else if (sIdx > 0) row += '🟩 '; // Body
+							else row += '<span style="color:#444;">.  </span>'; // Empty space
+						}
+					}
+					html += `<span class="termCmd" style="margin-left: 16px; font-family: monospace; white-space: pre;">${row}</span><br>`;
+				}
+				html += '<br><span class="termResult" style="margin-left: 16px;">Use [W][A][S][D] or Arrows to move. [Q] to quit.</span>';
+				termOutput.innerHTML = html;
+			};
+
+			const gameOver = () => {
+				clearInterval(activeProcess);
+				activeProcess = null;
+				isPlaying = false;
+				printLine(`<br><span class="termError" style="margin-left: 16px;">GAME OVER! Final Score: ${snakeState.score}</span>`);
+				printLine('<span class="termResult" style="margin-left: 16px;">Type "play snake" to try again.</span>');
+			};
+
+			const setGameLoop = () => {
+				if (activeProcess) clearInterval(activeProcess);
+				activeProcess = setInterval(() => {
+					snakeState.dir = snakeState.nextDir;
+					const head = snakeState.snake[0];
+					const nextHead = {x: head.x + snakeState.dir.x, y: head.y + snakeState.dir.y};
+					
+					// Screen Wrapping
+					if (nextHead.x < 0) nextHead.x = snakeState.gridW - 1;
+					else if (nextHead.x >= snakeState.gridW) nextHead.x = 0;
+					
+					if (nextHead.y < 0) nextHead.y = snakeState.gridH - 1;
+					else if (nextHead.y >= snakeState.gridH) nextHead.y = 0;
+					
+					// Self Collision
+					if (snakeState.snake.some(s => s.x === nextHead.x && s.y === nextHead.y)) {
+						gameOver(); return;
+					}
+
+					snakeState.snake.unshift(nextHead); // Move forward
+
+					// Eat Food
+					if (nextHead.x === snakeState.food.x && nextHead.y === snakeState.food.y) {
+						snakeState.score += 10;
+						spawnFood();
+						if (snakeState.score % 50 === 0 && snakeState.gameSpeed > 50) {
+							snakeState.gameSpeed -= 15;
+							setGameLoop();
+						}
+					} else {
+						snakeState.snake.pop(); // Remove tail if no food eaten
+					}
+					renderSnake();
+				}, snakeState.gameSpeed);
+			};
+
+			renderSnake();
+			setGameLoop();
+		}
+
+		termInput.addEventListener('keydown', (e) => {
+			if (isPlaying) {
+				e.preventDefault(); // Stop page scrolling
+				
+				// DINO Inputs
+				if (dinoState) {
+					if (e.code === 'Space' || e.code === 'ArrowUp') {
+						if (dinoState.dinoY === 0) {
+							dinoState.dinoY = 1;
+							dinoState.jumpTimer = 7;
+							dinoState.renderGame(); 
+						}
+					}
+				}
+
+				// SNAKE Inputs
+				if (snakeState) {
+					const code = e.code;
+					const key = e.key.toLowerCase();
+					if ((code === 'ArrowUp' || key === 'w') && snakeState.dir.y === 0) snakeState.nextDir = {x: 0, y: -1};
+					if ((code === 'ArrowDown' || key === 's') && snakeState.dir.y === 0) snakeState.nextDir = {x: 0, y: 1};
+					if ((code === 'ArrowLeft' || key === 'a') && snakeState.dir.x === 0) snakeState.nextDir = {x: -1, y: 0};
+					if ((code === 'ArrowRight' || key === 'd') && snakeState.dir.x === 0) snakeState.nextDir = {x: 1, y: 0};
+				}
+
+				if (e.key.toLowerCase() === 'q') {
+					if (activeProcess) clearInterval(activeProcess);
+					activeProcess = null;
+					isPlaying = false;
+					dinoState = null;
+					snakeState = null;
+					termOutput.innerHTML = '';
+					printLine('<span class="termResult">Game aborted.</span>');
+				}
+				return;
+			}
+			
+			if (e.key === 'Enter') {
+				handleCommand(termInput.value);
+				termInput.value = '';
+			}
+		});
+
+		// Welcome message
+		printLine('<span class="termResult">Welcome to FOSS CEAL Lab Terminal v1.0</span>');
+		printLine('<span class="termResult">Type <span class="termCmd">help</span> for available commands.\n</span>');
+
+
+
+		} // end SIDEBAR_ENABLED
+	</script>
 </body>
 
 </html>
