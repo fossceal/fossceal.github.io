@@ -399,16 +399,19 @@ body {
 }
 
 .cntnts>.shadow {
-	width: 110%;
-	height: 110%;
-	left: -1px;
-	top: -2px;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
 	margin: 0px;
-	transform: translateY(100%);
-	background-color: black;
+	opacity: 0;
+	background-color: rgba(0, 0, 0, 0.65);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
 	position: absolute;
-	transition: 200ms;
+	transition: opacity 180ms ease;
 	z-index: 1;
+	border-radius: inherit;
 }
 
 #GRDHero:hover::after {
@@ -429,8 +432,8 @@ body {
 	color: white;
 }
 
-.cntnts:hover.cntnts>.shadow {
-	transform: translateY(0%);
+.cntnts:hover>.shadow {
+	opacity: 1;
 }
 
 .cntnts:hover .shadow>img {
@@ -455,26 +458,13 @@ body {
 	z-index: 2;
 }
 
-#GRDUpSide>#shadow2 {
-	width: 110%;
-	height: 110%;
-	left: -1px;
-	top: -2px;
-	margin: 0px;
-	transform: translateY(100%);
-	background-color: black;
-	position: absolute;
-	transition: 200ms;
-	z-index: 1;
-}
+
 
 #GRDUpSide:hover #UpSideTitle {
 	color: white;
 }
 
-#GRDUpSide:hover#GRDUpSide>#shadow2 {
-	transform: translateY(0%);
-}
+
 
 #UpSideTitle {
 	width: 100%;

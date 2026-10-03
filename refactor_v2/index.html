@@ -1,0 +1,151 @@
+ś<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FOSS CEAL - College of Engineering Attingal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Instant Theme Load to prevent flash
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    </script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Header -->
+        <header class="header">
+            <div class="header__left">
+                <!-- Using inline SVG for FOSS CEAL Logo for perfect scaling (Fallback to img for now if complex) -->
+                <img src="../Evantage_dark_HZ.png" class="header__logo light-logo" alt="FOSS CEAL Logo" onclick="location.href='index.html'" />
+                <img src="../Evantage_light_HZ.png" class="header__logo dark-logo" alt="FOSS CEAL Logo" onclick="location.href='index.html'" />
+                <div class="header__affiliation">
+                    <span>College of Engineering Attingal</span>
+                    <span class="header__dot"></span>
+                    <span>Student Chapter</span>
+                </div>
+            </div>
+
+            <div class="header__right">
+                <div class="telemetry" title="Campus Time & Status">
+                    <span class="telemetry__pulse"></span>
+                    <span id="telemetryClock">CEAL • --:-- IST</span>
+                </div>
+
+                <button class="cmd-pill" id="cmdKeyBtn" title="Quick Launcher (Press ⌘K or /)">
+                    <span>⌘K</span>
+                </button>
+
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path class="sun-icon" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.856 5.144a.75.75 0 00-1.06 0l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59a.75.75 0 000-1.06zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.796 18.856a.75.75 0 000-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591a.75.75 0 001.061 0zM12 21.75a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0V21a.75.75 0 01-.75.75zM5.144 18.856a.75.75 0 000-1.06l1.591-1.59a.75.75 0 00-1.06-1.061l-1.591 1.59a.75.75 0 001.06 1.06zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM5.144 5.144a.75.75 0 001.06 0l1.59-1.591a.75.75 0 00-1.061-1.06l-1.59 1.591a.75.75 0 000 1.061z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="bento-grid">
+            <!-- Hero Card: Events -->
+            <a href="/events" class="card card--hero" title="Explore FOSS Events">
+                <div class="card__bg" style="background-image: url('../pics/1.jpg');"></div>
+                <div class="card__badge"><span>Community & Talks</span></div>
+                
+                <div class="card__content">
+                    <h1 class="card__title">Events</h1>
+                    <p class="card__subtitle">Workshops, hackathons & meetups</p>
+                </div>
+
+                <div class="card__glass">
+                    <svg class="card__arrow" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Secondary Card: Brandkit -->
+            <a href="/brandkit" class="card card--brandkit" title="View Brand Guidelines">
+                <div class="card__badge card__badge--light">
+                    <div class="chamber-dots">
+                        <span class="dot" style="background: var(--red);"></span>
+                        <span class="dot" style="background: var(--yellow);"></span>
+                        <span class="dot" style="background: var(--beetle-blue);"></span>
+                        <span class="dot" style="background: var(--acid-green);"></span>
+                        <span class="dot" style="background: var(--burple-plum);"></span>
+                    </div>
+                    <span>5 Chambers</span>
+                </div>
+
+                <div class="card__content">
+                    <h1 class="card__title">Brandkit</h1>
+                    <p class="card__subtitle">Identity, guidelines & official assets</p>
+                </div>
+
+                <div class="card__glass">
+                    <svg class="card__arrow" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Mini Card: Team -->
+            <a href="/team" class="card card--mini card--team" title="Meet the Execom">
+                <div class="card__bg" style="background-image: url('../team.jpeg');"></div>
+                <div class="card__badge"><span>Execom 2026</span></div>
+                
+                <div class="card__content">
+                    <h3 class="card__title">Team</h3>
+                    <p class="card__subtitle">Core leads & builders</p>
+                </div>
+
+                <div class="card__glass">
+                    <svg class="card__arrow" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+
+            <!-- Mini Card: Other -->
+            <a href="/explore.html" class="card card--mini card--other" title="Explore Chambers & Directory">
+                <div class="card__badge card__badge--light"><span>Directory</span></div>
+                
+                <div class="card__content">
+                    <h3 class="card__title">Other</h3>
+                    <p class="card__subtitle">Chambers, GitHub & links</p>
+                </div>
+
+                <div class="card__glass">
+                    <svg class="card__arrow" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </a>
+        </main>
+    </div>
+
+    <!-- Hacker Command Palette Modal -->
+    <div id="cmdPaletteModal" class="cmd-modal" aria-hidden="true" style="display: none;">
+        <div class="cmd-backdrop" id="cmdBackdrop"></div>
+        <div class="cmd-dialog" role="dialog" aria-modal="true" aria-label="Command Palette">
+            <div class="cmd-header">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="cmdSearchInput" class="cmd-input" placeholder="Type a command, page or chamber (e.g. 'events', '101')..." autocomplete="off" spellcheck="false" />
+                <span class="cmd-esc" id="cmdCloseBtn" title="Close (Esc)">ESC</span>
+            </div>
+            <div class="cmd-results" id="cmdResults"></div>
+            <div class="cmd-footer">
+                <span>Use <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>Enter</kbd> to select</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

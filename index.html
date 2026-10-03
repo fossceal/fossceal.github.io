@@ -4,50 +4,1520 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>FOSS</title>
+	<title>FOSS CEAL • College of Engineering Attingal</title>
+	<meta name="description" content="Official community portal of FOSS CEAL - Free and Open Source Software Cell at College of Engineering Attingal." />
 	<link rel="stylesheet" href="fonts/font.css" />
+	<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" />
+	<script>
+		// Instant zero-flash theme state on initial page load
+		(function () {
+			try {
+				if (localStorage.getItem("dmode") !== "disabled") {
+					document.documentElement.classList.add("dmode-active");
+				}
+			} catch (e) { }
+		})();
+		document.addEventListener("DOMContentLoaded", function () {
+			if (document.body) document.body.style.opacity = "1";
+		});
+	</script>
 	<script defer src="dmode.js"></script>
 	<link id="h1n1" rel="stylesheet" href="style.css" />
+
+	<style>
+		/* --------------------------------------------------------------------------
+		   FOSS CEAL: Refined Engineering Craft & Inversion System
+		   Pure Open-Source Identity • Crisp Dot-Matrix Blueprint • Flawless Contrast
+		   -------------------------------------------------------------------------- */
+
+		/* Font Override: Satoshi for the homepage */
+		.boxContents,
+		.boxContents * {
+			font-family: 'Satoshi', 'Open Sans', sans-serif !important;
+		}
+		:root {
+			--landing-ease: cubic-bezier(0.16, 1, 0.3, 1);
+			--RED: #ff0000;
+			--BLACK: #000000;
+			--39grey: #393939;
+			--WHITE: #ffffff;
+			--YELLOW: #ffe700;
+			--BEETLEBLUE: #008bff;
+			--ACIDGREEN: #00df08;
+			--BURPLEPLUM: #960f70;
+		}
+
+		/* 1. Body: Restore Original Iconic Dot-Matrix Blueprint Background */
+		body {
+			background: white !important;
+			background-image: radial-gradient(black 1px, transparent 0) !important;
+			background-size: 40px 40px !important;
+			background-position: -17px -17px !important;
+			transition: background-color 300ms ease, color 300ms ease !important;
+		}
+
+		html.dmode-active body {
+			background: rgb(0, 0, 0) !important;
+			background-image: radial-gradient(rgb(255, 255, 255) 1px, transparent 0) !important;
+			background-size: 40px 40px !important;
+			background-position: -17px -17px !important;
+		}
+
+		/* 2. Bento Container: Fluid Scaling from Laptop up to 4K */
+		.centerBox {
+			width: min(90vw, 1140px) !important;
+			height: min(84vh, 700px) !important;
+			min-height: 520px;
+			max-height: 740px;
+			background-color: #ffffff !important;
+			position: absolute !important;
+			top: 50% !important;
+			left: 50% !important;
+			transform: translate(-50%, -50%) !important;
+			border-radius: 24px !important;
+			border: 1px solid rgba(0, 0, 0, 0.12) !important;
+			outline: none !important;
+			box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-bottom: 12px;
+			box-sizing: border-box;
+			overflow: hidden;
+			opacity: 1 !important;
+			animation: none !important; /* Eliminates pop animation flicker on theme switch */
+			transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease !important;
+		}
+
+		html.dmode-active .centerBox {
+			background-color: #141414 !important;
+			border: 1px solid rgba(255, 255, 255, 0.14) !important;
+			box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+		}
+
+		/* 4K Displays (> 1920px) */
+		@media screen and (min-width: 1921px) {
+			.centerBox {
+				width: min(84vw, 1420px) !important;
+				height: min(80vh, 860px) !important;
+				max-height: 900px !important;
+				border-radius: 28px !important;
+			}
+
+			.boxHeader {
+				height: 62px !important;
+				padding: 16px 26px 0 26px !important;
+			}
+
+			#headerLogo {
+				height: 36px !important;
+			}
+
+			.headerAffiliation {
+				font-size: 0.82rem !important;
+			}
+
+			.boxContents {
+				height: calc(100% - 74px) !important;
+				padding: 10px 26px 18px 26px !important;
+				gap: 16px !important;
+			}
+		}
+
+		/* Tablet Breakpoints */
+		@media screen and (min-width: 769px) and (max-width: 1024px) {
+			.centerBox {
+				width: min(94vw, 960px) !important;
+				height: min(86vh, 650px) !important;
+			}
+
+			.headerAffiliation {
+				font-size: 0.68rem !important;
+			}
+
+			.headerTelemetry {
+				display: none !important;
+			}
+		}
+
+		/* 3. Header Styling */
+		.boxHeader {
+			width: 100% !important;
+			height: 54px !important;
+			top: 0 !important;
+			left: 0 !important;
+			transform: none !important;
+			padding: 14px 22px 0 22px !important;
+			box-sizing: border-box;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: space-between !important;
+		}
+
+		.headerLeft {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		#headerLogo {
+			height: 30px !important;
+			width: auto !important;
+			object-fit: contain;
+			cursor: pointer;
+			transition: opacity 200ms ease, transform 200ms var(--landing-ease);
+		}
+
+		#headerLogo:hover {
+			opacity: 0.85;
+			transform: scale(1.02);
+		}
+
+		.headerAffiliation {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding-left: 12px;
+			border-left: 1px solid rgba(0, 0, 0, 0.15);
+			font-size: 0.72rem;
+			font-weight: 600;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			color: var(--39grey);
+			opacity: 0.8;
+			user-select: none;
+			transition: color 300ms ease, border-color 300ms ease;
+		}
+
+		html.dmode-active .headerAffiliation {
+			border-left-color: rgba(255, 255, 255, 0.16);
+			color: rgba(255, 255, 255, 0.65);
+		}
+
+		.headerAffilDot {
+			width: 3px;
+			height: 3px;
+			border-radius: 50%;
+			background-color: currentColor;
+			opacity: 0.6;
+		}
+
+		.headerRight {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.headerTelemetry {
+			display: inline-flex;
+			align-items: center;
+			gap: 7px;
+			font-size: 0.72rem;
+			font-weight: 600;
+			letter-spacing: 0.03em;
+			color: var(--39grey);
+			opacity: 0.8;
+			user-select: none;
+			padding: 4px 9px;
+			border-radius: 999px;
+			background: rgba(0, 0, 0, 0.04);
+			border: 1px solid rgba(0, 0, 0, 0.06);
+			transition: color 300ms ease, background-color 300ms ease;
+		}
+
+		html.dmode-active .headerTelemetry {
+			color: rgba(255, 255, 255, 0.65);
+			background: rgba(255, 255, 255, 0.06);
+			border-color: rgba(255, 255, 255, 0.1);
+		}
+
+		.telemetryPulse {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background-color: var(--ACIDGREEN);
+			box-shadow: 0 0 6px var(--ACIDGREEN);
+		}
+
+		.cmdKeyPill {
+			display: inline-flex;
+			align-items: center;
+			gap: 4px;
+			padding: 4px 8px;
+			border-radius: 6px;
+			font-size: 0.68rem;
+			font-weight: 700;
+			letter-spacing: 0.04em;
+			background: rgba(0, 0, 0, 0.05);
+			color: var(--39grey);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+			user-select: none;
+			transition: all 180ms ease;
+		}
+
+		.cmdKeyPill:hover {
+			background: rgba(0, 0, 0, 0.09);
+			transform: translateY(-1px);
+		}
+
+		html.dmode-active .cmdKeyPill {
+			background: rgba(255, 255, 255, 0.08);
+			color: #ffffff;
+			border-color: rgba(255, 255, 255, 0.14);
+		}
+
+		html.dmode-active .cmdKeyPill:hover {
+			background: rgba(255, 255, 255, 0.14);
+		}
+
+		#dad_toggle {
+			width: 32px !important;
+			height: 32px !important;
+			position: static !important;
+			border: 2px solid black !important;
+			border-radius: 50% !important;
+			cursor: pointer !important;
+			display: none !important;
+			align-items: center !important;
+			justify-content: center !important;
+			transition: transform 200ms var(--landing-ease), border-color 300ms ease !important;
+			flex-shrink: 0;
+		}
+
+		html.dmode-active #dad_toggle {
+			border-color: white !important;
+		}
+
+		#dad_toggle:hover {
+			transform: scale(1.1) !important;
+		}
+
+		#dad_toggle>img {
+			width: 100% !important;
+			height: 100% !important;
+			object-fit: contain;
+		}
+
+		/* 4. Box Contents Grid Layout */
+		.boxContents {
+			width: 100% !important;
+			height: calc(100% - 66px) !important;
+			top: 0 !important;
+			left: 0 !important;
+			transform: none !important;
+			display: grid !important;
+			grid-template-rows: 1fr 1fr !important;
+			grid-template-columns: 1fr 1fr 1fr 1fr !important;
+			gap: 12px !important;
+			padding: 8px 22px 14px 22px !important;
+			box-sizing: border-box !important;
+			transition: none !important;
+		}
+
+		/* Flat, Calm Card Foundation (No 3D Tilt) */
+		.cntnts {
+			position: relative !important;
+			border-radius: 20px !important;
+			overflow: hidden !important;
+			border: 1px solid rgba(0, 0, 0, 0.1) !important;
+			box-sizing: border-box !important;
+			cursor: pointer !important;
+			background-clip: padding-box !important; /* Fix background rendering under border */
+			transform: translateZ(0) !important; /* GPU Hardware Acceleration Base */
+			-webkit-clip-path: inset(0 round 20px) !important; /* Safari WebKit fix */
+			clip-path: inset(0 round 20px) !important; /* Ultimate fix for corner bleed */
+			box-shadow: inset 0 0 0 0px rgba(29, 29, 29, 0.05) !important; /* Micro-seal for 1px clip-path gaps */
+			transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1), box-shadow 400ms cubic-bezier(0.175, 0.885, 0.32, 1.1), border-color 220ms ease !important;
+		}
+
+
+		html.dmode-active .cntnts {
+			border-color: rgba(255, 255, 255, 0.12) !important;
+			box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08) !important; /* Dark mode micro-seal */
+		}
+
+		/* Touch screens: fast active tap feedback without sticky hover */
+		@media (hover: none) {
+			.cntnts:active {
+				transform: scale(0.985) !important;
+			}
+		}
+
+		/* 5. Arrow Indicator (Top-Right, Large) */
+		.cntnts>.shadow {
+			position: absolute !important;
+			top: 24px !important;
+			right: 24px !important;
+			bottom: auto !important;
+			left: auto !important;
+			width: 52px !important;
+			height: 52px !important;
+			border-radius: 50% !important;
+			background: #ffffff !important;
+			border: none !important;
+			display: flex !important;
+			justify-content: center !important;
+			align-items: center !important;
+			opacity: 0 !important;
+			transition: opacity 200ms ease !important;
+			z-index: 5 !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+			transform: none !important;
+			backdrop-filter: none !important;
+			-webkit-backdrop-filter: none !important;
+		}
+
+		html.dmode-active .cntnts>.shadow {
+			background: #ffffff !important;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+		}
+
+		.cntnts>.shadow>img {
+			width: 20px !important;
+			height: 20px !important;
+			object-fit: contain !important;
+			transform: rotate(-45deg) !important;
+			margin: 0 !important;
+			opacity: 1 !important;
+			transition: none !important;
+			animation: none !important;
+		}
+
+		html.dmode-active .cntnts>.shadow>img {
+			filter: none !important;
+		}
+
+		/* 6. Typography & Contrast Integrity in Both Themes */
+		#HeroCardTitle,
+		#UpSideTitle,
+		#GRDminiL>h3,
+		#GRDminiR>h3 {
+			position: absolute !important;
+			margin: 0 !important;
+			padding: 0 !important;
+			left: 18px !important;
+			bottom: 30px !important;
+			height: auto !important;
+			z-index: 3 !important;
+			font-weight: 800 !important;
+			letter-spacing: -0.02em !important;
+			pointer-events: none !important; /* Fix 7: Card is a unified hit target */
+			transition: color 250ms ease 0ms, text-shadow 250ms ease 0ms !important; /* Added explicit text-shadow transition to base */
+		}
+
+		#HeroCardTitle {
+			font-size: clamp(2.1rem, 3.2vw, 3rem) !important;
+			color: #ffffff !important;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+		}
+
+		#UpSideTitle {
+			font-size: clamp(1.6rem, 2.4vw, 2.2rem) !important;
+			color: #000000 !important;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0) !important; /* Transparent shadow base to fix muddy hover interpolation */
+		}
+
+		html.dmode-active #UpSideTitle {
+			color: #ffffff !important;
+			text-shadow: 0 1px 2px rgba(255, 255, 255, 0) !important; /* Base for dark mode hover */
+		}
+
+		#GRDminiL>h3 {
+			font-size: clamp(1.35rem, 2vw, 1.75rem) !important;
+			color: #ffffff !important;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) !important;
+		}
+
+		#GRDminiR>h3 {
+			font-size: clamp(1.35rem, 2vw, 1.75rem) !important;
+			color: #000000 !important;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0) !important; /* Transparent shadow base to fix muddy hover interpolation */
+		}
+
+		html.dmode-active #GRDminiR>h3 {
+			color: #ffffff !important;
+			text-shadow: 0 1px 2px rgba(255, 255, 255, 0) !important;
+		}
+
+		/* Subtitles */
+		.cardSubtitle {
+			position: absolute;
+			left: 18px;
+			bottom: 12px;
+			margin: 0;
+			font-size: clamp(0.74rem, 0.88vw, 0.86rem);
+			font-weight: 500;
+			letter-spacing: 0.02em;
+			z-index: 3;
+			pointer-events: none !important; /* Fix 7 */
+			user-select: none;
+			transition: color 200ms ease 0ms;
+		}
+
+		.heroSub {
+			color: rgba(255, 255, 255, 0.9);
+		}
+
+		.brandSub {
+			color: rgba(0, 0, 0, 0.65);
+		}
+
+		html.dmode-active .brandSub {
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+		.teamSub {
+			color: rgba(255, 255, 255, 0.9);
+		}
+
+		.otherSub {
+			color: rgba(0, 0, 0, 0.65);
+		}
+
+		html.dmode-active .otherSub {
+			color: rgba(255, 255, 255, 0.75);
+		}
+
+		/* Top Badges */
+		.cardTopBadge {
+			position: absolute;
+			top: 14px;
+			left: 16px;
+			z-index: 3;
+			display: inline-flex;
+			align-items: center;
+			gap: 7px;
+			padding: 4px 10px;
+			border-radius: 999px;
+			font-size: 0.72rem;
+			font-weight: 600;
+			letter-spacing: 0.03em;
+			background: rgba(0, 0, 0, 0.45);
+			color: #ffffff;
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			border: 1px solid rgba(255, 255, 255, 0.16);
+			pointer-events: none !important; /* Fix 7 */
+			user-select: none;
+			transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+		}
+
+		.cardTopBadge.lightPill {
+			background: rgba(255, 255, 255, 0.9);
+			color: #000000;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+		}
+
+		html.dmode-active .cardTopBadge.lightPill {
+			background: rgba(24, 24, 24, 0.75);
+			color: #ffffff;
+			border-color: rgba(255, 255, 255, 0.14);
+		}
+
+		/* Static Chamber Dots in Brandkit Badge */
+		.staticChamberDots {
+			display: inline-flex;
+			align-items: center;
+			gap: 4px;
+		}
+
+		.staticChamberDots .sDot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			display: inline-block;
+			box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.22); /* Fix 4: Crisp boundary protecting yellow dot against white */
+		}
+
+		/* --------------------------------------------------------------------------
+		   DESKTOP HOVER SYSTEM — "Quiet Confidence"
+		   One dominant motion (lift). Everything else whispers.
+		   -------------------------------------------------------------------------- */
+		@media (hover: hover) and (pointer: fine) {
+
+			/* A. Quarter water-drop in bottom-left corner */
+			.cntnts::before {
+				content: "" !important;
+				position: absolute !important;
+				bottom: 0 !important;
+				left: 0 !important;
+				width: 120% !important;
+				aspect-ratio: 1 / 1 !important;
+				height: auto !important;
+				background: rgba(0, 0, 0, 0.18) !important;
+				border-radius: 50% !important;
+				filter: blur(30px) !important;
+				transform: translate(-50%, 50%) scale(0) !important;
+				transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+				z-index: 2 !important;
+				pointer-events: none !important;
+			}
+
+			html.dmode-active .cntnts::before {
+				background: rgba(0, 0, 0, 0.3) !important;
+			}
+
+			.cntnts:hover::before {
+				transform: translate(-50%, 50%) scale(1) !important;
+			}
+
+			/* B. The Lift */
+			.cntnts:hover {
+				transform: translateY(-3px) !important;
+				box-shadow:
+					0 2px 4px rgba(0, 0, 0, 0.06),
+					0 12px 28px -4px rgba(0, 0, 0, 0.13) !important;
+			}
+
+			html.dmode-active .cntnts:hover {
+				box-shadow:
+					0 2px 4px rgba(0, 0, 0, 0.2),
+					0 12px 28px -4px rgba(0, 0, 0, 0.45) !important;
+			}
+
+			/* C. The Arrow — clean fade in */
+			.cntnts:hover>.shadow {
+				opacity: 1 !important;
+			}
+
+		}
+
+		/* 7. Individual Cards Details */
+		/* Hero Card */
+		#GRDHero {
+			grid-row: 1/3 !important;
+			grid-column: 1/3 !important;
+			position: relative !important;
+			background: #000000 !important;
+		}
+
+		.heroCrossfadeLayer {
+			position: absolute;
+			inset: 0;
+			background-size: cover;
+			background-position: center;
+			transition: opacity 800ms ease;
+		}
+
+		.heroLayerA {
+			opacity: 1;
+			z-index: 0;
+		}
+
+		.heroLayerB {
+			opacity: 0;
+			z-index: 0;
+		}
+
+		#GRDHero::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0.82) 100%) !important;
+			z-index: 1;
+			pointer-events: none;
+			opacity: 1 !important;
+			transition: opacity 200ms ease !important;
+		}
+
+		/* Fix 3: Keep vignette stable on hover so rising curtain smoothly overlays */
+		#GRDHero:hover::after {
+			opacity: 1 !important;
+		}
+
+		/* Brandkit Card */
+		#GRDUpSide {
+			grid-row: 1/2 !important;
+			grid-column: 3/5 !important;
+			background: url("pics/brandKit_lightMode.png") center / cover no-repeat !important;
+			position: relative !important;
+		}
+
+		html.dmode-active #GRDUpSide {
+			background: url("pics/brandKit_DarkMode.png") center / cover no-repeat !important;
+		}
+
+		/* Team Card */
+		#GRDminiL {
+			grid-row: 2/3 !important;
+			grid-column: 3/4 !important;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.25) 35%, rgba(0, 0, 0, 0.8) 100%), url("team/legacy.jpg") center 30% / cover no-repeat !important;
+			position: relative !important;
+		}
+
+		/* Other / Explore Card */
+		#GRDminiR {
+			grid-row: 2/3 !important;
+			grid-column: 4/5 !important;
+			background: #fafafa !important;
+			position: relative !important;
+		}
+
+		html.dmode-active #GRDminiR {
+			background: #181818 !important;
+		}
+
+		.stampWatermark {
+			position: absolute;
+			right: -8px;
+			bottom: -8px;
+			width: 105px;
+			height: 105px;
+			opacity: 0.06;
+			background-image: url("Evantage_dark.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			pointer-events: none;
+			z-index: 0;
+			transition: opacity 300ms ease;
+		}
+
+		html.dmode-active .stampWatermark {
+			background-image: url("Evantage_light.png");
+			opacity: 0.08;
+		}
+
+		/* 8. Mobile Responsiveness (Overrides style.css 800px query) */
+		@media screen and (max-width: 800px) {
+			body {
+				height: auto !important;
+				min-height: 100vh !important;
+				overflow-y: auto !important;
+			}
+
+			.centerBox {
+				width: 92vw !important;
+				height: auto !important;
+				min-height: unset !important;
+				max-height: none !important;
+				position: relative !important;
+				top: auto !important;
+				left: auto !important;
+				transform: none !important;
+				margin: 18px auto 28px auto !important;
+				padding-bottom: 16px !important;
+				display: flex !important;
+				flex-direction: column !important;
+				justify-content: flex-start !important;
+				gap: 12px !important;
+				overflow: hidden !important;
+			}
+
+			.boxHeader {
+				height: 50px !important;
+				padding: 16px 16px 0 16px !important;
+			}
+
+			.headerAffiliation,
+			.headerTelemetry,
+			.cmdKeyPill {
+				display: none !important;
+			}
+
+			.boxContents {
+				width: 100% !important;
+				height: auto !important;
+				min-height: unset !important;
+				top: auto !important;
+				left: auto !important;
+				position: relative !important;
+				transform: none !important;
+				margin: 0 !important;
+				grid-template-columns: 1fr 1fr !important;
+				grid-template-rows: 200px 125px 120px !important;
+				gap: 10px !important;
+				padding: 0 14px !important;
+				box-sizing: border-box !important;
+			}
+
+			#GRDHero {
+				grid-row: 1/2 !important;
+				grid-column: 1/3 !important;
+			}
+
+			#GRDUpSide {
+				grid-row: 2/3 !important;
+				grid-column: 1/3 !important;
+			}
+
+			#GRDminiL {
+				grid-row: 3/4 !important;
+				grid-column: 1/2 !important;
+			}
+
+			#GRDminiR {
+				grid-row: 3/4 !important;
+				grid-column: 2/3 !important;
+			}
+
+			#HeroCardTitle {
+				bottom: 24px !important;
+				font-size: 1.75rem !important;
+			}
+
+			#UpSideTitle {
+				bottom: 22px !important;
+				font-size: 1.35rem !important;
+			}
+
+			#GRDminiL>h3,
+			#GRDminiR>h3 {
+				bottom: 20px !important;
+				font-size: 1.2rem !important;
+			}
+
+			.cardSubtitle {
+				bottom: 8px !important;
+				font-size: 0.7rem !important;
+			}
+		}
+
+		/* 9. Hacker Command Palette Modal Styles */
+		.cmdModal {
+			position: fixed;
+			inset: 0;
+			z-index: 1000;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+			padding-top: clamp(60px, 12vh, 120px);
+			padding-left: 16px;
+			padding-right: 16px;
+			box-sizing: border-box;
+		}
+
+		.cmdBackdrop {
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.45);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			animation: cmdFadeIn 180ms ease-out forwards;
+		}
+
+		html.dmode-active .cmdBackdrop {
+			background: rgba(0, 0, 0, 0.75);
+		}
+
+		@keyframes cmdFadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+
+		@keyframes cmdSlideDown {
+			from {
+				opacity: 0;
+				transform: translateY(-14px) scale(0.98);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0) scale(1);
+			}
+		}
+
+		.cmdDialog {
+			position: relative;
+			width: min(92vw, 560px);
+			background: #ffffff;
+			border-radius: 18px;
+			box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			z-index: 1001;
+			animation: cmdSlideDown 220ms var(--landing-ease) forwards;
+			display: flex;
+			flex-direction: column;
+			max-height: min(78vh, 500px);
+		}
+
+		html.dmode-active .cmdDialog {
+			background: #141414;
+			border: 1px solid rgba(255, 255, 255, 0.14);
+			box-shadow: 0 28px 70px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08);
+			color: #ffffff;
+		}
+
+		.cmdSearchHeader {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			padding: 14px 18px;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+		}
+
+		html.dmode-active .cmdSearchHeader {
+			border-bottom-color: rgba(255, 255, 255, 0.1);
+		}
+
+		.cmdSearchIcon {
+			color: var(--39grey);
+			opacity: 0.6;
+			flex-shrink: 0;
+		}
+
+		html.dmode-active .cmdSearchIcon {
+			color: rgba(255, 255, 255, 0.6);
+		}
+
+		.cmdInput {
+			flex: 1;
+			background: none;
+			border: none;
+			outline: none;
+			font-family: inherit;
+			font-size: 0.95rem;
+			color: inherit;
+			caret-color: var(--BEETLEBLUE);
+		}
+
+		.cmdInput::placeholder {
+			color: var(--39grey);
+			opacity: 0.5;
+		}
+
+		html.dmode-active .cmdInput::placeholder {
+			color: rgba(255, 255, 255, 0.4);
+		}
+
+		.cmdEscBadge {
+			font-size: 0.65rem;
+			font-weight: 700;
+			letter-spacing: 0.05em;
+			padding: 3px 6px;
+			border-radius: 5px;
+			background: rgba(0, 0, 0, 0.06);
+			color: var(--39grey);
+			border: 1px solid rgba(0, 0, 0, 0.08);
+			cursor: pointer;
+			user-select: none;
+		}
+
+		html.dmode-active .cmdEscBadge {
+			background: rgba(255, 255, 255, 0.08);
+			border-color: rgba(255, 255, 255, 0.12);
+			color: rgba(255, 255, 255, 0.7);
+		}
+
+		.cmdResultsContainer {
+			overflow-y: auto;
+			padding: 8px 10px;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+
+		.cmdGroupHeader {
+			font-size: 0.68rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: var(--39grey);
+			opacity: 0.6;
+			padding: 8px 12px 4px 12px;
+		}
+
+		html.dmode-active .cmdGroupHeader {
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		.cmdItem {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 9px 12px;
+			border-radius: 10px;
+			cursor: pointer;
+			user-select: none;
+			transition: background-color 140ms ease;
+		}
+
+		.cmdItem.active,
+		.cmdItem:hover {
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		html.dmode-active .cmdItem.active,
+		html.dmode-active .cmdItem:hover {
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+		.cmdItemLeft {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.cmdItemIcon {
+			width: 28px;
+			height: 28px;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.82rem;
+			background: rgba(0, 0, 0, 0.05);
+			flex-shrink: 0;
+		}
+
+		html.dmode-active .cmdItemIcon {
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+		.cmdItemDetails {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+		}
+
+		.cmdItemTitle {
+			font-size: 0.88rem;
+			font-weight: 600;
+		}
+
+		.cmdItemDesc {
+			font-size: 0.74rem;
+			color: var(--39grey);
+			opacity: 0.7;
+		}
+
+		html.dmode-active .cmdItemDesc {
+			color: rgba(255, 255, 255, 0.6);
+		}
+
+		.cmdItemShortcut {
+			font-size: 0.68rem;
+			font-weight: 600;
+			opacity: 0.5;
+			letter-spacing: 0.02em;
+		}
+
+		.cmdFooter {
+			padding: 9px 16px;
+			border-top: 1px solid rgba(0, 0, 0, 0.06);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 0.72rem;
+			color: var(--39grey);
+			opacity: 0.7;
+			user-select: none;
+		}
+
+		html.dmode-active .cmdFooter {
+			border-top-color: rgba(255, 255, 255, 0.08);
+			color: rgba(255, 255, 255, 0.6);
+		}
+
+		.cmdFooterKeys {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.cmdFooterKeys kbd {
+			font-family: inherit;
+			font-size: 0.65rem;
+			padding: 2px 5px;
+			border-radius: 4px;
+			background: rgba(0, 0, 0, 0.06);
+			border: 1px solid rgba(0, 0, 0, 0.08);
+		}
+
+		html.dmode-active .cmdFooterKeys kbd {
+			background: rgba(255, 255, 255, 0.08);
+			border-color: rgba(255, 255, 255, 0.12);
+		}
+
+		.cmdTerminalOutput {
+			padding: 12px 14px;
+			margin: 8px 10px;
+			border-radius: 10px;
+			background: #000000;
+			color: var(--ACIDGREEN);
+			font-family: 'Courier New', monospace;
+			font-size: 0.78rem;
+			line-height: 1.4;
+			white-space: pre-wrap;
+			overflow-x: auto;
+			box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+			display: none;
+		}
+	</style>
 </head>
 
 <body style="opacity: 0">
 	<div class="centerBox">
 		<div class="boxHeader">
-			<img id="headerLogo" src="Evantage_dark_HZ.png" />
+			<div class="headerLeft">
+				<img id="headerLogo" src="Evantage_dark_HZ.png" alt="FOSS CEAL Logo" onclick="location.href='/'" />
+				<div class="headerAffiliation">
+					<span>College of Engineering Attingal</span>
+					<span class="headerAffilDot"></span>
+					<span>Student Chapter</span>
+				</div>
+			</div>
 
-			<div id="dad_toggle">
-				<img id="dm1" src="dMd_black.png" />
+			<div class="headerRight">
+				<div class="headerTelemetry" title="Campus Time & Status">
+					<span class="telemetryPulse"></span>
+					<span id="telemetryClock">CEAL • --:-- IST</span>
+				</div>
+
+				<div class="cmdKeyPill" id="cmdKeyBtn" title="Quick Launcher (Press ⌘K or /)">
+					<span>⌘K</span>
+				</div>
+
+				<div id="dad_toggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+					<img id="dm1" src="dMd_black.png" alt="Toggle theme" />
+				</div>
 			</div>
 		</div>
 
 		<div class="boxContents">
-			<div id="GRDHero" class="cntnts" onclick="location.href='/events'">
+			<!-- Hero Card: Events -->
+			<div id="GRDHero" class="cntnts" onclick="location.href='/events'" title="Explore FOSS Events">
+				<div class="heroCrossfadeLayer heroLayerA" id="heroLayerA" style="background-image: url('./pics/1.jpg');"></div>
+				<div class="heroCrossfadeLayer heroLayerB" id="heroLayerB" style="background-image: url('./pics/2.jpg');"></div>
+				
+				<div class="cardTopBadge">
+					<span>Community & Talks</span>
+				</div>
 				<h1 id="HeroCardTitle">Events</h1>
-				<div class="shadow">
-					<img class="arrWW" src="arrFWD_white.png" />
+				<p class="cardSubtitle heroSub">Workshops, hackathons & meetups</p>
+				<div class="shadow" title="Open Events">
+					<img class="arrWW" src="arrFWD_black.png" alt="Go to Events" />
 				</div>
 			</div>
-			<div id="GRDUpSide" class="cntnts" onclick="location.href='/brandkit'">
+
+			<!-- Secondary Card: Brandkit -->
+			<div id="GRDUpSide" class="cntnts" onclick="location.href='/brandkit'" title="View Brand Guidelines">
+				<div class="cardTopBadge lightPill">
+					<span class="staticChamberDots" title="5 Chambers">
+						<span class="sDot" style="background: var(--RED);"></span>
+						<span class="sDot" style="background: var(--YELLOW);"></span>
+						<span class="sDot" style="background: var(--BEETLEBLUE);"></span>
+						<span class="sDot" style="background: var(--ACIDGREEN);"></span>
+						<span class="sDot" style="background: var(--BURPLEPLUM);"></span>
+					</span>
+					<span>5 Chambers</span>
+				</div>
 				<h1 id="UpSideTitle">Brandkit</h1>
-				<div class="shadow">
-					<img class="arrWW" src="arrFWD_white.png" />
+				<p class="cardSubtitle brandSub">Identity, guidelines & official assets</p>
+				<div class="shadow" title="Open Brandkit">
+					<img class="arrWW" src="arrFWD_black.png" alt="Go to Brandkit" />
 				</div>
 			</div>
-			<div id="GRDminiL" class="cntnts" onclick="location.href = '/team'">
+
+			<!-- Mini Card Left: Team -->
+			<div id="GRDminiL" class="cntnts" onclick="location.href = '/team'" title="Meet the Execom">
+				<div class="cardTopBadge">
+					<span>Execom 2026</span>
+				</div>
 				<h3>Team</h3>
-				<div class="shadow">
-					<img class="arrWW" src="arrFWD_white.png" />
+				<p class="cardSubtitle teamSub">Core leads & builders</p>
+				<div class="shadow" title="Open Team">
+					<img class="arrWW" src="arrFWD_black.png" alt="Go to Team" />
 				</div>
 			</div>
-			<div id="GRDminiR" class="cntnts" onclick="location.href ='/explore.html'">
+
+			<!-- Mini Card Right: Other / Explore -->
+			<div id="GRDminiR" class="cntnts" onclick="location.href ='/explore.html'" title="Explore Chambers & Directory">
+				<div class="stampWatermark"></div>
+				<div class="cardTopBadge lightPill">
+					<span>Directory</span>
+				</div>
 				<h3>Other</h3>
-				<div class="shadow">
-					<img class="arrWW" src="arrFWD_white.png" />
+				<p class="cardSubtitle otherSub">Chambers, GitHub & links</p>
+				<div class="shadow" title="Open Directory">
+					<img class="arrWW" src="arrFWD_black.png" alt="Go to Other" />
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Hacker Command Palette Modal -->
+	<div id="cmdPaletteModal" class="cmdModal" aria-hidden="true" style="display: none;">
+		<div class="cmdBackdrop" id="cmdBackdrop"></div>
+		<div class="cmdDialog" role="dialog" aria-modal="true" aria-label="Command Palette">
+			<div class="cmdSearchHeader">
+				<svg class="cmdSearchIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+					<circle cx="11" cy="11" r="8"></circle>
+					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+				</svg>
+				<input type="text" id="cmdSearchInput" class="cmdInput" placeholder="Type a command, page or chamber (e.g. 'events', '101', 'matrix')..." autocomplete="off" spellcheck="false" />
+				<span class="cmdEscBadge" id="cmdCloseBtn" title="Close (Esc)">ESC</span>
+			</div>
+
+			<div class="cmdTerminalOutput" id="cmdTerminalOutput"></div>
+			<div class="cmdResultsContainer" id="cmdResultsContainer"></div>
+
+			<div class="cmdFooter">
+				<div class="cmdFooterKeys">
+					<span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+					<span><kbd>↵</kbd> Select</span>
+					<span><kbd>esc</kbd> Dismiss</span>
+				</div>
+				<span class="cmdFooterBrand">FOSS CEAL • CLI</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Background Compatibility Cycler -->
 	<script src="control.js"></script>
+
+	<!-- In-Page Enhanced Controllers: Silk Theme, Calm Photo Fade, Telemetry, Command Palette -->
+	<script>
+		(function () {
+			// 1. SILK THEME SWITCHING (Zero Reload, Zero Flicker)
+			function applyTheme(mode) {
+				const isDark = (mode === "enabled");
+				const h1n1 = document.getElementById("h1n1");
+				const headerLogo = document.getElementById("headerLogo");
+				const dm1 = document.getElementById("dm1");
+				const arrWW = document.getElementsByClassName("arrWW");
+
+				if (isDark) {
+					document.documentElement.classList.add("dmode-active");
+					if (h1n1) h1n1.setAttribute("href", "style_dark.css");
+					if (headerLogo) headerLogo.setAttribute("src", "Evantage_light_HZ.png");
+					if (dm1) dm1.setAttribute("src", "dMd_white.png");
+					for (let i = 0; i < arrWW.length; i++) {
+						arrWW[i].setAttribute("src", "arrFWD_white.png");
+					}
+				} else {
+					document.documentElement.classList.remove("dmode-active");
+					if (h1n1) h1n1.setAttribute("href", "style.css");
+					if (headerLogo) headerLogo.setAttribute("src", "Evantage_dark_HZ.png");
+					if (dm1) dm1.setAttribute("src", "dMd_black.png");
+					for (let i = 0; i < arrWW.length; i++) {
+						arrWW[i].setAttribute("src", "arrFWD_white.png");
+					}
+				}
+			}
+
+			// Initialize theme immediately on page load
+			const savedMode = localStorage.getItem("dmode");
+			if (savedMode === "enabled") {
+				applyTheme("enabled");
+			}
+
+			// Intercept theme toggle click in the capture phase to bypass location.reload()
+			const toggle = document.getElementById("dad_toggle");
+			if (toggle) {
+				toggle.addEventListener("click", function (e) {
+					e.stopImmediatePropagation();
+					e.preventDefault();
+
+					const currentMode = localStorage.getItem("dmode");
+					const nextMode = (currentMode === "enabled") ? "disabled" : "enabled";
+					localStorage.setItem("dmode", nextMode);
+					applyTheme(nextMode);
+				}, true);
+			}
+
+			// 2. CALM 4.5s HERO PHOTO CROSS-FADE
+			const layerA = document.getElementById("heroLayerA");
+			const layerB = document.getElementById("heroLayerB");
+			if (layerA && layerB) {
+				let currentIndex = 1;
+				let activeLayer = "A";
+				const totalPics = 15;
+				const cycleInterval = 4500;
+
+				setInterval(function () {
+					currentIndex = (currentIndex % totalPics) + 1;
+					const nextImage = "url('./pics/" + currentIndex + ".jpg')";
+
+					if (activeLayer === "A") {
+						layerB.style.backgroundImage = nextImage;
+						layerB.style.opacity = "1";
+						layerA.style.opacity = "0";
+						activeLayer = "B";
+					} else {
+						layerA.style.backgroundImage = nextImage;
+						layerA.style.opacity = "1";
+						layerB.style.opacity = "0";
+						activeLayer = "A";
+					}
+				}, cycleInterval);
+			}
+
+			// 3. LIVE CAMPUS TELEMETRY CLOCK (IST)
+			const clockEl = document.getElementById("telemetryClock");
+			function updateClock() {
+				if (!clockEl) return;
+				const now = new Date();
+				const options = {
+					timeZone: "Asia/Kolkata",
+					hour: "2-digit",
+					minute: "2-digit",
+					hour12: false
+				};
+				const timeString = new Intl.DateTimeFormat([], options).format(now);
+				clockEl.textContent = `CEAL • ${timeString} IST`;
+			}
+			updateClock();
+			setInterval(updateClock, 30000);
+
+			// 4. HACKER COMMAND PALETTE (⌘K / / KEY)
+			const cmdModal = document.getElementById("cmdPaletteModal");
+			const cmdBackdrop = document.getElementById("cmdBackdrop");
+			const cmdInput = document.getElementById("cmdSearchInput");
+			const cmdResults = document.getElementById("cmdResultsContainer");
+			const cmdTerminal = document.getElementById("cmdTerminalOutput");
+			const cmdKeyBtn = document.getElementById("cmdKeyBtn");
+			const cmdCloseBtn = document.getElementById("cmdCloseBtn");
+
+			let activeIndex = 0;
+			let filteredCommands = [];
+
+			const commands = [
+				// Main Navigation
+				{ id: "events", group: "Pages", title: "Events", desc: "Workshops, hackathons & community meetups", icon: "📅", shortcut: "G E", action: () => location.href = "/events" },
+				{ id: "brandkit", group: "Pages", title: "Brandkit", desc: "Official guidelines, logos & color palettes", icon: "🎨", shortcut: "G B", action: () => location.href = "/brandkit" },
+				{ id: "team", group: "Pages", title: "Team", desc: "Execom 2026 & chapter contributors", icon: "👥", shortcut: "G T", action: () => location.href = "/team" },
+				{ id: "explore", group: "Pages", title: "Directory", desc: "Chambers, GitHub & community directory", icon: "🧭", shortcut: "G D", action: () => location.href = "/explore.html" },
+				{ id: "linktree", group: "Pages", title: "Linktree", desc: "Fast social links aggregator", icon: "🔗", shortcut: "G L", action: () => location.href = "/linktr" },
+
+				// 5 Chambers Direct Jump
+				{ id: "ch101", group: "5 Chambers", title: "CREATE 101", desc: "Design, UI/UX, Graphic & Figma", icon: "🔴", shortcut: "C 1", action: () => location.href = "/chamber/101/create.html" },
+				{ id: "ch202", group: "5 Chambers", title: "EMBED 202", desc: "IoT, Embedded Systems & Robotics", icon: "🟡", shortcut: "C 2", action: () => location.href = "/chamber/202/embed.html" },
+				{ id: "ch303", group: "5 Chambers", title: "TRAIN 303", desc: "AI, Machine Learning & Data Science", icon: "🔵", shortcut: "C 3", action: () => location.href = "/chamber/303/train.html" },
+				{ id: "ch404", group: "5 Chambers", title: "HACK 404", desc: "Cybersecurity, CTFs & Linux", icon: "🟢", shortcut: "C 4", action: () => location.href = "/chamber/404/hack.html" },
+				{ id: "ch505", group: "5 Chambers", title: "DEPLOY 505", desc: "DevOps, Cloud Infrastructure & FOSS", icon: "🟣", shortcut: "C 5", action: () => location.href = "/chamber/505/deploy.html" },
+
+				// Actions & Integrations
+				{ id: "theme", group: "Actions", title: "Toggle Theme", desc: "Switch between Light and Dark mode", icon: "◐", shortcut: "T T", action: () => { toggle.click(); closeCmdPalette(); } },
+				{ id: "github", group: "Actions", title: "GitHub Org", desc: "github.com/fossceal", icon: "🐙", shortcut: "G H", action: () => window.open("https://github.com/fossceal", "_blank") },
+
+				// Terminal Easter Eggs
+				{ id: "neofetch", group: "Terminal & Easter Eggs", title: "neofetch", desc: "Display FOSS CEAL chapter system specs", icon: "💻", shortcut: "CLI", action: showNeofetch },
+				{ id: "matrix", group: "Terminal & Easter Eggs", title: "matrix", desc: "Digital ASCII green cyber rain", icon: "🟩", shortcut: "CLI", action: toggleMatrix }
+			];
+
+			function openCmdPalette() {
+				if (!cmdModal) return;
+				cmdModal.style.display = "flex";
+				cmdModal.setAttribute("aria-hidden", "false");
+				cmdTerminal.style.display = "none";
+				cmdInput.value = "";
+				activeIndex = 0;
+				renderCommands("");
+				setTimeout(() => cmdInput.focus(), 20);
+			}
+
+			function closeCmdPalette() {
+				if (!cmdModal) return;
+				cmdModal.style.display = "none";
+				cmdModal.setAttribute("aria-hidden", "true");
+				cmdTerminal.style.display = "none";
+			}
+
+			function renderCommands(query) {
+				const q = query.trim().toLowerCase();
+				cmdResults.innerHTML = "";
+
+				filteredCommands = commands.filter(c => {
+					return c.title.toLowerCase().includes(q) ||
+						c.desc.toLowerCase().includes(q) ||
+						c.id.toLowerCase().includes(q) ||
+						c.group.toLowerCase().includes(q);
+				});
+
+				if (filteredCommands.length === 0) {
+					cmdResults.innerHTML = `<div style="padding: 24px; text-align: center; font-size: 0.82rem; opacity: 0.5;">No commands or pages matching "${query}". Try 'events', '101', or 'neofetch'.</div>`;
+					return;
+				}
+
+				if (activeIndex >= filteredCommands.length) activeIndex = 0;
+
+				let currentGroup = "";
+				filteredCommands.forEach((cmd, idx) => {
+					if (cmd.group !== currentGroup) {
+						currentGroup = cmd.group;
+						const grpEl = document.createElement("div");
+						grpEl.className = "cmdGroupHeader";
+						grpEl.textContent = currentGroup;
+						cmdResults.appendChild(grpEl);
+					}
+
+					const itemEl = document.createElement("div");
+					itemEl.className = "cmdItem" + (idx === activeIndex ? " active" : "");
+					itemEl.innerHTML = `
+						<div class="cmdItemLeft">
+							<div class="cmdItemIcon">${cmd.icon}</div>
+							<div class="cmdItemDetails">
+								<span class="cmdItemTitle">${cmd.title}</span>
+								<span class="cmdItemDesc">${cmd.desc}</span>
+							</div>
+						</div>
+						<span class="cmdItemShortcut">${cmd.shortcut}</span>
+					`;
+
+					itemEl.addEventListener("click", () => {
+						cmd.action();
+					});
+
+					itemEl.addEventListener("mouseenter", () => {
+						activeIndex = idx;
+						updateActiveItemVisual();
+					});
+
+					cmdResults.appendChild(itemEl);
+				});
+
+				scrollActiveIntoView();
+			}
+
+			function updateActiveItemVisual() {
+				const items = cmdResults.querySelectorAll(".cmdItem");
+				items.forEach((item, idx) => {
+					if (idx === activeIndex) {
+						item.classList.add("active");
+					} else {
+						item.classList.remove("active");
+					}
+				});
+				scrollActiveIntoView();
+			}
+
+			function scrollActiveIntoView() {
+				const activeItem = cmdResults.querySelector(".cmdItem.active");
+				if (activeItem) {
+					activeItem.scrollIntoView({ block: "nearest" });
+				}
+			}
+
+			// Key Navigation in Command Palette
+			if (cmdInput) {
+				cmdInput.addEventListener("input", (e) => {
+					activeIndex = 0;
+					renderCommands(e.target.value);
+				});
+
+				cmdInput.addEventListener("keydown", (e) => {
+					if (e.key === "ArrowDown") {
+						e.preventDefault();
+						if (filteredCommands.length > 0) {
+							activeIndex = (activeIndex + 1) % filteredCommands.length;
+							updateActiveItemVisual();
+						}
+					} else if (e.key === "ArrowUp") {
+						e.preventDefault();
+						if (filteredCommands.length > 0) {
+							activeIndex = (activeIndex - 1 + filteredCommands.length) % filteredCommands.length;
+							updateActiveItemVisual();
+						}
+					} else if (e.key === "Enter") {
+						e.preventDefault();
+						if (filteredCommands[activeIndex]) {
+							filteredCommands[activeIndex].action();
+						}
+					} else if (e.key === "Escape") {
+						closeCmdPalette();
+					}
+				});
+			}
+
+			// Global hotkeys: ⌘K, Ctrl+K, or "/"
+			window.addEventListener("keydown", (e) => {
+				if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+					e.preventDefault();
+					if (cmdModal.style.display === "flex") {
+						closeCmdPalette();
+					} else {
+						openCmdPalette();
+					}
+				} else if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+					e.preventDefault();
+					openCmdPalette();
+				} else if (e.key === "Escape" && cmdModal.style.display === "flex") {
+					closeCmdPalette();
+				}
+			});
+
+			if (cmdKeyBtn) cmdKeyBtn.addEventListener("click", openCmdPalette);
+			if (cmdCloseBtn) cmdCloseBtn.addEventListener("click", closeCmdPalette);
+			if (cmdBackdrop) cmdBackdrop.addEventListener("click", closeCmdPalette);
+
+			// Easter Egg 1: Neofetch
+			function showNeofetch() {
+				cmdTerminal.style.display = "block";
+				cmdTerminal.textContent =
+`   .-------------------.    fossceal@ceal-chapter
+  /  _____   ____   ____\\   ---------------------
+ |  |  ___| / __ \\ / ___||  OS: FOSS CEAL WebOS 26.4
+ |  | |_   | |  | |\\___ \\|  Host: College of Engineering Attingal
+ |  |  _|  | |  | | ___) |  Chambers: 101, 202, 303, 404, 505
+ |  |_|     \\____/ |____/|  Uptime: Active Tenure 2026
+  \\                     /   Shell: bash / zsh
+   '-------------------'    Memory: 100% Free & Open Source
+`;
+			}
+
+			// Easter Egg 2: Matrix Canvas Digital Rain
+			let matrixActive = false;
+			let matrixCanvas = null;
+			function toggleMatrix() {
+				closeCmdPalette();
+				if (matrixActive) {
+					if (matrixCanvas) matrixCanvas.remove();
+					matrixActive = false;
+					return;
+				}
+
+				matrixCanvas = document.createElement("canvas");
+				matrixCanvas.id = "matrixCanvas";
+				matrixCanvas.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:999;opacity:0.25;";
+				document.body.appendChild(matrixCanvas);
+
+				const ctx = matrixCanvas.getContext("2d");
+				matrixCanvas.width = window.innerWidth;
+				matrixCanvas.height = window.innerHeight;
+
+				const chars = "FOSSCEAL10120230340450501";
+				const fontSize = 14;
+				const columns = matrixCanvas.width / fontSize;
+				const drops = [];
+				for (let i = 0; i < columns; i++) drops[i] = 1;
+
+				function drawMatrix() {
+					if (!matrixActive) return;
+					ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+					ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+					ctx.fillStyle = "#00df08";
+					ctx.font = fontSize + "px monospace";
+
+					for (let i = 0; i < drops.length; i++) {
+						const text = chars[Math.floor(Math.random() * chars.length)];
+						ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+						if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+							drops[i] = 0;
+						}
+						drops[i]++;
+					}
+					requestAnimationFrame(drawMatrix);
+				}
+
+				matrixActive = true;
+				drawMatrix();
+
+				// Auto-fade after 8 seconds
+				setTimeout(() => {
+					if (matrixActive) {
+						matrixCanvas.style.transition = "opacity 1.5s ease";
+						matrixCanvas.style.opacity = "0";
+						setTimeout(() => {
+							if (matrixCanvas) matrixCanvas.remove();
+							matrixActive = false;
+						}, 1500);
+					}
+				}, 8000);
+			}
+		})();
+	</script>
 </body>
 
 </html>

@@ -13,7 +13,7 @@ async function sl(t) {
 }
 
 async function loadup() {
-    if (localStorage.getItem("dmode") == "enabled") {
+    if (localStorage.getItem("dmode") !== "disabled") {
         // Universal checks
         if (el("h1n1")) el("h1n1").setAttribute("href", "/style_dark.css");
         if (el("headerLogo")) el("headerLogo").setAttribute("src", "/Evantage_light_HZ.png");
@@ -40,13 +40,8 @@ async function loadup() {
 
         await sl(200);
         document.body.style.opacity = 1;
-    } else if (localStorage.getItem("dmode") == "disabled") {
-        await sl(200);
-        document.body.style.opacity = 1;
     } else {
-        localStorage.setItem("dmode", "disabled");
         await sl(200);
-
         document.body.style.opacity = 1;
     }
 }
