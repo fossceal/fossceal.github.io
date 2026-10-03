@@ -231,6 +231,21 @@
 			border-color: rgba(255, 255, 255, 0.1);
 		}
 
+		a.headerTelemetry {
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		a.headerTelemetry:hover {
+			background: rgba(0, 0, 0, 0.08);
+			color: #000;
+		}
+
+		html.dmode-active a.headerTelemetry:hover {
+			background: rgba(255, 255, 255, 0.15);
+			color: #fff;
+		}
+
 		.telemetryPulse {
 			width: 6px;
 			height: 6px;
@@ -1060,6 +1075,11 @@
 			</div>
 
 			<div class="headerRight">
+				<a class="headerTelemetry" href="https://www.google.com/maps/place/College+of+Engineering,+Attingal+(CEAL)/@8.6921098,76.8168706,17z/data=!4m10!1m2!2m1!1sMain+block,+College+of+Engineering+Samad+Hospital+Attingal,+Kerala+India!3m6!1s0x3b05e9f7c21e1c27:0x4eccbc1e5eb91332!8m2!3d8.6912124!4d76.8194516!15sCkhNYWluIGJsb2NrLCBDb2xsZWdlIG9mIEVuZ2luZWVyaW5nIFNhbWFkIEhvc3BpdGFsIEF0dGluZ2FsLCBLZXJhbGEgSW5kaWFaSCJGbWFpbiBibG9jayBjb2xsZWdlIG9mIGVuZ2luZWVyaW5nIHNhbWFkIGhvc3BpdGFsIGF0dGluZ2FsIGtlcmFsYSBpbmRpYZIBB2NvbGxlZ2WaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnBPZGxKclJUTmFSa3BJVWtkNFRtUlhValJYV0d0MFpGaEdhRmRHUlJBQuABAPoBBAgAEB0!16s%2Fm%2F0640pyx!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" title="Get Directions to CEAL">
+					<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top:-1px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+					<span>Directions</span>
+				</a>
+				
 				<div class="headerTelemetry" title="Campus Time & Status">
 					<span class="telemetryPulse"></span>
 					<span id="telemetryClock">CEAL • --:-- IST</span>
