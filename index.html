@@ -1805,12 +1805,28 @@
 		const COMMANDS = {
 			help: {
 				desc: 'List available commands',
-				run: () => {
+				run: (args) => {
+					const coreCmds = ['help', 'about', 'events', 'projects', 'history', 'play', 'join', 'clear'];
+					const utilCmds = Object.keys(COMMANDS).filter(k => !coreCmds.includes(k));
+					
+					const arg = (args[0]||'').toLowerCase();
+					const showUtils = arg === 'utils' || arg === 'all';
+					
 					let html = '<div style="display: grid; grid-template-columns: 120px 1fr; gap: 4px; padding-left: 8px; margin-top: 4px;">';
-					Object.entries(COMMANDS).forEach(([k, v]) => {
-						html += `<div class="termCmd">${k}</div><div>${v.desc}</div>`;
+					
+					const keysToRender = showUtils ? utilCmds : coreCmds;
+					keysToRender.forEach(k => {
+						if (COMMANDS[k]) {
+							html += `<div class="termCmd">${k}</div><div>${COMMANDS[k].desc}</div>`;
+						}
 					});
+					
 					html += '</div>';
+					
+					if (!showUtils) {
+						html += '<div style="margin-top: 10px; padding-left: 8px; color: #888;">Type <span class="termCmd" style="cursor:pointer;" onclick="document.getElementById(\'labTermInput\').value=\'help utils\'; handleCommand(\'help utils\'); document.getElementById(\'labTermInput\').value=\'\';">help utils</span> for advanced system & fun commands.</div>';
+					}
+					
 					return html;
 				}
 			},
