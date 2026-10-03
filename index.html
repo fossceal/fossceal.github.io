@@ -2585,10 +2585,17 @@ Links:
 
 		// Handle mobile viewport resizing (virtual keyboards)
 		if (window.visualViewport) {
+			let lastViewportHeight = window.visualViewport.height;
 			window.visualViewport.addEventListener("resize", () => {
 				if (sidebarOpen) {
-					document.getElementById('fossLabSidebar').style.height = window.visualViewport.height + "px";
-					setTimeout(() => { termOutput.scrollTop = termOutput.scrollHeight; }, 100);
+					const newHeight = window.visualViewport.height;
+					document.getElementById('fossLabSidebar').style.height = newHeight + "px";
+					
+					// Only force scroll to bottom if the viewport is SHRINKING (keyboard opening)
+					if (newHeight < lastViewportHeight) {
+						termOutput.scrollTop = termOutput.scrollHeight;
+					}
+					lastViewportHeight = newHeight;
 				} else {
 					document.getElementById('fossLabSidebar').style.height = "100%";
 				}
