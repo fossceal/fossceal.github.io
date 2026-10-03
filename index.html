@@ -1391,6 +1391,7 @@
 				cmdModal.style.display = "none";
 				cmdModal.setAttribute("aria-hidden", "true");
 				cmdTerminal.style.display = "none";
+				if (document.activeElement === cmdInput) cmdInput.blur();
 			}
 
 			function renderCommands(query) {
@@ -1976,6 +1977,8 @@
 			tab.style.display = sidebarOpen ? 'none' : 'flex';
 			if (sidebarOpen && document.getElementById('labTermInput')) {
 				document.getElementById('labTermInput').focus();
+			} else if (!sidebarOpen && document.activeElement === document.getElementById('labTermInput')) {
+				document.getElementById('labTermInput').blur();
 			}
 		}
 
@@ -2267,9 +2270,11 @@ Links:
 			termOutput.scrollTop = termOutput.scrollHeight;
 		}
 
-		// Enforce Ctrl+Click for terminal links
+		// Enforce Ctrl+Click for terminal links, and blur on background tap
 		termOutput.addEventListener('click', (e) => {
-			if (e.target.classList.contains('termLink')) {
+			if (e.target === termOutput) {
+				if (document.activeElement === termInput) termInput.blur();
+			} else if (e.target.classList.contains('termLink')) {
 				if (!e.ctrlKey && !e.metaKey) {
 					e.preventDefault();
 					printLine('<span class="termError">Hint: Ctrl+Click (or Cmd+Click) to open links.</span>');
@@ -2303,6 +2308,7 @@ Links:
 			if (isPlaying) return;
 			isPlaying = true;
 			document.getElementById('mobileQuitBtn').style.display = 'block';
+			document.getElementById('labTermInput').blur(); // Auto-close mobile keyboard
 			snakeState = null;
 			termOutput.innerHTML = '';
 			
@@ -2385,6 +2391,7 @@ Links:
 			if (isPlaying) return;
 			isPlaying = true;
 			document.getElementById('mobileQuitBtn').style.display = 'block';
+			document.getElementById('labTermInput').blur(); // Auto-close mobile keyboard
 			dinoState = null;
 			termOutput.innerHTML = '';
 			
@@ -2562,6 +2569,7 @@ Links:
 			if (e.key === 'Enter') {
 				handleCommand(termInput.value);
 				termInput.value = '';
+				if (window.innerWidth <= 800) termInput.blur();
 			}
 		});
 
