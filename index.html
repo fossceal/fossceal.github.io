@@ -749,9 +749,13 @@
 			}
 
 			.headerAffiliation,
-			.headerTelemetry,
 			.cmdKeyPill {
 				display: none !important;
+			}
+
+			.headerTelemetry {
+				font-size: 0.6rem !important;
+				padding: 3px 6px !important;
 			}
 
 			.boxContents {
@@ -1571,9 +1575,30 @@
 	</script>
 
 	<style>
-		/* Sidebar — Desktop Only */
-		@media (max-width: 1100px) {
-			#fossLabSidebar, #fossLabTab { display: none !important; }
+		/* Sidebar — Mobile Adaptations */
+		@media (max-width: 800px) {
+			#fossLabTab {
+				top: auto;
+				bottom: 0;
+				right: 50%;
+				transform: translateX(50%);
+				width: 120px;
+				height: 32px;
+				border-radius: 8px 8px 0 0;
+				border-left: 1px solid rgba(255, 255, 255, 0.12);
+				border-right: 1px solid rgba(255, 255, 255, 0.12);
+				border-bottom: none;
+				writing-mode: horizontal-tb;
+			}
+			#fossLabTab:hover {
+				height: 38px;
+				width: 120px;
+			}
+			#fossLabSidebar {
+				width: 100vw;
+				right: -100vw;
+				border-left: none;
+			}
 		}
 
 		#fossLabTab {
