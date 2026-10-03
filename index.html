@@ -1639,7 +1639,7 @@
 			flex-direction: column;
 			overflow: hidden;
 			font-family: 'Courier New', 'Consolas', monospace;
-			font-size: 13px;
+			font-size: 14.5px;
 			background: rgba(10, 10, 10, 0.95);
 			border-radius: 8px;
 			box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -1805,9 +1805,29 @@
 		const COMMANDS = {
 			help: {
 				desc: 'List available commands',
-				run: () => Object.entries(COMMANDS)
-					.map(([k, v]) => `  <span class="termCmd">${k.padEnd(14)}</span> ${v.desc}`)
-					.join('\n')
+				run: () => {
+					let html = '<div style="display: grid; grid-template-columns: 120px 1fr; gap: 4px; padding-left: 8px; margin-top: 4px;">';
+					Object.entries(COMMANDS).forEach(([k, v]) => {
+						html += `<div class="termCmd">${k}</div><div>${v.desc}</div>`;
+					});
+					html += '</div>';
+					return html;
+				}
+			},
+			about: {
+				desc: 'About FOSS CEAL',
+				run: () => {
+					return `FOSS CEAL is the Free and Open Source Software cell at the College of Engineering Attingal.
+Driven by our motto #FreedomToCreate, we empower students to unleash their creativity, collaborate on projects, and build technology for the open web.
+
+Chief FOSS Ambassadors:
+[<a href="https://www.instagram.com/zeon_ig/" target="_blank" class="termLink"> @zeon_ig </a>] [<a href="https://www.instagram.com/l.a.ksh_mi/" target="_blank" class="termLink"> @l.a.ksh_mi </a>]
+
+
+Links:
+- Instagram: <a href="https://www.instagram.com/fossceal/" target="_blank" class="termLink">@fossceal</a>
+- Linktree: <a href="https://foss.ceal.in/linktr" target="_blank" class="termLink">foss.ceal.in/linktr</a>`;
+				}
 			},
 			join: {
 				desc: 'Join the FOSS CEAL Resistance',
@@ -1830,6 +1850,25 @@
 						document.body.style.filter = 'none';
 						return 'Theme reset to default.';
 					}
+				}
+			},
+			font: {
+				desc: 'Adjust font size (e.g. font up / font down)',
+				run: (args) => {
+					const labTerm = document.querySelector('.labTerminal');
+					let currentSize = parseFloat(window.getComputedStyle(labTerm).fontSize) || 14.5;
+					const arg = (args[0]||'').toLowerCase();
+					
+					if (arg === 'up' || arg === '+') {
+						currentSize = Math.min(currentSize + 2, 28);
+					} else if (arg === 'down' || arg === '-') {
+						currentSize = Math.max(currentSize - 2, 10);
+					} else {
+						return `Usage: font [up|down|+|-]`;
+					}
+					
+					labTerm.style.fontSize = currentSize + 'px';
+					return `Font size set to ${currentSize}px.`;
 				}
 			},
 			search: {
@@ -2017,8 +2056,11 @@
 		};
 
 		function printLine(html) {
-			// Auto-linkify http/https links
-			const linkedHtml = html.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" class="termLink">$1</a>');
+			// Auto-linkify raw http/https links, but safely ignore any URLs already inside HTML tags
+			const linkedHtml = html.replace(/<[^>]+>|(https?:\/\/[^\s<]+)/g, (match, url) => {
+				if (url) return `<a href="${url}" target="_blank" class="termLink">${url}</a>`;
+				return match;
+			});
 			termOutput.innerHTML += linkedHtml + '\n';
 			termOutput.scrollTop = termOutput.scrollHeight;
 		}
@@ -2274,8 +2316,24 @@
 			}
 		});
 
-		// Welcome message
-		printLine('<span class="termResult">Welcome to FOSS CEAL Lab Terminal v1.0</span>');
+		// Auto-focus terminal input when typing globally (if sidebar is open)
+		document.addEventListener('keydown', (e) => {
+			if (sidebarOpen && !isPlaying) {
+				if (e.ctrlKey || e.metaKey || e.altKey) return;
+				if (document.activeElement !== termInput) {
+					termInput.focus();
+				}
+			}
+		});
+
+		// Welcome message / Boot sequence
+		const asciiArt = `       ________  ________  ____________   __ 
+      / __/ __ \\/ __/ __/ / ___/ __/ _ | / / 
+     / _// /_/ /\\ \\_\\ \\  / /__/ _// __ |/ /__
+    /_/  \\____/___/___/  \\___/___/_/ |_/____/
+                                             `;
+		printLine(`<span class="termCmd" style="white-space: pre; line-height: 1.1; display: block;">${asciiArt}</span>`);
+		printLine(`<span class="termResult">${COMMANDS.about.run()}</span>\n`);
 		printLine('<span class="termResult">Type <span class="termCmd">help</span> for available commands.\n</span>');
 
 
