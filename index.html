@@ -1976,7 +1976,9 @@
 			sidebar.classList.toggle('open', sidebarOpen);
 			tab.style.display = sidebarOpen ? 'none' : 'flex';
 			if (sidebarOpen && document.getElementById('labTermInput')) {
-				document.getElementById('labTermInput').focus();
+				if (window.innerWidth > 800) {
+					document.getElementById('labTermInput').focus();
+				}
 			} else if (!sidebarOpen && document.activeElement === document.getElementById('labTermInput')) {
 				document.getElementById('labTermInput').blur();
 			}
