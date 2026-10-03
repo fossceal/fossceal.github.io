@@ -1672,9 +1672,67 @@
 				}
 			}
 			#fossLabSidebar {
-				width: 100vw;
-				right: -100vw;
+				position: fixed !important;
+				top: 100% !important;
+				bottom: 0 !important;
+				left: 0 !important;
+				right: 0 !important;
+				width: 100% !important;
+				height: 100% !important;
 				border-left: none;
+				border-top: 1px solid rgba(255, 255, 255, 0.08);
+				transform: none !important;
+				transition: top 350ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+				background: #0a0a0a !important;
+			}
+			#fossLabSidebar.open {
+				top: 0 !important;
+			}
+			
+			/* Native Fullscreen App UI for Mobile Terminal */
+			.labHeader {
+				position: absolute !important;
+				top: 0 !important;
+				left: 0 !important;
+				right: 0 !important;
+				width: 100% !important;
+				height: 52px !important;
+				box-sizing: border-box !important;
+				background: #0f0f0f !important;
+				padding: 0 16px !important;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: space-between !important;
+			}
+			
+			.labTerminal {
+				left: 0 !important;
+				right: 0 !important;
+				bottom: 0 !important;
+				top: 52px !important;
+				border-radius: 0 !important;
+				border: none !important;
+				box-shadow: none !important;
+				background: #0a0a0a !important;
+			}
+			
+			.labTermOutput {
+				padding: 12px 14px !important;
+				font-size: 13px !important;
+				overflow-x: auto !important; /* Ensure ASCII art doesn't stretch container */
+			}
+			
+			.labTermInputLine {
+				padding: 12px 14px !important;
+				background: #0f0f0f !important;
+			}
+			
+			/* Force hide LAB button when terminal is open */
+			body:has(#fossLabSidebar.open) #fossLabTab {
+				display: none !important;
+				opacity: 0 !important;
+				pointer-events: none !important;
 			}
 		}
 
