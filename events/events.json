@@ -9,6 +9,22 @@
 			"colorVal": "#FA2A55"
 		},
 		{
+			"name": "Bethlehem Kode Unit",
+			"description": "A friendly coding competition for students to showcase their programming skills and problem-solving abilities.",
+			"date": "2026-10-18",
+			"time": "18:30",
+			"clubs": ["HACK 404"],
+			"colorVal": "#3a86ff"
+		},
+		{
+			"name": "Memeception",
+			"description": "Put your wild ideas and humor to the test in this meme-creation competition ",
+			"date": "2026-09-26",
+			"time": "18:30",
+			"clubs": ["HACK 404"],
+			"colorVal": "#ff006e"
+		},
+		{
 			"name": "Vadakkunokiyatham",
 			"description": "An exciting Online GeoGuessr Challenge! ",
 			"date": "2026-08-30",
