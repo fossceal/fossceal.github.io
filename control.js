@@ -16,4 +16,4 @@ async function heroBG() {
 	await sleep(time);
 }
 heroBG();
-setInterval(heroBG, 12000);
+setInterval(heroBG, 20000);
