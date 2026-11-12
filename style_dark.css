@@ -108,6 +108,7 @@ body {
 	overflow: hidden;
 	border-radius: 12px;
 	border: 2px solid rgba(0, 0, 0, 0.775);
+	background-color: #121212;
 	/* outline: 3px dotted grey; */
 	transition: 400ms;
 	/* opacity: 0;
